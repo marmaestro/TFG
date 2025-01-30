@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,9 +10,20 @@ public class TabButtonC : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     [SerializeField] public TabGroup tabGroup;
     internal Image Background;
 
+    private CanvasGroup _self;
+
     public void Start()
     {
         Background = transform.GetComponent<Image>();
+        _self = GetComponent<CanvasGroup>();
+        Show(rightTab);
+    }
+
+    public void Show(bool show)
+    {
+        _self.alpha = show ? 1 : 0;
+        _self.interactable = show;
+        _self.blocksRaycasts = show;
     }
     
     public void OnPointerClick(PointerEventData eventData)

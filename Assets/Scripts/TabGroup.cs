@@ -20,6 +20,7 @@ public class TabGroup : MonoBehaviour
     public void Awake()
     {
         _totalTabs = leftTabs.Length;
+        selectedTabIndex = 0;
     }
     
     public void OnTabEnter(TabButtonC button)
@@ -55,21 +56,20 @@ public class TabGroup : MonoBehaviour
     {
         for (int i = 0; i < selectedTabIndex; i++)
         {
-            rightTabs[i].gameObject.SetActive(false);
+            rightTabs[i].Show(false);
             
-            leftTabs[i].gameObject.SetActive(true);
+            leftTabs[i].Show(true);
             leftTabs[i].Background.sprite = tabIdleL;
         }
 
-        if (selectedTabIndex <= 0) return;
-        leftTabs[selectedTabIndex].gameObject.SetActive(false);
+        if (selectedTabIndex < 0) return;
 
-        for (int i = selectedTabIndex + 1; i < _totalTabs; selectedTabIndex++)
+        for (int i = selectedTabIndex; i < _totalTabs; i++)
         {
-            rightTabs[i].gameObject.SetActive(true);
+            rightTabs[i].Show(true);
             rightTabs[i].Background.sprite = tabIdleR;
             
-            leftTabs[i].gameObject.SetActive(false); 
+            leftTabs[i].Show(false);
         }
     }
 }
