@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 542521984723803348}
   - component: {fileID: 2057100642448918374}
   m_Layer: 5
-  m_Name: Tab
+  m_Name: Tab_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

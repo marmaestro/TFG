@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class TabGroup : MonoBehaviour
 {
@@ -17,8 +13,7 @@ public class TabGroup : MonoBehaviour
     public Sprite tabIdleR;
     public Sprite tabHoverL;
     public Sprite tabHoverR;
-    public Sprite tabActiveL;
-    public Sprite tabActiveR;
+    public Sprite tabActive;
     
     public List<GameObject> pages;
 
@@ -30,12 +25,13 @@ public class TabGroup : MonoBehaviour
     public void OnTabEnter(TabButtonC button)
     {
         ResetTabs();
-        
-        if (button.rightTab && Array.IndexOf(rightTabs, button) != selectedTabIndex)
-            button.Background.sprite = tabHoverR;
-        
-        else if (!button.rightTab)
-            button.Background.sprite = tabHoverL;
+
+        button.Background.sprite = button.rightTab switch
+        {
+            true when Array.IndexOf(rightTabs, button) != selectedTabIndex => tabHoverR,
+            false => tabHoverL,
+            _ => button.Background.sprite
+        };
     }
     
     public void OnTabExit()
@@ -45,13 +41,9 @@ public class TabGroup : MonoBehaviour
     
     public void OnTabSelected(TabButtonC button)
     {
-        if (button.rightTab)
-            selectedTabIndex = Array.IndexOf(rightTabs, button);
+        selectedTabIndex = Array.IndexOf(button.rightTab ? rightTabs : leftTabs, button);
+        rightTabs[selectedTabIndex].Background.sprite = tabActive;
         
-        else
-            selectedTabIndex = _totalTabs - Array.IndexOf(rightTabs, button);
-        
-        rightTabs[selectedTabIndex].Background.sprite = tabActiveR;
         ResetTabs();
         
         for (int i = 0; i < pages.Count; i++)
@@ -64,18 +56,20 @@ public class TabGroup : MonoBehaviour
         for (int i = 0; i < selectedTabIndex; i++)
         {
             rightTabs[i].gameObject.SetActive(false);
-            leftTabs[_totalTabs - i].gameObject.SetActive(true);
-            leftTabs[_totalTabs - i].Background.sprite = tabIdleL;
+            
+            leftTabs[i].gameObject.SetActive(true);
+            leftTabs[i].Background.sprite = tabIdleL;
         }
 
         if (selectedTabIndex <= 0) return;
-        leftTabs[_totalTabs - selectedTabIndex].gameObject.SetActive(false);
+        leftTabs[selectedTabIndex].gameObject.SetActive(false);
 
         for (int i = selectedTabIndex + 1; i < _totalTabs; selectedTabIndex++)
         {
             rightTabs[i].gameObject.SetActive(true);
             rightTabs[i].Background.sprite = tabIdleR;
-            leftTabs[_totalTabs - i].gameObject.SetActive(false); 
+            
+            leftTabs[i].gameObject.SetActive(false); 
         }
     }
 }
