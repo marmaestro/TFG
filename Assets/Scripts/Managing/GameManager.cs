@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
     
-    public static void ContinueGame()
+    public static void LoadGame()
     {
         SaveDataManager.LoadJsonData(gameData);
     }
@@ -23,5 +23,10 @@ public class GameManager : MonoBehaviour
     public static void SaveGame()
     {
         SaveDataManager.SaveJsonData(gameData);
+    }
+
+    public static void PauseGame(bool paused)
+    {
+        Time.timeScale = paused ? 1 : 0;
     }
 }

@@ -1,15 +1,11 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using static GameManager;
-using static PopupManager;
 
 public class MainMenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] internal string target;
-    [SerializeField] internal ProgressOverlayManager progressOverlay;
     [SerializeField] internal PopupManager popup;
     
     public void OnPointerClick(PointerEventData eventData)
@@ -25,7 +21,7 @@ public class MainMenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
             
             case "StartOverride": StartGame(); break;
             
-            case "Continue": ContinueGame(); break;
+            case "Continue": LoadGame(); break;
             
             case "ClosePopup": popup.Hide(); break;
             
@@ -40,12 +36,10 @@ public class MainMenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
     public void OnPointerEnter(PointerEventData eventData)
     {
         gameObject.transform.localScale += Vector3.one * 0.2f;
-        if (target == "Continue") progressOverlay.Show();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (target != "Continue")
-            gameObject.transform.localScale -= Vector3.one * 0.2f;
+        gameObject.transform.localScale -= Vector3.one * 0.2f;
     }
 }
