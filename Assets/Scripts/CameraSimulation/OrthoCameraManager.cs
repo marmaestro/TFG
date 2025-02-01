@@ -22,4 +22,15 @@ public class OrthoCameraManager : MonoBehaviour
         
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, Clamp(transform.eulerAngles.y, sceneRotationLimit), transform.eulerAngles.z);
     }
+    
+    private static float Clamp(float value, float limit)
+    {   
+        float clamped = Mathf.Clamp(value, CameraAngle - limit, CameraAngle + limit);
+        return clamped switch
+        {
+            < 0   => clamped + 360,
+            > 360 => clamped - 360,
+            _     => clamped
+        };
+    }
 }

@@ -36,16 +36,4 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = paused ? 1 : 0;
     }
-    
-    public static float Clamp(float value, float limit)
-    {
-        float clamped = Mathf.Clamp(value, CameraAngle - limit, CameraAngle + limit);
-
-        return clamped switch
-        {
-            < 0   => clamped + 360,
-            > 360 => clamped - 360,
-            _     => clamped
-        };
-    }
 }
