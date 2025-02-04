@@ -13,7 +13,7 @@ public class OrthoCameraManager : MonoBehaviour
 
     private void RotateCamera()
     {
-        Vector2 lookValue = LookAction.ReadValue<Vector2>().normalized;
+        Vector2 lookValue = GameActions.LookAction.ReadValue<Vector2>().normalized;
         if (lookValue.x >= -sceneRotationThreshold && lookValue.x <= sceneRotationThreshold) lookValue.y = 0;
         float rotation = - lookValue.x * CameraSensitivity;
         

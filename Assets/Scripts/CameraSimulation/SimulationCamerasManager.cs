@@ -5,8 +5,8 @@ public class SimulationCamerasManager : MonoBehaviour
 {
     private const float CameraRotationThreshold = 0.05f;
 
-    [SerializeField] private Camera firstPersonCamera;
-    [SerializeField] private Camera simulationCamera;
+    internal Camera FirstPersonCamera;
+    internal Camera SimulationCamera;
     [SerializeField] private RenderTexture targetRenderTexture;
 
     public void FixedUpdate ()
@@ -16,12 +16,12 @@ public class SimulationCamerasManager : MonoBehaviour
     
     public void LateUpdate()
     {
-        simulationCamera.Render();
+        SimulationCamera.Render();
     }
 
     private void RotateCameras()
     {
-        Vector2 lookValue = LookAction.ReadValue<Vector2>().normalized;
+        Vector2 lookValue = GameActions.LookAction.ReadValue<Vector2>().normalized;
         if (lookValue.x is <= CameraRotationThreshold and >= -CameraRotationThreshold) lookValue.x = 0;
         if (lookValue.y is <= CameraRotationThreshold and >= -CameraRotationThreshold) lookValue.y = 0;
 
@@ -29,13 +29,13 @@ public class SimulationCamerasManager : MonoBehaviour
         float yRotation = lookValue.x * CameraSensitivity;
         
         Vector3 rotation = new(xRotation, yRotation, 0);
-        firstPersonCamera.transform.eulerAngles += rotation;
+        FirstPersonCamera.transform.eulerAngles += rotation;
 
-        float adjustedRotationX = Clamp(firstPersonCamera.transform.eulerAngles.x, -40f, 30f);
-        float adjustedRotationY = Clamp(firstPersonCamera.transform.eulerAngles.y, -60f, 60f);
-        firstPersonCamera.transform.eulerAngles = new Vector3(adjustedRotationX, adjustedRotationY, 0);
+        float adjustedRotationX = Clamp(FirstPersonCamera.transform.eulerAngles.x, -40f, 30f);
+        float adjustedRotationY = Clamp(FirstPersonCamera.transform.eulerAngles.y, -60f, 60f);
+        FirstPersonCamera.transform.eulerAngles = new Vector3(adjustedRotationX, adjustedRotationY, 0);
         
-        simulationCamera.transform.eulerAngles = firstPersonCamera.transform.eulerAngles;
+        SimulationCamera.transform.eulerAngles = FirstPersonCamera.transform.eulerAngles;
     }
     
     private static float Clamp(float value, float min, float max, float cameraAngle = 0)

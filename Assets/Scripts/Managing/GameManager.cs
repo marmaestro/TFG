@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     protected static ISaveable[] gameData;
-    
-    public static readonly InputAction MoveAction = InputSystem.actions.FindAction("Movement");
-    public static readonly InputAction LookAction = InputSystem.actions.FindAction("Look");
 
     public const float CameraAngle = 315; //-45
     public const float CameraSensitivity = 2.25f;
