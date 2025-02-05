@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class CameraWorks : MonoBehaviour
 {
@@ -31,9 +32,9 @@ public class CameraWorks : MonoBehaviour
         
         // TODO : CAMERAS NOT SAVED?
         Camera[] cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
-        _mainCamera = Array.Find(cameras, it => it.gameObject.name == "Main Camera");
-        _firstPersonCamera = Array.Find(cameras, it => it.gameObject.name == "FirstPerson");
-        _simulationCamera = Array.Find(cameras, it => it.gameObject.name == "Simulation");
+        _mainCamera = Array.Find(cameras, it => it.name == "Main");
+        _firstPersonCamera = Array.Find(cameras, it => it.name == "FirstPerson");
+        _simulationCamera = Array.Find(cameras, it => it.name == "Simulation");
         
         _mainCameraManager.MainCamera = _mainCamera;
         _simulationCamerasManager.FirstPersonCamera = _firstPersonCamera;
@@ -49,16 +50,14 @@ public class CameraWorks : MonoBehaviour
             }
 
         _renderedImagesPath = Application.dataPath + "/Resources/Images/Rendered/";
-        _savedImagesPath = Application.dataPath + "/Resources/Images/Saved/";
+        _savedImagesPath = Application.dataPath + "/Images/Saved/";
         
-        Debug.Log(_simulationCamera);
         _renderTarget = _simulationCamera.targetTexture;
         _lastShot = null;
     }
 
     public void Start()
     {
-        DiscardPicture();
         CloseCamera();
     }
 
@@ -76,12 +75,19 @@ public class CameraWorks : MonoBehaviour
         
         _pictureInterface.gameObject.SetActive(true);
         PictureIsShown = true;
+        GameManager.PauseGame(true); // TODO : BLOQUEAR MOVIMIENTO
     }
     
     public static void SavePicture()
     {
         Debug.Log("¡GUARDANDO!");
-        System.IO.File.WriteAllBytes($"{_renderedImagesPath}SavedImage_{DateTime.Now}_{Time.time}.png", _lastShot.EncodeToPNG());
+        
+        _lastShot.ReadPixels(new Rect(0, 0, _renderTarget.width, _renderTarget.height), 0, 0);
+        _lastShot.Apply();
+
+        byte[] bytes = _lastShot.EncodeToPNG();
+        File.WriteAllBytes($"{_savedImagesPath}Saved_{DateTime.Now}.png", bytes); // TODO : CHECK TIME
+        
         DiscardPicture();
     }
 
@@ -91,6 +97,7 @@ public class CameraWorks : MonoBehaviour
         _pictureInterface.gameObject.SetActive(false);
         _lastShot = null;
         PictureIsShown = false;
+        GameManager.PauseGame(false);
     }
 
     public static void OpenCamera()
@@ -105,6 +112,8 @@ public class CameraWorks : MonoBehaviour
 
     public static void CloseCamera()
     {
+        DiscardPicture();
+        Debug.Log("CERRANDO CÁMARA");
         _mainCamera.gameObject.SetActive(true);
         _firstPersonCamera.gameObject.SetActive(false);
         _simulationCamera.gameObject.SetActive(false);

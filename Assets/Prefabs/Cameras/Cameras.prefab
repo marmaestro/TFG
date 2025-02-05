@@ -110,7 +110,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4808064958522837997, guid: 8e091eb59468f944ca5f49f403f94179, type: 3}
       propertyPath: m_Name
-      value: Simulaltion
+      value: Simulation
       objectReference: {fileID: 0}
     - target: {fileID: 4808064958522837997, guid: 8e091eb59468f944ca5f49f403f94179, type: 3}
       propertyPath: m_TagString

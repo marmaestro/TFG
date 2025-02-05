@@ -5,8 +5,8 @@ public class GameManager : MonoBehaviour
 {
     protected static ISaveable[] gameData;
 
-    public const float CameraAngle = 315; //-45
-    public const float CameraSensitivity = 2.25f;
+    public const float CameraAngle = 315; // -45º
+    public const float CameraSensitivity = 1; //2.25f;
     public const float CameraRotationThreshold = 0.05f;
     public const int RenderScale = 5;
 
