@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public const float CameraAngle = 315; //-45
     public const float CameraSensitivity = 2.25f;
+    public const float CameraRotationThreshold = 0.05f;
+    public const int RenderScale = 5;
 
     public static bool StartGameRequest()
     {

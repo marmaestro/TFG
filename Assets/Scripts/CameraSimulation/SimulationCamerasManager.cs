@@ -1,27 +1,20 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using static GameManager;
 
 public class SimulationCamerasManager : MonoBehaviour
 {
-    private const float CameraRotationThreshold = 0.05f;
-
     internal Camera FirstPersonCamera;
     internal Camera SimulationCamera;
-    [SerializeField] private RenderTexture targetRenderTexture;
-
-    public void FixedUpdate ()
-    {
-        RotateCameras();
-    }
     
     public void LateUpdate()
     {
-        SimulationCamera.Render();
+        if (enabled)
+            SimulationCamera.Render();
     }
 
-    private void RotateCameras()
+    public void Look(Vector2 lookValue)
     {
-        Vector2 lookValue = GameActions.LookAction.ReadValue<Vector2>().normalized;
         if (lookValue.x is <= CameraRotationThreshold and >= -CameraRotationThreshold) lookValue.x = 0;
         if (lookValue.y is <= CameraRotationThreshold and >= -CameraRotationThreshold) lookValue.y = 0;
 
