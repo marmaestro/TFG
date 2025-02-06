@@ -72,7 +72,7 @@ public class GameActions : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            CameraWorks.TurnCamera(context.ReadValue<Vector2>());
+            CameraWorks.TurnCameras(context.ReadValue<Vector2>());
         }
     }
     

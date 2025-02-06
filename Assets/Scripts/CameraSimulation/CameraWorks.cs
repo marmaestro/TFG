@@ -44,8 +44,7 @@ public class CameraWorks : MonoBehaviour
                 _pictureInterface = child.gameObject;
                 break;
             }
-
-        //_renderedImagesPath = Application.dataPath + "/Images/Rendered/";
+        
         _savedImagesPath = Application.dataPath + "/Images/Saved/";
         
         _renderTarget = _simulationCamera.targetTexture;
@@ -54,34 +53,45 @@ public class CameraWorks : MonoBehaviour
 
     public void Start()
     {
+        // Cleanup scene
         CloseCamera();
     }
 
     public static void TurnCameraAround(Vector2 lookValue)
     {
+        // Turn main (world view) camera
         _mainCameraManager.TurnCameraAround(lookValue);
     }
     
-    public static void TurnCamera(Vector2 lookValue)
+    public static void TurnCameras(Vector2 lookValue)
     {
+        // Turn first-person and polaroid cameras
         _simulationCamerasManager.Look(lookValue);
     }
 
     public static void TakePicture()
     {
+        // Call the camera to render
         _simulationCamera.Render();
-        _lastShot = new Texture2D(_renderTarget.width, _renderTarget.height, TextureFormat.ETC2_RGBA8, false);
         
+        // Set up the Texture2D
+        _lastShot = new Texture2D(_renderTarget.width, _renderTarget.height, TextureFormat.RGB24, false);
+        
+        // Show taken picture interface
         _pictureInterface.gameObject.SetActive(true);
+        
+        // Freeze camera movement (and forbid picture taking)
         GameActions.FreezeMovement(true);
     }
     
     public static void SavePicture()
     {
-        _lastShot = new Texture2D(_renderTarget.width, _renderTarget.height, TextureFormat.RGB24, false);
+        // Copy the rendered texture
         RenderTexture.active = _renderTarget;
         _lastShot.ReadPixels(new Rect(0, 0, _renderTarget.width, _renderTarget.height), 0, 0);
         _lastShot.Apply();
+        
+        // Write (save) the rendered texture
         FileManager.WriteToPictureFile(_savedImagesPath, EncodePictureName(), _lastShot.EncodeToPNG());
         
         DiscardPicture();
@@ -89,21 +99,34 @@ public class CameraWorks : MonoBehaviour
 
     private static void DiscardPicture()
     {
+        // Remove picture from view
         _pictureInterface.gameObject.SetActive(false);
         _lastShot = null;
         
+        // Unfreeze camera movement (and allow picture taking)
         GameActions.FreezeMovement(false);
     }
 
     public static void CheckExistingPicture()
     {
-        if (_lastShot != null) DiscardPicture();
-        else CloseCamera();
+        // There is a picture in "queue", discard it
+        if (_lastShot != null)
+        {
+            DiscardPicture();
+        }
+
+        // There is no picture in "queue", close camera
+        else
+        {
+            CloseCamera();
+        }
     }
 
     public static void OpenCamera()
     {
+        // Picture clean-up
         DiscardPicture();
+        
         // Switch active cameras and canvases
         _mainCamera.gameObject.SetActive(false);
         _firstPersonCamera.gameObject.SetActive(true);
@@ -111,12 +134,15 @@ public class CameraWorks : MonoBehaviour
         _cameraInterfaceCanvas.gameObject.SetActive(true);
         _simulationCamerasManager.enabled = true;
         
+        // Enter "camera mode" action map
         GameActions.SwitchActionMap(false, true);
     }
 
     private static void CloseCamera()
     {
+        // Picture clean-up
         DiscardPicture();
+        
         // Switch active cameras and canvases
         _mainCamera.gameObject.SetActive(true);
         _firstPersonCamera.gameObject.SetActive(false);
@@ -124,11 +150,13 @@ public class CameraWorks : MonoBehaviour
         _cameraInterfaceCanvas.gameObject.SetActive(false);
         _simulationCamerasManager.enabled = false;
         
+        // Exit "camera mode" action map
         GameActions.SwitchActionMap(false, false);
     }
     
     private static string EncodePictureName()
     {
+        // The file name is 'CurrenScene_Date_Time.png' 
         return $"{SceneManager.GetActiveScene().name}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
     }
 }
