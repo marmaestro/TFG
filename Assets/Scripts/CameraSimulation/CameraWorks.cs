@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.Windows;
+using UnityEngine.SceneManagement;
+// ReSharper disable RedundantArgumentDefaultValue
 
 public class CameraWorks : MonoBehaviour
 {
@@ -15,22 +16,18 @@ public class CameraWorks : MonoBehaviour
     
     private static Canvas _cameraInterfaceCanvas;
     private static GameObject _pictureInterface;
-
-    private static string _renderedImagesPath;
+    
     private static string _savedImagesPath;
     
     private static RenderTexture _renderTarget;
     private static Texture2D _lastShot;
-    
-    internal static bool CameraIsOpen { get; private set; }
-    internal static bool PictureIsShown { get; private set; }
 
     public void Awake()
     {
         _mainCameraManager = GetComponent<OrthoCameraManager>();
+        _mainCameraManager.SceneRotationLimit = sceneRotationLimit;
         _simulationCamerasManager = GetComponent<SimulationCamerasManager>();
         
-        // TODO : CAMERAS NOT SAVED?
         Camera[] cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
         _mainCamera = Array.Find(cameras, it => it.name == "Main");
         _firstPersonCamera = Array.Find(cameras, it => it.name == "FirstPerson");
@@ -41,7 +38,6 @@ public class CameraWorks : MonoBehaviour
         _simulationCamerasManager.SimulationCamera = _simulationCamera;
 
         _cameraInterfaceCanvas = FindFirstObjectByType<Canvas>(FindObjectsInactive.Include);
-        //Debug.Log(_cameraInterfaceCanvas);
         foreach (Transform child in _cameraInterfaceCanvas.transform)
             if (child.name == "PictureInterface")
             {
@@ -49,7 +45,7 @@ public class CameraWorks : MonoBehaviour
                 break;
             }
 
-        _renderedImagesPath = Application.dataPath + "/Resources/Images/Rendered/";
+        //_renderedImagesPath = Application.dataPath + "/Images/Rendered/";
         _savedImagesPath = Application.dataPath + "/Images/Saved/";
         
         _renderTarget = _simulationCamera.targetTexture;
@@ -61,64 +57,78 @@ public class CameraWorks : MonoBehaviour
         CloseCamera();
     }
 
-    public static void Look(Vector2 lookValue)
+    public static void TurnCameraAround(Vector2 lookValue)
     {
-        if (CameraIsOpen) _simulationCamerasManager.Look(lookValue);
-        else _mainCameraManager.Look(lookValue);
+        _mainCameraManager.TurnCameraAround(lookValue);
+    }
+    
+    public static void TurnCamera(Vector2 lookValue)
+    {
+        _simulationCamerasManager.Look(lookValue);
     }
 
     public static void TakePicture()
     {
-        Debug.Log("¡PATATA!");
         _simulationCamera.Render();
         _lastShot = new Texture2D(_renderTarget.width, _renderTarget.height, TextureFormat.ETC2_RGBA8, false);
         
         _pictureInterface.gameObject.SetActive(true);
-        PictureIsShown = true;
-        GameManager.PauseGame(true); // TODO : BLOQUEAR MOVIMIENTO
+        GameActions.FreezeMovement(true);
     }
     
     public static void SavePicture()
     {
-        Debug.Log("¡GUARDANDO!");
-        
+        _lastShot = new Texture2D(_renderTarget.width, _renderTarget.height, TextureFormat.RGB24, false);
+        RenderTexture.active = _renderTarget;
         _lastShot.ReadPixels(new Rect(0, 0, _renderTarget.width, _renderTarget.height), 0, 0);
         _lastShot.Apply();
-
-        byte[] bytes = _lastShot.EncodeToPNG();
-        File.WriteAllBytes($"{_savedImagesPath}Saved_{DateTime.Now}.png", bytes); // TODO : CHECK TIME
+        FileManager.WriteToPictureFile(_savedImagesPath, EncodePictureName(), _lastShot.EncodeToPNG());
         
         DiscardPicture();
     }
 
-    public static void DiscardPicture()
+    private static void DiscardPicture()
     {
-        Debug.Log("BORRANDO IMAGEN");
         _pictureInterface.gameObject.SetActive(false);
         _lastShot = null;
-        PictureIsShown = false;
-        GameManager.PauseGame(false);
+        
+        GameActions.FreezeMovement(false);
+    }
+
+    public static void CheckExistingPicture()
+    {
+        if (_lastShot != null) DiscardPicture();
+        else CloseCamera();
     }
 
     public static void OpenCamera()
     {
+        DiscardPicture();
+        // Switch active cameras and canvases
         _mainCamera.gameObject.SetActive(false);
         _firstPersonCamera.gameObject.SetActive(true);
         _simulationCamera.gameObject.SetActive(true);
         _cameraInterfaceCanvas.gameObject.SetActive(true);
         _simulationCamerasManager.enabled = true;
-        CameraIsOpen = true;
+        
+        GameActions.SwitchActionMap(false, true);
     }
 
-    public static void CloseCamera()
+    private static void CloseCamera()
     {
         DiscardPicture();
-        Debug.Log("CERRANDO CÁMARA");
+        // Switch active cameras and canvases
         _mainCamera.gameObject.SetActive(true);
         _firstPersonCamera.gameObject.SetActive(false);
         _simulationCamera.gameObject.SetActive(false);
         _cameraInterfaceCanvas.gameObject.SetActive(false);
         _simulationCamerasManager.enabled = false;
-        CameraIsOpen = false;
+        
+        GameActions.SwitchActionMap(false, false);
+    }
+    
+    private static string EncodePictureName()
+    {
+        return $"{SceneManager.GetActiveScene().name}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
     }
 }

@@ -38,4 +38,21 @@ public static class FileManager
             return false;
         }
     }
+
+    public static bool WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
+    {
+        string fullPath = Path.Combine(filePath, fileName);
+
+        try
+        {
+            File.WriteAllBytes(fullPath, fileContents);
+            return true;
+        }
+        
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed to write to {fullPath} with exception {e}");
+            return false;
+        }
+    }
 }

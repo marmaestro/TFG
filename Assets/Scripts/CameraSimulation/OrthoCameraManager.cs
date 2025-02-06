@@ -7,7 +7,7 @@ public class OrthoCameraManager : MonoBehaviour
 
     internal Camera MainCamera;
 
-    public void Look(Vector2 lookValue)
+    public void TurnCameraAround(Vector2 lookValue)
     {
         if (lookValue.x is >= -CameraRotationThreshold and <= CameraRotationThreshold) lookValue.y = 0;
         float rotation = - lookValue.x * CameraSensitivity;

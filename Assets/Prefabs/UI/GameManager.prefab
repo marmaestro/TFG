@@ -120,7 +120,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnMoveAction
+        m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -130,13 +130,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
-    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+    m_ActionId: 8b7906a2-2cfd-4a2d-a562-0c1c99f755a1
+    m_ActionName: 'Game-world/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnLookAction
+        m_MethodName: OnLook
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -146,13 +146,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
-    m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
+    m_ActionId: 3cd5ff7e-9166-42e2-93bc-1e2ae1691170
+    m_ActionName: 'Game-world/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnInteractAction
+        m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -162,13 +162,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
-    m_ActionName: 'Player/Interact[/Keyboard/e]'
+    m_ActionId: d604dd8d-4568-4bfb-824f-c9544d05fd50
+    m_ActionName: 'Game-world/Interact[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnCancelAction
+        m_MethodName: OnCancel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -178,13 +178,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 914e0482-ce56-4026-9a87-1048833c5ac1
-    m_ActionName: 'Player/Cancel[/Keyboard/q]'
+    m_ActionId: fcade8cd-044b-4f49-8196-c1a42bcc0a48
+    m_ActionName: 'Game-world/Cancel[/Keyboard/q]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnPauseAction
+        m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -194,13 +194,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: d96625b6-08d3-491f-bcd5-9d66a6762345
-    m_ActionName: 'Player/Pause[/Keyboard/escape]'
+    m_ActionId: 83f9c431-6107-4c2a-90e2-3013d308c288
+    m_ActionName: 'Game-world/Pause[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnTakePictureAction
+        m_MethodName: OnOpenCamera
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -210,13 +210,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 11a06723-9904-4219-92b1-5572ebffe5bf
-    m_ActionName: 'Player/Take Picture[/Mouse/leftButton]'
+    m_ActionId: 8a1781cc-d38b-4d1b-a3c0-a0d09a72342b
+    m_ActionName: 'Game-world/Open Camera[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnUINavigateAction
+        m_MethodName: OnTurnCamera
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -226,13 +226,77 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
+    m_ActionId: 67e9d1c5-05bc-41ff-bfad-c8fef3c2e464
+    m_ActionName: 'Camera/Turn Camera[/Mouse/delta,/Pen/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9094176274040563177}
+        m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
+        m_MethodName: OnTakePicture
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b035b634-6d79-461c-a2a4-da304fe5d1f0
+    m_ActionName: 'Camera/Take Picture[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9094176274040563177}
+        m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
+        m_MethodName: OnSavePicture
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cce22c0d-7cef-46df-bc84-ac6e7010ff03
+    m_ActionName: 'Camera/Save Picture[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9094176274040563177}
+        m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
+        m_MethodName: OnCloseCamera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a0fa4b6-5b9b-4e97-a51d-fc6d7aa1b77f
+    m_ActionName: 'Camera/Discard Picture / Close Camera[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9094176274040563177}
+        m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
+        m_MethodName: OnUINavigate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6db017dd-6de8-4695-83c5-d2927d9bb0c0
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnUISelectAction
+        m_MethodName: OnUISelect
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -242,13 +306,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: d2909056-5a84-43ef-935a-009a466f54e4
+    m_ActionId: 8f638cbd-ba0a-4e45-a934-b223e7318531
     m_ActionName: 'UI/Select[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnUICancelAction
+        m_MethodName: OnUICancel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -258,13 +322,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b7f977f1-e367-45fc-8d29-ca10f2727d10
+    m_ActionId: 1cf0574f-b288-493b-9d0e-75f13a803945
     m_ActionName: 'UI/Cancel[/Keyboard/q]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9094176274040563177}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
-        m_MethodName: OnUITabNavAction
+        m_MethodName: OnUIPause
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -274,11 +338,59 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: f32de2d0-7118-4a41-98e1-2550de8bbadc
+    m_ActionId: 16dda9fb-cff4-4b69-858f-c3fdc2da5cdf
+    m_ActionName: 'UI/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9094176274040563177}
+        m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
+        m_MethodName: OnUITabNavigation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 73c250b5-504c-410d-b122-1e713aa5e66a
     m_ActionName: UI/Tab Navigation
-  m_NeverAutoSwitchControlSchemes: 0
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3bed9e7b-d150-4527-acdd-52bf6ca7185f
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7517159f-0bd1-4b44-aba3-bbc142d505f9
+    m_ActionName: 'UI/Point[/Mouse/position,/Pen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70e3218c-0891-4aec-9e1f-b3acd182b75c
+    m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9b9eaf3d-029c-4cfd-9e8e-0819abf249b9
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 68743a69-3fb1-4fe3-a43a-08abb04deef6
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7d89c568-51a0-45ba-979d-f8e0829d6237
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5979d3a8-e7b9-4b13-ae94-7326d7e2830f
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94a3e25e-b29d-43cd-b889-1e45e1a14c56
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &8013781836260632044

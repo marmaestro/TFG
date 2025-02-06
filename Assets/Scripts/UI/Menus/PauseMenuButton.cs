@@ -12,8 +12,7 @@ public class PauseMenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
         SceneManager.LoadScene(target);
         switch (target)
         {
-            case "Pause": PauseGame(true); break;
-            
+            case "Pause":
             case "Continue": PauseGame(false); break;
                 
             case "Settings":
