@@ -3,10 +3,10 @@ using static GameManager;
 
 public class OrthoCameraManager : MonoBehaviour
 {
-    internal float SceneRotationLimit;
-    internal Camera MainCamera;
+    internal static float sceneRotationLimit;
+    internal static Camera mainCamera;
 
-    public void TurnCameraAround(Vector2 lookValue)
+    public static void TurnCameraAround(Vector2 lookValue)
     {
         // Threshold to avoid jitter and sensitivity adjustment
         if (lookValue.x is >= -CameraRotationThreshold and <= CameraRotationThreshold) lookValue.y = 0;
@@ -14,10 +14,10 @@ public class OrthoCameraManager : MonoBehaviour
         
         // Axis of rotation set-up and rotation
         Vector3 axis = Vector3.Cross(Vector3.forward, Vector3.left);
-        MainCamera.transform.RotateAround(MainCamera.transform.position, axis, rotation);
+        mainCamera.transform.RotateAround(mainCamera.transform.position, axis, rotation);
         
         // Clamp the rotation inside the scene rotation limit
-        MainCamera.transform.eulerAngles = new Vector3(MainCamera.transform.eulerAngles.x, Clamp(MainCamera.transform.eulerAngles.y, SceneRotationLimit), MainCamera.transform.eulerAngles.z);
+        mainCamera.transform.eulerAngles = new Vector3(mainCamera.transform.eulerAngles.x, Clamp(mainCamera.transform.eulerAngles.y, sceneRotationLimit), mainCamera.transform.eulerAngles.z);
     }
 
     private static float Clamp(float value, float limit)

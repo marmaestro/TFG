@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class GameManager : MonoBehaviour
     
     public static void StartGame()
     {
-        //SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("CameraSimulation", LoadSceneMode.Additive);
+        PauseGame(false);
+        //SceneManager.LoadScene("Start", LoadSceneMode.Additive);
     }
     
     public static void LoadGame()
@@ -33,5 +36,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = paused ? 0 : 1;
         GameActions.SwitchActionMap(paused);
+        
+        SceneManager.LoadScene("Scenes/Pause", LoadSceneMode.Additive);
     }
 }

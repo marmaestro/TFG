@@ -6,6 +6,7 @@ public class GameActions : MonoBehaviour
     private static PlayerInput _playerInput;
     
     private static InputAction _turnCameraAction;
+    private static InputAction _takePictureAction;
     private static InputAction _savePictureAction;
 
     public void Awake()
@@ -13,6 +14,7 @@ public class GameActions : MonoBehaviour
         _playerInput = transform.parent.GetComponent<PlayerInput>();
         
         _turnCameraAction = _playerInput.actions.FindAction("Turn Camera");
+        _takePictureAction = _playerInput.actions.FindAction("Take Picture");
         _savePictureAction = _playerInput.actions.FindAction("Save Picture");
     }
 
@@ -29,7 +31,7 @@ public class GameActions : MonoBehaviour
     public static void OnLook(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed) {
-            CameraWorks.TurnCameraAround(context.ReadValue<Vector2>());
+            OrthoCameraManager.TurnCameraAround(context.ReadValue<Vector2>());
         }
     }
 
@@ -63,7 +65,7 @@ public class GameActions : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            CameraWorks.OpenCamera();
+            Cameras.OpenCamera();
         }
     }
     
@@ -72,7 +74,7 @@ public class GameActions : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            CameraWorks.TurnCameras(context.ReadValue<Vector2>());
+            SimulationCamerasManager.TurnCameras(context.ReadValue<Vector2>());
         }
     }
     
@@ -80,7 +82,7 @@ public class GameActions : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            CameraWorks.TakePicture();
+            SimulationCamerasManager.TakePicture();
         }
     }
     
@@ -88,7 +90,7 @@ public class GameActions : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            CameraWorks.SavePicture();
+            SimulationCamerasManager.SavePicture();
         }
     }
     
@@ -97,7 +99,7 @@ public class GameActions : MonoBehaviour
         // TODO : CHECK IF DISCARD PICTURE
         if (context.phase == InputActionPhase.Performed)
         {
-            CameraWorks.CheckExistingPicture();
+            SimulationCamerasManager.CheckExistingPicture();
         }    
     }
 
@@ -170,12 +172,14 @@ public class GameActions : MonoBehaviour
         if (freeze)
         {
             _turnCameraAction.Disable();
+            _takePictureAction.Disable();
             _savePictureAction.Enable();
         }
 
         else
         {
             _turnCameraAction.Enable();
+            _takePictureAction.Enable();
             _savePictureAction.Disable();
         }
     }

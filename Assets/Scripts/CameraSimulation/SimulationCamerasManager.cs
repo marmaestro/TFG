@@ -1,10 +1,35 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static GameManager;
 
 public class SimulationCamerasManager : MonoBehaviour
 {
-    internal Camera FirstPersonCamera;
-    internal Camera SimulationCamera;
+    internal static Camera firstPersonCamera;
+    internal static Camera simulationCamera;
+    
+    private static GameObject _pictureInterface;
+    
+    private static string _savedImagesPath;
+    
+    private static RenderTexture _renderTarget;
+    private static Texture2D _lastShot;
+
+    // Unity events
+    public void Awake()
+    {
+        _pictureInterface = GameObject.Find("PictureInterface");
+        
+        _savedImagesPath = Application.dataPath + "/Resources/Images/Saved/";
+        
+        _renderTarget = simulationCamera.targetTexture;
+        _lastShot = null; 
+    }
+
+    public void Start()
+    {
+        DiscardPicture();
+    }
     
     public void LateUpdate()
     {
@@ -12,11 +37,12 @@ public class SimulationCamerasManager : MonoBehaviour
         // Viewfinder rendering
         if (enabled)
         {
-            SimulationCamera.Render();
+            simulationCamera.Render();
         }
     }
 
-    public void Look(Vector2 lookValue)
+    // Behaviour
+    public static void TurnCameras(Vector2 lookValue)
     {
         // Threshold to avoid jitter
         if (lookValue.x is <= CameraRotationThreshold and >= -CameraRotationThreshold) lookValue.x = 0;
@@ -28,17 +54,56 @@ public class SimulationCamerasManager : MonoBehaviour
         
         // Rotation
         Vector3 rotation = new(xRotation, yRotation, 0);
-        FirstPersonCamera.transform.eulerAngles += rotation;
+        firstPersonCamera.transform.eulerAngles += rotation;
 
         // Clamp the rotation inside the predefined angle
-        float adjustedRotationX = Clamp(FirstPersonCamera.transform.eulerAngles.x, -40f, 30f);
-        float adjustedRotationY = Clamp(FirstPersonCamera.transform.eulerAngles.y, -60f, 60f);
-        FirstPersonCamera.transform.eulerAngles = new Vector3(adjustedRotationX, adjustedRotationY, 0);
+        float adjustedRotationX = Clamp(firstPersonCamera.transform.eulerAngles.x, -40f, 30f);
+        float adjustedRotationY = Clamp(firstPersonCamera.transform.eulerAngles.y, -60f, 60f);
+        firstPersonCamera.transform.eulerAngles = new Vector3(adjustedRotationX, adjustedRotationY, 0);
         
         // Update simulation camera
-        SimulationCamera.transform.eulerAngles = FirstPersonCamera.transform.eulerAngles;
+        simulationCamera.transform.eulerAngles = firstPersonCamera.transform.eulerAngles;
+    }
+
+    public static void TakePicture()
+    {
+        // Call the camera to render
+        simulationCamera.Render();
+        
+        // Set up the Texture2D
+        _lastShot = new Texture2D(_renderTarget.width, _renderTarget.height, TextureFormat.RGB24, false);
+        
+        // Show taken picture interface
+        _pictureInterface.gameObject.SetActive(true);
+        
+        // Freeze camera movement (and forbid picture taking)
+        GameActions.FreezeMovement(true);
     }
     
+    public static void SavePicture()
+    {
+        // Copy the rendered texture
+        RenderTexture.active = _renderTarget;
+        _lastShot.ReadPixels(new Rect(0, 0, _renderTarget.width, _renderTarget.height), 0, 0);
+        _lastShot.Apply();
+        
+        // Write (save) the rendered texture
+        FileManager.WriteToPictureFile(_savedImagesPath, EncodePictureName(), _lastShot.EncodeToPNG());
+        
+        DiscardPicture();
+    }
+    
+    private static void DiscardPicture()
+    {
+        // Remove picture from view
+        _pictureInterface.gameObject.SetActive(false);
+        _lastShot = null;
+        
+        // Unfreeze camera movement (and allow picture taking)
+        GameActions.FreezeMovement(false);
+    }
+    
+    // Auxiliar methods
     private static float Clamp(float value, float min, float max, float cameraAngle = 0)
     {
         // Convert angles into something Mathf.Clamp and Unity understand
@@ -46,5 +111,26 @@ public class SimulationCamerasManager : MonoBehaviour
         
         return Mathf.Clamp(value, cameraAngle + min, cameraAngle + max);
 
+    }
+
+    internal static void CheckExistingPicture()
+    {
+        // There is a picture in "queue", discard it
+        if (_lastShot != null)
+        {
+            DiscardPicture();
+        }
+
+        // There is no picture in "queue", close camera
+        else
+        {
+            Cameras.CloseCamera();
+        }
+    }
+    
+    private static string EncodePictureName()
+    {
+        // The file name is 'CurrenScene_Date_Time.png' 
+        return $"{SceneManager.GetActiveScene().name}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
     }
 }
