@@ -315,7 +315,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Discard Picture / Close Camera",
+                    "name": "Close Camera",
                     "type": "Button",
                     "id": "0a0fa4b6-5b9b-4e97-a51d-fc6d7aa1b77f",
                     "expectedControlType": "",
@@ -376,7 +376,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Discard Picture / Close Camera",
+                    "action": "Close Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -387,7 +387,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Discard Picture / Close Camera",
+                    "action": "Close Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

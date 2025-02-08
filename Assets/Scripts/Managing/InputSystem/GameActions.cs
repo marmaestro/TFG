@@ -5,147 +5,153 @@ public class GameActions : MonoBehaviour
 {
     private static PlayerInput _playerInput;
     
+    // Game-world actions
+    private InputAction _moveAction;
+    private InputAction _lookAction;
+    private InputAction _interactAction;
+    private InputAction _cancelAction;
+    private InputAction _pauseAction;
+    private InputAction _openCameraAction;
+    
+    // Camera actions
     private static InputAction _turnCameraAction;
     private static InputAction _takePictureAction;
     private static InputAction _savePictureAction;
+    private InputAction _closeCameraAction;
+    
+    // UI actions
+    private InputAction _uiNavigationAction;
+    private InputAction _uiSelectAction;
+    private InputAction _uiCancelAction;
+    private InputAction _uiPauseAction;
+    private InputAction _uiTabNavigationAction;
 
     public void Awake()
     {
         _playerInput = transform.parent.GetComponent<PlayerInput>();
         
-        _turnCameraAction = _playerInput.actions.FindAction("Turn Camera");
-        _takePictureAction = _playerInput.actions.FindAction("Take Picture");
-        _savePictureAction = _playerInput.actions.FindAction("Save Picture");
+        // Game-world actions
+        _moveAction = _playerInput.actions["Move"];
+        _lookAction = _playerInput.actions["Look"];
+        _interactAction = _playerInput.actions["Interact"];
+        _cancelAction = _playerInput.actions["Cancel"];
+        _pauseAction = _playerInput.actions["Pause"];
+        _openCameraAction = _playerInput.actions["Open Camera"];
+        
+        // Camera actions
+        _turnCameraAction = _playerInput.actions["Turn Camera"];
+        _takePictureAction = _playerInput.actions["Take Picture"];
+        _savePictureAction = _playerInput.actions["Save Picture"];
+        _closeCameraAction = _playerInput.actions["Close Camera"];
+        
+        // UI actions
+        _uiNavigationAction = _playerInput.actions["Navigate"];
+        _uiSelectAction = _playerInput.actions["Select"];
+        _uiCancelAction = _playerInput.actions["Cancel"];
+        _uiPauseAction = _playerInput.actions["Pause"];
+        _uiTabNavigationAction = _playerInput.actions["Tab Navigation"];
+    }
+
+    public void Start()
+    {
+        // Game-world actions
+        _moveAction.performed += OnMove;
+        _lookAction.performed += OnLook;
+        _interactAction.performed += OnInteract;
+        _cancelAction.performed += OnCancel;
+        _pauseAction.performed += OnPause;
+        _openCameraAction.performed += OnOpenCamera;
+        
+        // Camera actions
+        _turnCameraAction.performed += OnTurnCamera;
+        _takePictureAction.performed += OnTakePicture;
+        _savePictureAction.performed += OnSavePicture;
+        _closeCameraAction.performed += OnCloseCamera;
+        
+        // UI actions
+        _uiNavigationAction.performed += OnUINavigate;
+        _uiSelectAction.performed += OnUISelect;
+        _uiCancelAction.performed += OnUICancel;
+        _uiPauseAction.performed += OnUIPause;
+        _uiTabNavigationAction.performed += OnUITabNavigation;
     }
 
     // Game-world actions
-    public static void OnMove(InputAction.CallbackContext context)
+    private void OnMove(InputAction.CallbackContext context)
     {
         // TODO : MOVE CHARACTER AROUND
-        if (context.phase == InputActionPhase.Performed)
-        {
-            
-        }
     }
     
-    public static void OnLook(InputAction.CallbackContext context)
+    private void OnLook(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed) {
-            OrthoCameraManager.TurnCameraAround(context.ReadValue<Vector2>());
-        }
+        OrthoCameraManager.TurnCameraAround(context.ReadValue<Vector2>());
     }
 
-    public static void OnInteract(InputAction.CallbackContext context)
+    private void OnInteract(InputAction.CallbackContext context)
     {
         // TODO : INTERACT WITH SURROUNDING STUFF
-        if (context.phase == InputActionPhase.Performed)
-        {
-            
-        }
     }
 
-    public static void OnCancel(InputAction.CallbackContext context)
+    private void OnCancel(InputAction.CallbackContext context)
     {
         // TODO : CANCEL ACTION / CLOSE
-        if (context.phase == InputActionPhase.Performed)
-        {
-            
-        }
     }
     
-    public static void OnPause(InputAction.CallbackContext context)
+    private void OnPause(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            GameManager.PauseGame(true);
-        }
+        GameManager.PauseGame(true);
     }
     
-    public static void OnOpenCamera(InputAction.CallbackContext context)
+    private void OnOpenCamera(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            Cameras.OpenCamera();
-        }
+        Cameras.OpenCamera();
     }
     
     // Camera actions
-    public static void OnTurnCamera(InputAction.CallbackContext context)
+    private void OnTurnCamera(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            SimulationCamerasManager.TurnCameras(context.ReadValue<Vector2>());
-        }
+        SimulationCamerasManager.TurnCameras(context.ReadValue<Vector2>());
     }
     
-    public static void OnTakePicture(InputAction.CallbackContext context)
+    private void OnTakePicture(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            SimulationCamerasManager.TakePicture();
-        }
+        SimulationCamerasManager.TakePicture();
     }
     
-    public static void OnSavePicture(InputAction.CallbackContext context)
+    private void OnSavePicture(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
-        {
-            SimulationCamerasManager.SavePicture();
-        }
+        SimulationCamerasManager.SavePicture();
     }
     
-    public static void OnCloseCamera(InputAction.CallbackContext context)
+    private void OnCloseCamera(InputAction.CallbackContext context)
     {
-        // TODO : CHECK IF DISCARD PICTURE
-        if (context.phase == InputActionPhase.Performed)
-        {
-            SimulationCamerasManager.CheckExistingPicture();
-        }    
+        SimulationCamerasManager.CheckExistingPicture();    
     }
 
     // UI actions
-    public static void OnUINavigate(InputAction.CallbackContext context)
+    private void OnUINavigate(InputAction.CallbackContext context)
     {
         // TODO : UI NAVIGATE
-        if (context.phase == InputActionPhase.Performed)
-        {
-            
-        }
     }
     
-    public static void OnUISelect(InputAction.CallbackContext context)
+    private void OnUISelect(InputAction.CallbackContext context)
     {
         // TODO : UI SELECT / INTERACT
-        if (context.phase == InputActionPhase.Performed)
-        {
-            
-        }
     }
     
-    public static void OnUICancel(InputAction.CallbackContext context)
+    private void OnUICancel(InputAction.CallbackContext context)
     {
         // TODO : UI CANCEL
-        if (context.phase == InputActionPhase.Performed)
-        {
-            
-        }
     }
     
-    public static void OnUIPause(InputAction.CallbackContext context)
+    private void OnUIPause(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            GameManager.PauseGame(false);
-        }
+        GameManager.PauseGame(false);
     }
     
-    public static void OnUITabNavigation(InputAction.CallbackContext context)
+    private void OnUITabNavigation(InputAction.CallbackContext context)
     {
         // TODO : UI TAB NAVIGATION
-        if (context.phase == InputActionPhase.Performed)
-        {
-            
-        }
     }
 
     // Other action-related methods

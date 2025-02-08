@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 // ReSharper disable RedundantArgumentDefaultValue
@@ -14,10 +13,10 @@ public class Cameras : MonoBehaviour
     public void Awake()
     {
         // Load cameras
-        Camera[] cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
-        _mainCamera = Array.Find(cameras, it => it.name == "Main");
-        _firstPersonCamera = Array.Find(cameras, it => it.name == "FirstPerson");
-        _simulationCamera = Array.Find(cameras, it => it.name == "Simulation");
+        _mainCamera = Camera.main;
+        GameObject[] cameras = GameObject.FindGameObjectsWithTag("SimulationCamera");
+        _firstPersonCamera = cameras[0].gameObject.GetComponent<Camera>();
+        _simulationCamera = cameras[1].gameObject.GetComponent<Camera>();
         
         // Set-up main camera and settings
         OrthoCameraManager.sceneRotationLimit = sceneRotationLimit;

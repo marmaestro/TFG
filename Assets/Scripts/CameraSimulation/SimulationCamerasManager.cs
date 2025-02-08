@@ -1,4 +1,5 @@
 using System;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameManager;
@@ -22,7 +23,7 @@ public class SimulationCamerasManager : MonoBehaviour
         
         _savedImagesPath = Application.dataPath + "/Resources/Images/Saved/";
         
-        _renderTarget = simulationCamera.targetTexture;
+        _renderTarget = Resources.Load("Images/Renders/PolaroidOutput") as RenderTexture;
         _lastShot = null; 
     }
 
@@ -37,7 +38,15 @@ public class SimulationCamerasManager : MonoBehaviour
         // Viewfinder rendering
         if (enabled)
         {
-            simulationCamera.Render();
+            try
+            {
+                simulationCamera.Render();
+            }
+
+            catch (Exception e)
+            {
+                Debug.LogError($"Cagamos, con error {e}.");
+            }
         }
     }
 
@@ -68,7 +77,15 @@ public class SimulationCamerasManager : MonoBehaviour
     public static void TakePicture()
     {
         // Call the camera to render
-        simulationCamera.Render();
+        try
+        {
+            simulationCamera.Render();
+        }
+
+        catch (Exception e)
+        {
+            Debug.LogError($"Cagamos, con error {e}.");
+        }
         
         // Set up the Texture2D
         _lastShot = new Texture2D(_renderTarget.width, _renderTarget.height, TextureFormat.RGB24, false);
