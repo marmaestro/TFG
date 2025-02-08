@@ -3,8 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    protected static ISaveable[] gameData;
-    
+    private protected static ISaveable[] gameData;
+
+    public const float CameraAngle = 315f; // -45º
+    public const float CameraSensitivity = 0.25f; //2.25f;
+    public const float CameraRotationThreshold = 0.05f;
+    //public const int RenderScale = 5;
+
     public static bool StartGameRequest()
     {
         return !FileManager.LoadFromFile("saveData", out string _);
@@ -12,7 +17,9 @@ public class GameManager : MonoBehaviour
     
     public static void StartGame()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("CameraSimulation", LoadSceneMode.Additive);
+        PauseGame(false);
+        //SceneManager.LoadScene("Start", LoadSceneMode.Additive);
     }
     
     public static void LoadGame()
@@ -27,6 +34,9 @@ public class GameManager : MonoBehaviour
 
     public static void PauseGame(bool paused)
     {
-        Time.timeScale = paused ? 1 : 0;
+        Time.timeScale = paused ? 0 : 1;
+        GameActions.SwitchActionMap(paused);
+        
+        SceneManager.LoadScene("Scenes/Pause", LoadSceneMode.Additive);
     }
 }

@@ -6,18 +6,12 @@ public class TabGroupSide : MonoBehaviour
 {
     public TabButtonSide[] tabs;
     public TabButtonSide selectedTab;
-    private int _totalTabs;
-    
+
     public Sprite tabIdle;
     public Sprite tabHover;
     public Sprite tabActive;
     
     public List<GameObject> pages;
-
-    public void Awake()
-    {
-        _totalTabs = tabs.Length;
-    }
     
     public void OnTabEnter(TabButtonSide button)
     {
@@ -47,8 +41,6 @@ public class TabGroupSide : MonoBehaviour
     private void ResetTabs()
     {
         foreach (TabButtonSide button in tabs)
-        {
             button.Background.sprite = tabIdle;
-        }
     }
 }

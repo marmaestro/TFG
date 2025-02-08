@@ -9,7 +9,7 @@ public class SaveData
     {
         public Transform playerTransform;
         public string currentSection;
-        public List<Task> tasks;
+        //public List<Task> tasks;
         public List<string> discoveredSections;
     }
     

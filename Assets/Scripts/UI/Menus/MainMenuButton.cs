@@ -10,7 +10,6 @@ public class MainMenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene(target);
         switch (target)
         {
             case "Start":
@@ -27,7 +26,7 @@ public class MainMenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
             
             case "Settings":
             case "Credits":
-                SceneManager.LoadScene(target); break;
+                SceneManager.LoadScene(target, LoadSceneMode.Additive); break;
             
             case "Close": Application.Quit(); break;
         }
