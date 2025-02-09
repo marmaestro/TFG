@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Pause
   - SimulationCamera
+  - PointerTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Oniric
   - Water
   - UI
   - 
@@ -42,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Oniric
+    uniqueID: 666443573
     locked: 0
   m_RenderingLayers:
   - Default
