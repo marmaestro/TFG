@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace TFG.Managing.Save
+namespace TFG.SaveSystem
 {
     public static class FileManager
     {
@@ -15,7 +15,7 @@ namespace TFG.Managing.Save
                 File.WriteAllText(fullPath, fileContents);
                 return true;
             }
-        
+
             catch (Exception e)
             {
                 Debug.LogError($"Failed to write to {fullPath} with exception {e}");
@@ -32,7 +32,7 @@ namespace TFG.Managing.Save
                 result = File.ReadAllText(fullPath);
                 return true;
             }
-        
+
             catch (Exception e)
             {
                 Debug.LogError($"Failed to read from {fullPath} with exception {e}");
@@ -50,7 +50,7 @@ namespace TFG.Managing.Save
                 File.WriteAllBytes(fullPath, fileContents);
                 return true;
             }
-        
+
             catch (Exception e)
             {
                 Debug.LogError($"Failed to write to {fullPath} with exception {e}");

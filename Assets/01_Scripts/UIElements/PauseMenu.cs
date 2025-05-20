@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TFG.Managing.UISystems
+namespace TFG.UIElements
 {
-    public class PauseManager : MonoBehaviour
+    public class PauseMenu : MonoBehaviour
     {
         private static GameObject _pauseCanvas;
 
@@ -14,16 +14,16 @@ namespace TFG.Managing.UISystems
 
         public void Start()
         {
-            PauseMenu(true);
+            PauseGame(true);
         }
 
-        public static void PauseMenu(bool paused)
+        public static void PauseGame(bool paused)
         {
             _pauseCanvas.SetActive(paused);
             if (!paused)
             {
                 SceneManager.UnloadSceneAsync("Scenes/Pause");
-                GameManager.PauseGame(false);
+                Game.PauseGame(false);
             }
         }
     }

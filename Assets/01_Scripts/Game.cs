@@ -1,12 +1,13 @@
-using TFG.Managing.Save;
+using TFG.InputSystem;
+using TFG.SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TFG.Managing
+namespace TFG
 {
-    public class GameManager : MonoBehaviour
+    public class Game : MonoBehaviour
     {
-        private protected static ISaveable[] gameData;
+        private static ISaveableData[] gameData;
         public static string fm2data;
 
         public void Awake()
@@ -20,30 +21,30 @@ namespace TFG.Managing
         {
             return !FileManager.LoadFromFile("saveData", out string _);
         }
-    
+
         public static void StartGame()
         {
-            SceneManager.LoadScene("CameraSimulation", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Persistent", LoadSceneMode.Additive);
             PauseGame(false);
-            //SceneManager.LoadScene("Start", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Start", LoadSceneMode.Additive);
         }
-    
+
         public static void LoadGame()
         {
-            SaveDataManager.LoadJsonData(gameData);
+            DataManager.LoadJsonData(gameData);
         }
 
         public static void SaveGame()
         {
-            SaveDataManager.SaveJsonData(gameData);
+            DataManager.SaveJsonData(gameData);
         }
 
         public static void PauseGame(bool paused)
         {
             Time.timeScale = paused ? 0 : 1;
-            GameActions.SwitchActionMap(paused);
-        
-            SceneManager.LoadScene("Scenes/Pause", LoadSceneMode.Additive);
+            Actions.SwitchActionMap(paused);
+
+            SceneManager.LoadScene("Pause", LoadSceneMode.Additive);
         }
     }
 }

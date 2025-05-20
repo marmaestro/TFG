@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace TFG.UI.Menus
+namespace TFG.UIElements
 {
-    public class PopupManager : MonoBehaviour
+    public class Popup : MonoBehaviour
     {
         public void Show()
         {
