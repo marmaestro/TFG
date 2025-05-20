@@ -527,6 +527,9 @@ PlayerSettings:
   - m_BuildTarget: AndroidPlayer
     m_APIs: 150000000b000000
     m_Automatic: 0
+  - m_BuildTarget: WindowsStandaloneSupport
+    m_APIs: 0200000012000000
+    m_Automatic: 0
   m_BuildTargetVRSettings: []
   m_DefaultShaderChunkSizeInMB: 16
   m_DefaultShaderChunkCount: 0
@@ -914,12 +917,12 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 2
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
   cloudProjectId: b6e39d0b-0dcb-428f-a37c-d4420db8e649
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TFG 2025-02-07_21-52-23
+  projectName: TFG
   organizationId: mfalsomni
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

@@ -34,7 +34,7 @@ namespace TFG.Simulation
         // Behaviour
         public static void MoveCamera(Vector2 delta)
         {
-            _target.transform.position = new Vector3(delta.x, delta.y, _target.transform.position.z);
+            _target.position = new Vector3(delta.x, delta.y, _target.transform.position.z);
         }
 
         public static void TakePicture()

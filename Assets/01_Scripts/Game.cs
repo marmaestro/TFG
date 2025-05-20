@@ -13,8 +13,8 @@ namespace TFG
         public void Awake()
         {
             // Load camera data
-            const string path = "CameraSimulation/CameraData";
-            FileManager.LoadFromFile(path, out fm2data);
+            //const string cameraDataPath = "09_Data/FM2";
+            //FileManager.LoadFromFile(cameraDataPath, out fm2data);
         }
 
         public static bool StartGameRequest()
@@ -24,7 +24,6 @@ namespace TFG
 
         public static void StartGame()
         {
-            SceneManager.LoadScene("Persistent", LoadSceneMode.Additive);
             PauseGame(false);
             SceneManager.LoadScene("Start", LoadSceneMode.Additive);
         }

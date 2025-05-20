@@ -5,8 +5,8 @@ namespace TFG.Animation
     public class DiaphragmAnimator : MonoBehaviour
     {
         private static Animator _animator;
-        private static readonly int Open = Animator.StringToHash("Open");
-        private static readonly int Close = Animator.StringToHash("Close");
+        private static readonly int Open = Animator.StringToHash("openDiaphragm");
+        private static readonly int Close = Animator.StringToHash("closeDiaphragm");
 
         public void Awake()
         {
