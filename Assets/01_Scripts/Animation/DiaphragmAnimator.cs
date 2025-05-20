@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TFG.Animators
+namespace TFG.Animation
 {
     public class DiaphragmAnimator : MonoBehaviour
     {

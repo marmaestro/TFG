@@ -3,6 +3,7 @@ using TFG.InputSystem;
 using TFG.SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static TFG.Animation.DiaphragmAnimator;
 
 namespace TFG.Simulation
 {
@@ -80,12 +81,16 @@ namespace TFG.Simulation
 
         private static void SimulationStart()
         {
-            SceneManager.LoadScene("07_Scenes/CameraInterface", LoadSceneMode.Additive);
+            SceneManager.LoadScene("CameraInterface", LoadSceneMode.Additive);
+            SceneManager.LoadScene("DiaphragmAnimation", LoadSceneMode.Additive);
+            OpenDiaphragmAnimation();
         }
 
         private static void SimulationEnd()
         {
-            SceneManager.UnloadSceneAsync("07_Scenes/CameraInterface");
+            CloseDiaphragmAnimation();
+            SceneManager.UnloadSceneAsync("CameraInterface");
+            SceneManager.UnloadSceneAsync("DiaphragmAnimation");
         }
     }
 }
