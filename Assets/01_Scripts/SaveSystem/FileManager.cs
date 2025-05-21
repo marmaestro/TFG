@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+using TFG.ExtensionMethods;
 using UnityEngine;
+using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.SaveSystem
 {
@@ -13,12 +15,17 @@ namespace TFG.SaveSystem
             try
             {
                 File.WriteAllText(fullPath, fileContents);
+#if DEBUG
+                Console.Log(ConsoleCategories.DataLoading, $"Data written to {fullPath} successfully.");
+#endif
                 return true;
             }
 
             catch (Exception e)
             {
-                Debug.LogError($"Failed to write to {fullPath} with exception {e}");
+#if DEBUG
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to write to {fullPath} with exception {e}.");
+#endif
                 return false;
             }
         }
@@ -30,12 +37,18 @@ namespace TFG.SaveSystem
             try
             {
                 result = File.ReadAllText(fullPath);
+#if DEBUG
+                Console.Log(ConsoleCategories.DataLoading, $"Data read from {fullPath} successfully.");
+#endif
                 return true;
             }
 
             catch (Exception e)
             {
-                Debug.LogError($"Failed to read from {fullPath} with exception {e}");
+#if DEBUG
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read data from {fullPath} with exception {e}.");
+#endif
+                
                 result = "";
                 return false;
             }
@@ -48,12 +61,16 @@ namespace TFG.SaveSystem
             try
             {
                 File.WriteAllBytes(fullPath, fileContents);
+#if DEBUG
+                Console.Log(ConsoleCategories.DataLoading, $"Image written to {fullPath} successfully.");
+#endif
             }
 
             catch (Exception e)
             {
-                Debug.LogError($"Failed to write to {fullPath} with exception {e}");
-                throw new Exception($"Failed to write to {fullPath} with exception {e}");
+#if DEBUG
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to write image to {fullPath} with exception {e}.");
+#endif
             }
         }
     }

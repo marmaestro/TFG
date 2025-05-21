@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using SM = UnityEngine.SceneManagement.SceneManager;
 
-namespace TFG.SceneManagement
+namespace TFG.ExtensionMethods
 {
     public static class SceneManager
     {

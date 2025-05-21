@@ -1,9 +1,10 @@
 using System;
 using TFG.InputSystem;
 using TFG.SaveSystem;
-using TFG.SceneManagement;
+using TFG.ExtensionMethods;
 using UnityEngine;
 using static TFG.Simulation.DiaphragmAnimator;
+using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Simulation
 {
@@ -13,7 +14,7 @@ namespace TFG.Simulation
         private static Transform _target;
 
         private static readonly string SavedImagesPath = Application.dataPath + "/Resources/Images/Saved/";
-        private static readonly string[] SimulationScenes = { "CameraInterface", "DiaphragmAnimation" };
+        private static readonly string[] SimulationScenes = { "CameraInterface" };
 
         private static readonly RenderTexture RenderTarget =
             Resources.Load("Images/Renders/PolaroidOutput") as RenderTexture;
@@ -23,8 +24,13 @@ namespace TFG.Simulation
         // Unity events
         public void Start()
         {
-            _camera = GameObject.FindGameObjectWithTag("SimulationCamera").GetComponent<Camera>();
+            _camera = GetComponent<Camera>();
             _target = GameObject.FindGameObjectWithTag("PointerTarget").transform;
+            
+            #if DEBUG
+            Console.Log(ConsoleCategories.Debugging, $"_camera is {_camera.name}");
+            Console.Log(ConsoleCategories.Debugging, $"_target is {_target.name}");
+            #endif
         }
 
         public void LateUpdate()
@@ -82,14 +88,14 @@ namespace TFG.Simulation
 
         private static void SimulationStart()
         {
-            SceneManager.AddMultipleScenes(SimulationScenes);
             OpenDiaphragmAnimation();
+            //SceneManager.AddMultipleScenes(SimulationScenes);
         }
 
         private static void SimulationEnd()
         {
-            CloseDiaphragmAnimation();
-            SceneManager.UnloadMultipleScenes(SimulationScenes);
+            CloseDiaphragmAnimation(); // TODO : This does not work
+            //SceneManager.UnloadMultipleScenes(SimulationScenes);
         }
     }
 }
