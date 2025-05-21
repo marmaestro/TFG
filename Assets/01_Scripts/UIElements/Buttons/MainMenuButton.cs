@@ -1,6 +1,6 @@
+using TFG.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using static TFG.Game;
 
 namespace TFG.UIElements.Buttons
@@ -28,7 +28,7 @@ namespace TFG.UIElements.Buttons
 
                 case "Settings":
                 case "Credits":
-                    SceneManager.LoadScene(target, LoadSceneMode.Additive); break;
+                    SceneManager.AddScene(target); break;
 
                 case "Close": Application.Quit(); break;
             }

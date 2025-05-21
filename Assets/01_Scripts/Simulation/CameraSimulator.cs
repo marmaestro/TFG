@@ -1,8 +1,8 @@
 using System;
 using TFG.InputSystem;
 using TFG.SaveSystem;
+using TFG.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using static TFG.Simulation.DiaphragmAnimator;
 
 namespace TFG.Simulation
@@ -13,6 +13,7 @@ namespace TFG.Simulation
         private static Transform _target;
 
         private static readonly string SavedImagesPath = Application.dataPath + "/Resources/Images/Saved/";
+        private static readonly string[] SimulationScenes = { "CameraInterface", "DiaphragmAnimation" };
 
         private static readonly RenderTexture RenderTarget =
             Resources.Load("Images/Renders/PolaroidOutput") as RenderTexture;
@@ -58,8 +59,8 @@ namespace TFG.Simulation
 
         private static string EncodePictureName()
         {
-            // The file name is 'CurrenScene_Date_Time.png' 
-            return $"{SceneManager.GetActiveScene().name}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
+            // The file name is 'CurrenScene_Date_Time.png'
+            return $"{SceneManager.GetActiveScene()}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
         }
 
         // Simulation
@@ -81,16 +82,14 @@ namespace TFG.Simulation
 
         private static void SimulationStart()
         {
-            SceneManager.LoadScene("CameraInterface", LoadSceneMode.Additive);
-            SceneManager.LoadScene("DiaphragmAnimation", LoadSceneMode.Additive);
+            SceneManager.AddMultipleScenes(SimulationScenes);
             OpenDiaphragmAnimation();
         }
 
         private static void SimulationEnd()
         {
             CloseDiaphragmAnimation();
-            SceneManager.UnloadSceneAsync("CameraInterface");
-            SceneManager.UnloadSceneAsync("DiaphragmAnimation");
+            SceneManager.UnloadMultipleScenes(SimulationScenes);
         }
     }
 }

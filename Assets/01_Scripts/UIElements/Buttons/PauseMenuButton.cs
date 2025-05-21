@@ -1,6 +1,6 @@
+using TFG.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 namespace TFG.UIElements.Buttons
 {
@@ -16,7 +16,7 @@ namespace TFG.UIElements.Buttons
 
                 case "Settings":
                 case "MainMenu":
-                    SceneManager.LoadScene(target, LoadSceneMode.Additive); break;
+                    SceneManager.AddScene(target); break;
             }
         }
 

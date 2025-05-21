@@ -1,7 +1,7 @@
+using TFG.SceneManagement;
 using TFG.InputSystem;
 using TFG.SaveSystem;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace TFG
 {
@@ -25,7 +25,7 @@ namespace TFG
         public static void StartGame()
         {
             PauseGame(false);
-            SceneManager.LoadScene("Start", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Start");
         }
 
         public static void LoadGame()
@@ -43,7 +43,7 @@ namespace TFG
             Time.timeScale = paused ? 0 : 1;
             Actions.SwitchActionMap(paused);
 
-            SceneManager.LoadScene("Pause", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Pause");
         }
     }
 }
