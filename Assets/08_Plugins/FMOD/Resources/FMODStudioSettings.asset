@@ -334,13 +334,13 @@ MonoBehaviour:
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
-  EnableMemoryTracking: 0
+  EnableMemoryTracking: 1
   AndroidUseOBB: 0
   AndroidPatchBuild: 0
   MeterChannelOrdering: 0
   StopEventsOutsideMaxDistance: 0
   BoltUnitOptionsBuildPending: 0
-  EnableErrorCallback: 0
+  EnableErrorCallback: 1
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131847
@@ -391,11 +391,11 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     BuildDirectory:
-      Value: 
-      HasValue: 0
+      Value: Desktop
+      HasValue: 1
     SpeakerMode:
-      Value: 0
-      HasValue: 0
+      Value: 6
+      HasValue: 1
     VirtualChannelCount:
       Value: 0
       HasValue: 0
