@@ -11,6 +11,7 @@ namespace TFG.Graphs
 
         private int home = 0;
         private int currentLocation = 0;
+        public string CurrentLocation => scenes[currentLocation].name;
 
         private Graph city;
         private bool[] visitedLocations;

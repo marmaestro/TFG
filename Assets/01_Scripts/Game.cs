@@ -11,6 +11,12 @@ namespace TFG
         private static ISaveableData[] gameData;
         public static City City;
         public static Player Player;
+        public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
+
+        /*public void Awake()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }*/
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
 

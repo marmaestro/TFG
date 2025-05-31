@@ -6,7 +6,6 @@ namespace TFG.ExtensionMethods
 {
     public static class SceneManager
     {
-        public static string GetActiveScene() => SM.GetActiveScene().name;
         public static void LoadScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Single);
         public static void AddScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Additive);
 

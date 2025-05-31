@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using TFG.InputSystem;
 using TFG.SaveSystem;
 using TFG.ExtensionMethods;
@@ -13,15 +14,20 @@ namespace TFG.Simulation
         private static Camera _camera;
         private static Transform _target;
 
-        private static readonly string SavedImagesPath = Application.dataPath + "/Resources/Images/Saved/";
+        private static readonly string SavedImagesPath = Path.Combine(Application.dataPath, "Resources/Images/Saved");
+        private static readonly string RenderTargetPath = "Images/Renderers/PolaroidOutput";
         private static readonly string[] SimulationScenes = { "CameraInterface" };
 
-        private static readonly RenderTexture RenderTarget =
-            Resources.Load("Images/Renderers/PolaroidOutput") as RenderTexture;
+        private static RenderTexture RenderTarget;
 
         private static Texture2D _lastShot;
 
         // Unity events
+        public void Awake()
+        {
+            RenderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
+        }
+        
         public void Start()
         {
             _camera = GetComponent<Camera>();
@@ -66,36 +72,44 @@ namespace TFG.Simulation
         private static string EncodePictureName()
         {
             // The file name is 'CurrenScene_Date_Time.png'
-            return $"{SceneManager.GetActiveScene()}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
+            return $"{Game.CurrentLocation}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
         }
 
         // Simulation
         public static void OpenCamera()
         {
             // Open picture interface/camera simulation
-            SimulationStart();
-            // Switch active action map
-            Actions.SwitchActionMap(true);
+            SimulationStartAnimation();
         }
 
         public static void CloseCamera()
         {
             // Close picture interface/camera simulation
-            SimulationEnd();
+            SimulationEndAnimation();
+        }
+
+        private static void SimulationStartAnimation()
+        {
+            OpenAnimation();
+            SceneManager.AddMultipleScenes(SimulationScenes);
+        }
+
+        public static void SimulationStart()
+        {
+            // Switch active action map
+            Actions.SwitchActionMap(true);
+        }
+
+        private static void SimulationEndAnimation()
+        {
+            CloseAnimation();
+        }
+
+        internal static void SimulationEnd()
+        {
+            SceneManager.UnloadMultipleScenes(SimulationScenes);
             // Switch active action map
             Actions.SwitchActionMap();
-        }
-
-        private static void SimulationStart()
-        {
-            OpenDiaphragmAnimation();
-            //SceneManager.AddMultipleScenes(SimulationScenes);
-        }
-
-        private static void SimulationEnd()
-        {
-            CloseDiaphragmAnimation(); // TODO : This does not work
-            //SceneManager.UnloadMultipleScenes(SimulationScenes);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TFG.Simulation
 {
-    public class DiaphragmAnimator : MonoBehaviour
+    public partial class DiaphragmAnimator : MonoBehaviour
     {
         private static Animator _animator;
         private static GameObject _diaphragm; 
@@ -17,22 +17,26 @@ namespace TFG.Simulation
             _diaphragm = transform.GetChild(0).gameObject;
         }
 
-        public static void OpenDiaphragmAnimation()
+        public static void OpenAnimation()
         {
             _diaphragm.SetActive(true);
             _animator.SetTrigger(Open);
-#if DEBUG
-            Console.Log(ConsoleCategories.Animation, "Opening diaphragm");
-#endif
+        }
+        
+        public static void OpenFinished()
+        {
+            CameraSimulator.SimulationStart();
         }
 
-        public static void CloseDiaphragmAnimation()
+        public static void CloseAnimation()
         {
             _animator.SetTrigger(Close);
+        }
+        
+        public static void CloseFinished()
+        {
             _diaphragm.SetActive(false);
-#if DEBUG
-            Console.Log(ConsoleCategories.Animation, "Closing diaphragm");
-#endif
+            CameraSimulator.SimulationEnd();
         }
     }
 }

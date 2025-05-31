@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/07_Scenes/RandomSpace.unity
     guid: e38524eab99e6484f8e5f6a43af341d9
-  - enabled: 1
+  - enabled: 0
     path: Assets/07_Scenes/DiaphragmAnimation.unity
     guid: 43ac235e3afccfd469f2590ef7e067ea
   - enabled: 1
