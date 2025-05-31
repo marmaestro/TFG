@@ -7,7 +7,8 @@ namespace TFG.ExtensionMethods
         public const string Simulation = "Simulation";
         public const string DataLoading = "Data Loading";
         public const string Animation = "Animation";
-        public const string Debugging = "Debugging";
+        public const string Debug = "Debugging";
+        public const string Graph = "Graph";
     }
     #endif
 }

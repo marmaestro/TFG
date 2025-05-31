@@ -30,5 +30,6 @@ EditorBuildSettings:
     path: Assets/07_Scenes/UI/Journal.unity
     guid: 7c32530a215794b4982981c2e8ebf2ec
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 8e84296f9150e024497f6103a6fd4222, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

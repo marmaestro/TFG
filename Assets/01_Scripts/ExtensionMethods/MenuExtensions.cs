@@ -10,16 +10,16 @@ namespace TFG.ExtensionMethods
         {
             switch (target)
             {
-                case "Start" when !StartGameRequest(): popup.Show(); break;
+                case "Start" when ExistingSaveFile(): popup.Show(); break;
                 
                 case "Start":
-                case "StartOverride": StartGame(); break;
+                case "StartOverride": StartNewGame(); break;
                 
                 case "Continue": LoadGame(); break;
                 
                 case "ClosePopup": popup.Hide(); break;
                 
-                case "Close": Application.Quit(); break;
+                case "Close": QuitGame(); break;
                 
                 default: SceneManager.AddScene(target); break;
             }
@@ -33,6 +33,10 @@ namespace TFG.ExtensionMethods
 
                 case "Settings":
                 case "MainMenu": SceneManager.AddScene(target); break;
+                
+                case "SaveGame": SaveGame(); break;
+                
+                case "ExitGame": QuitGame(); break;
             }
         }
     }

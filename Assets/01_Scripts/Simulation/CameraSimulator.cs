@@ -17,7 +17,7 @@ namespace TFG.Simulation
         private static readonly string[] SimulationScenes = { "CameraInterface" };
 
         private static readonly RenderTexture RenderTarget =
-            Resources.Load("Images/Renders/PolaroidOutput") as RenderTexture;
+            Resources.Load("Images/Renderers/PolaroidOutput") as RenderTexture;
 
         private static Texture2D _lastShot;
 
@@ -28,8 +28,8 @@ namespace TFG.Simulation
             _target = GameObject.FindGameObjectWithTag("PointerTarget").transform;
             
             #if DEBUG
-            Console.Log(ConsoleCategories.Debugging, $"_camera is {_camera.name}");
-            Console.Log(ConsoleCategories.Debugging, $"_target is {_target.name}");
+            Console.Log(ConsoleCategories.Debug, $"_camera is {_camera.name}");
+            Console.Log(ConsoleCategories.Debug, $"_target is {_target.name}");
             #endif
         }
 

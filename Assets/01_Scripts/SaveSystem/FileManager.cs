@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using TFG.ExtensionMethods;
+using TFG.Graphs;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 
@@ -8,6 +9,25 @@ namespace TFG.SaveSystem
 {
     public static class FileManager
     {
+        public static bool Exists(string fileName)
+        {
+            string fullPath = Path.Combine(Application.persistentDataPath, fileName);
+            
+            try
+            {
+                File.OpenRead(fullPath).Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
+#if DEBUG
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to open {fileName} with exception {e}.");
+#endif
+                return false;
+            }
+        }
+        
         public static bool WriteToFile(string fileName, string fileContents)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, fileName);
@@ -27,6 +47,26 @@ namespace TFG.SaveSystem
                 Console.LogError(ConsoleCategories.DataLoading, $"Failed to write to {fullPath} with exception {e}.");
 #endif
                 return false;
+            }
+        }
+        
+        public static void WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
+        {
+            string fullPath = Path.Combine(filePath, fileName);
+
+            try
+            {
+                File.WriteAllBytes(fullPath, fileContents);
+#if DEBUG
+                Console.Log(ConsoleCategories.DataLoading, $"Image written to {fullPath} successfully.");
+#endif
+            }
+
+            catch (Exception e)
+            {
+#if DEBUG
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to write image to {fullPath} with exception {e}.");
+#endif
             }
         }
 
@@ -54,23 +94,27 @@ namespace TFG.SaveSystem
             }
         }
 
-        public static void WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
+        public static bool LoadGraphFromFile(string fileName, out int[][] result)
         {
-            string fullPath = Path.Combine(filePath, fileName);
-
+            string fullPath = Path.Combine(Application.persistentDataPath, fileName);
+            
             try
             {
-                File.WriteAllBytes(fullPath, fileContents);
+                result = JsonUtility.FromJson<int[][]>(File.ReadAllText(fullPath));
 #if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Image written to {fullPath} successfully.");
+                Console.Log(ConsoleCategories.DataLoading, $"Graph read from {fullPath} successfully.");
 #endif
+                return true;
             }
 
             catch (Exception e)
             {
 #if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to write image to {fullPath} with exception {e}.");
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read graph from {fullPath} with exception {e}.");
 #endif
+                
+                result = Array.Empty<int[]>();
+                return false;
             }
         }
     }

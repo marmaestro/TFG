@@ -1,41 +1,47 @@
 using TFG.ExtensionMethods;
+using TFG.Graphs;
 using TFG.InputSystem;
 using TFG.SaveSystem;
 using UnityEngine;
 
 namespace TFG
 {
-    public class Game : MonoBehaviour
+    public class Game : MonoBehaviour, ISaveableData
     {
         private static ISaveableData[] gameData;
-        public static string fm2data;
+        public static City City;
+        public static Player Player;
 
-        public void Awake()
-        {
-            // Load camera data
-            //const string cameraDataPath = "09_Data/FM2";
-            //FileManager.LoadFromFile(cameraDataPath, out fm2data);
-        }
+        public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
 
-        public static bool StartGameRequest()
-        {
-            return !FileManager.LoadFromFile("saveData", out string _);
-        }
-
-        public static void StartGame()
+        private static void StartGame()
         {
             PauseGame(false);
             SceneManager.LoadScene("Start");
         }
 
+        public static void StartNewGame()
+        {
+            City = Resources.Load<City>($"Assets/{nameof(City)}");
+            Player = new Player();
+            StartGame();
+        }
+
         public static void LoadGame()
         {
             DataManager.LoadJsonData(gameData);
+            StartGame();
         }
 
         public static void SaveGame()
         {
             DataManager.SaveJsonData(gameData);
+        }
+
+        public static void QuitGame()
+        {
+            SaveGame();
+            Application.Quit();
         }
 
         public static void PauseGame(bool paused)
@@ -44,6 +50,17 @@ namespace TFG
             Actions.SwitchActionMap(paused);
 
             SceneManager.LoadScene("Pause");
+        }
+
+        public void PopulateSaveData(SaveSystem.SaveSystem saveData)
+        {
+            saveData.playerData.city = City;
+            saveData.playerData.player = Player;
+        }
+        public void LoadFromSaveData(SaveSystem.SaveSystem saveData)
+        {
+            City = saveData.playerData.city;
+            Player = saveData.playerData.player;
         }
     }
 }
