@@ -14,13 +14,13 @@ namespace TFG.Simulation
         private static Camera _camera;
         private static Transform _target;
 
-        private static readonly string SavedImagesPath = Path.Combine(Application.dataPath, "Resources/Images/Saved");
-        private static readonly string RenderTargetPath = "Images/Renderers/PolaroidOutput";
+        private static readonly string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
+        private static readonly string RenderTargetPath = "Images/Renderers/FM2Output";
         private static readonly string[] SimulationScenes = { "CameraInterface" };
 
         private static RenderTexture RenderTarget;
 
-        private static Texture2D _lastShot;
+        private static Texture2D _shot;
 
         // Unity events
         public void Awake()
@@ -56,17 +56,17 @@ namespace TFG.Simulation
             _camera.Render();
 
             // Set up the Texture2D
-            _lastShot = new Texture2D(RenderTarget.width, RenderTarget.height, TextureFormat.RGB24, false);
+            _shot = new Texture2D(RenderTarget.width, RenderTarget.height, TextureFormat.RGB24, false);
 
             // Copy the rendered texture
             RenderTexture.active = RenderTarget;
-            _lastShot.ReadPixels(new Rect(0, 0, RenderTarget.width, RenderTarget.height), 0, 0);
-            _lastShot.Apply();
+            _shot.ReadPixels(new Rect(0, 0, RenderTarget.width, RenderTarget.height), 0, 0);
+            _shot.Apply();
 
             // Write (save) the rendered texture
-            FileManager.WriteToPictureFile(SavedImagesPath, EncodePictureName(), _lastShot.EncodeToPNG());
+            FileManager.WriteToPictureFile(SavedImagesPath, EncodePictureName(), _shot.EncodeToPNG());
 
-            _lastShot = null;
+            _shot = null;
         }
 
         private static string EncodePictureName()

@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using TFG.ExtensionMethods;
-using TFG.Graphs;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 
@@ -52,7 +51,7 @@ namespace TFG.SaveSystem
         
         public static void WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
         {
-            string fullPath = Path.Combine(filePath, fileName);
+            string fullPath = Path.Combine(Application.persistentDataPath, filePath, fileName);
 
             try
             {
