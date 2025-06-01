@@ -99,7 +99,7 @@ namespace TFG.SaveSystem
             {
                 result = JsonUtility.FromJson<int[][]>(json.text);
 #if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Graph read {json.name} successfully.");
+                Console.Log(ConsoleCategories.DataLoading, $"Graph {json.name} read successfully.");
 #endif
                 return true;
             }
@@ -111,6 +111,28 @@ namespace TFG.SaveSystem
 #endif
                 
                 result = Array.Empty<int[]>();
+                return false;
+            }
+        }
+        
+        public static bool LoadScenesFromFile(TextAsset json, out string[] result)
+        {
+            try
+            {
+                result = JsonUtility.FromJson<string[]>(json.text);
+#if DEBUG
+                Console.Log(ConsoleCategories.DataLoading, $"Scene name list {json.name} read successfully.");
+#endif
+                return true;
+            }
+
+            catch (Exception e)
+            {
+#if DEBUG
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read scene list {json.name} with exception {e}.");
+#endif
+                
+                result = Array.Empty<string>();
                 return false;
             }
         }
