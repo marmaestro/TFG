@@ -1,6 +1,6 @@
 using TFG.ExtensionMethods;
-using TFG.Graphs;
 using TFG.InputSystem;
+using TFG.Navigation;
 using TFG.SaveSystem;
 using UnityEngine;
 
@@ -9,8 +9,8 @@ namespace TFG
     public class Game : MonoBehaviour, ISaveableData
     {
         private static ISaveableData[] gameData;
-        public static City City;
-        public static Player Player;
+        [SerializeField] private City City;
+        private static Player Player;
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
 
         /*public void Awake()
@@ -28,7 +28,6 @@ namespace TFG
 
         public static void StartNewGame()
         {
-            City = Resources.Load<City>($"Assets/{nameof(City)}");
             Player = new Player();
             StartGame();
         }

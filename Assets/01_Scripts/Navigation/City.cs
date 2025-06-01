@@ -1,12 +1,15 @@
+using System;
+using TFG.Graphs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TFG.Graphs
+namespace TFG.Navigation
 {
+    [Serializable]
     [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]
     public class City : ScriptableObject
     {
-        [SerializeField] private Object graphFile;
+        [SerializeField] private TextAsset graphFile;
         [SerializeField] internal Scene[] scenes;
 
         private int home = 0;
@@ -18,7 +21,7 @@ namespace TFG.Graphs
 
         public void Awake()
         {
-            city = new Graph($"{graphFile.name}.json");
+            city = new Graph(graphFile);
             visitedLocations = new bool[city.NodeCount];
         }
     }

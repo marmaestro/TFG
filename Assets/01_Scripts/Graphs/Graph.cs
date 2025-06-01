@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TFG.SaveSystem;
+using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Graphs
@@ -14,7 +15,7 @@ namespace TFG.Graphs
         private readonly int home;
         private readonly int current; 
 
-        public Graph(string file)
+        public Graph(TextAsset file)
         {
             home = 0;
             current = 0;

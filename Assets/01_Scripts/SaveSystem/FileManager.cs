@@ -93,15 +93,13 @@ namespace TFG.SaveSystem
             }
         }
 
-        public static bool LoadGraphFromFile(string fileName, out int[][] result)
+        public static bool LoadGraphFromFile(TextAsset json, out int[][] result)
         {
-            string fullPath = Path.Combine("Assets/06_Data/RawJSON", fileName);
-            
             try
             {
-                result = JsonUtility.FromJson<int[][]>(File.ReadAllText(fullPath));
+                result = JsonUtility.FromJson<int[][]>(json.text);
 #if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Graph read from {fullPath} successfully.");
+                Console.Log(ConsoleCategories.DataLoading, $"Graph read {json.name} successfully.");
 #endif
                 return true;
             }
@@ -109,7 +107,7 @@ namespace TFG.SaveSystem
             catch (Exception e)
             {
 #if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read graph from {fullPath} with exception {e}.");
+                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read graph {json.name} with exception {e}.");
 #endif
                 
                 result = Array.Empty<int[]>();
