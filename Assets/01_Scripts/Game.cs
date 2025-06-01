@@ -1,36 +1,42 @@
+using TFG.ExtensionMethods;
+using TFG.Graphs;
 using TFG.InputSystem;
 using TFG.SaveSystem;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace TFG
 {
-    public class Game : MonoBehaviour
+    public class Game : MonoBehaviour, ISaveableData
     {
         private static ISaveableData[] gameData;
-        public static string fm2data;
+        public static City City;
+        public static Player Player;
+        public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
 
-        public void Awake()
+        /*public void Awake()
         {
-            // Load camera data
-            //const string cameraDataPath = "09_Data/FM2";
-            //FileManager.LoadFromFile(cameraDataPath, out fm2data);
-        }
+            SceneManager.LoadScene("MainMenu");
+        }*/
 
-        public static bool StartGameRequest()
-        {
-            return !FileManager.LoadFromFile("saveData", out string _);
-        }
+        public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
 
-        public static void StartGame()
+        private static void StartGame()
         {
             PauseGame(false);
-            SceneManager.LoadScene("Start", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Start");
+        }
+
+        public static void StartNewGame()
+        {
+            City = Resources.Load<City>($"Assets/{nameof(City)}");
+            Player = new Player();
+            StartGame();
         }
 
         public static void LoadGame()
         {
             DataManager.LoadJsonData(gameData);
+            StartGame();
         }
 
         public static void SaveGame()
@@ -38,12 +44,29 @@ namespace TFG
             DataManager.SaveJsonData(gameData);
         }
 
+        public static void QuitGame()
+        {
+            SaveGame();
+            Application.Quit();
+        }
+
         public static void PauseGame(bool paused)
         {
             Time.timeScale = paused ? 0 : 1;
             Actions.SwitchActionMap(paused);
 
-            SceneManager.LoadScene("Pause", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Pause");
+        }
+
+        public void PopulateSaveData(SaveSystem.SaveSystem saveData)
+        {
+            saveData.playerData.city = City;
+            saveData.playerData.player = Player;
+        }
+        public void LoadFromSaveData(SaveSystem.SaveSystem saveData)
+        {
+            City = saveData.playerData.city;
+            Player = saveData.playerData.player;
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+using static TFG.ExtensionMethods.MenuExtensions;
 
 namespace TFG.UIElements.Buttons
 {
@@ -10,14 +10,7 @@ namespace TFG.UIElements.Buttons
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            switch (target)
-            {
-                case "Continue": PauseMenu.PauseGame(false); break;
-
-                case "Settings":
-                case "MainMenu":
-                    SceneManager.LoadScene(target, LoadSceneMode.Additive); break;
-            }
+            PauseMenu(target);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

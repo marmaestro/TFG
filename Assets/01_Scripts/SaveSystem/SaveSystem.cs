@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using TFG.Graphs;
 using UnityEngine;
 
 namespace TFG.SaveSystem
@@ -22,12 +22,8 @@ namespace TFG.SaveSystem
         [Serializable]
         public struct PlayerData
         {
-            public Transform playerTransform;
-
-            public string currentSection;
-
-            //public List<Task> tasks;
-            public List<string> discoveredSections;
+            internal City city;
+            internal Player player;
         }
     }
 

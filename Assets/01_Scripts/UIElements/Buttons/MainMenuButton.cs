@@ -1,7 +1,6 @@
+using TFG.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-using static TFG.Game;
 
 namespace TFG.UIElements.Buttons
 {
@@ -12,26 +11,7 @@ namespace TFG.UIElements.Buttons
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            switch (target)
-            {
-                case "Start":
-                    if (!StartGameRequest())
-                        popup.Show();
-                    else StartGame();
-                    break;
-
-                case "StartOverride": StartGame(); break;
-
-                case "Continue": LoadGame(); break;
-
-                case "ClosePopup": popup.Hide(); break;
-
-                case "Settings":
-                case "Credits":
-                    SceneManager.LoadScene(target, LoadSceneMode.Additive); break;
-
-                case "Close": Application.Quit(); break;
-            }
+            MenuExtensions.MainMenu(target, popup);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

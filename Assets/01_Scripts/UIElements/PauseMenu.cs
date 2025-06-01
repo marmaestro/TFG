@@ -1,5 +1,5 @@
+using TFG.ExtensionMethods;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace TFG.UIElements
 {
@@ -22,7 +22,7 @@ namespace TFG.UIElements
             _pauseCanvas.SetActive(paused);
             if (!paused)
             {
-                SceneManager.UnloadSceneAsync("Scenes/Pause");
+                SceneManager.UnloadScene("PauseMenu");
                 Game.PauseGame(false);
             }
         }

@@ -1,9 +1,11 @@
 using System;
+using System.IO;
 using TFG.InputSystem;
 using TFG.SaveSystem;
+using TFG.ExtensionMethods;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using static TFG.Simulation.DiaphragmAnimator;
+using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Simulation
 {
@@ -12,18 +14,29 @@ namespace TFG.Simulation
         private static Camera _camera;
         private static Transform _target;
 
-        private static readonly string SavedImagesPath = Application.dataPath + "/Resources/Images/Saved/";
+        private static readonly string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
+        private static readonly string RenderTargetPath = "Images/Renderers/FM2Output";
+        private static readonly string[] SimulationScenes = { "CameraInterface" };
 
-        private static readonly RenderTexture RenderTarget =
-            Resources.Load("Images/Renders/PolaroidOutput") as RenderTexture;
+        private static RenderTexture RenderTarget;
 
-        private static Texture2D _lastShot;
+        private static Texture2D _shot;
 
         // Unity events
+        public void Awake()
+        {
+            RenderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
+        }
+        
         public void Start()
         {
-            _camera = GameObject.FindGameObjectWithTag("SimulationCamera").GetComponent<Camera>();
+            _camera = GetComponent<Camera>();
             _target = GameObject.FindGameObjectWithTag("PointerTarget").transform;
+            
+            #if DEBUG
+            Console.Log(ConsoleCategories.Debug, $"_camera is {_camera.name}");
+            Console.Log(ConsoleCategories.Debug, $"_target is {_target.name}");
+            #endif
         }
 
         public void LateUpdate()
@@ -43,54 +56,60 @@ namespace TFG.Simulation
             _camera.Render();
 
             // Set up the Texture2D
-            _lastShot = new Texture2D(RenderTarget.width, RenderTarget.height, TextureFormat.RGB24, false);
+            _shot = new Texture2D(RenderTarget.width, RenderTarget.height, TextureFormat.RGB24, false);
 
             // Copy the rendered texture
             RenderTexture.active = RenderTarget;
-            _lastShot.ReadPixels(new Rect(0, 0, RenderTarget.width, RenderTarget.height), 0, 0);
-            _lastShot.Apply();
+            _shot.ReadPixels(new Rect(0, 0, RenderTarget.width, RenderTarget.height), 0, 0);
+            _shot.Apply();
 
             // Write (save) the rendered texture
-            FileManager.WriteToPictureFile(SavedImagesPath, EncodePictureName(), _lastShot.EncodeToPNG());
+            FileManager.WriteToPictureFile(SavedImagesPath, EncodePictureName(), _shot.EncodeToPNG());
 
-            _lastShot = null;
+            _shot = null;
         }
 
         private static string EncodePictureName()
         {
-            // The file name is 'CurrenScene_Date_Time.png' 
-            return $"{SceneManager.GetActiveScene().name}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
+            // The file name is 'CurrenScene_Date_Time.png'
+            return $"{Game.CurrentLocation}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
         }
 
         // Simulation
         public static void OpenCamera()
         {
             // Open picture interface/camera simulation
-            SimulationStart();
-            // Switch active action map
-            Actions.SwitchActionMap(true);
+            SimulationStartAnimation();
         }
 
         public static void CloseCamera()
         {
             // Close picture interface/camera simulation
-            SimulationEnd();
+            SimulationEndAnimation();
+        }
+
+        private static void SimulationStartAnimation()
+        {
+            OpenAnimation();
+            SceneManager.AddMultipleScenes(SimulationScenes);
+        }
+
+        public static void SimulationStart()
+        {
+            // Switch active action map
+            Actions.SwitchActionMap(true);
+        }
+
+        private static void SimulationEndAnimation()
+        {
+            CloseAnimation();
+        }
+
+        internal static void SimulationEnd()
+        {
+            SceneManager.UnloadMultipleScenes(SimulationScenes);
             // Switch active action map
             Actions.SwitchActionMap();
-        }
-
-        private static void SimulationStart()
-        {
-            SceneManager.LoadScene("CameraInterface", LoadSceneMode.Additive);
-            SceneManager.LoadScene("DiaphragmAnimation", LoadSceneMode.Additive);
-            OpenDiaphragmAnimation();
-        }
-
-        private static void SimulationEnd()
-        {
-            CloseDiaphragmAnimation();
-            SceneManager.UnloadSceneAsync("CameraInterface");
-            SceneManager.UnloadSceneAsync("DiaphragmAnimation");
         }
     }
 }
