@@ -754,7 +754,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 5185400161052886794}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -843,7 +844,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 8
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: df721df1c7689a64fb5156f9b5e2d1ad, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -1003,7 +1004,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 1
   m_ClearDepth: 1
-  m_AllowXRRendering: 0
+  m_AllowXRRendering: 1
   m_AllowHDROutput: 1
   m_UseScreenCoordOverride: 0
   m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -1176,7 +1177,7 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1726219219812187204}
   - {fileID: 364439012}
+  - {fileID: 1726219219812187204}
   - {fileID: 76342719213850290}
   - {fileID: 2973164537629085334}

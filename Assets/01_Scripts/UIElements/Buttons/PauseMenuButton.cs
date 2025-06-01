@@ -4,21 +4,15 @@ using static TFG.ExtensionMethods.MenuExtensions;
 
 namespace TFG.UIElements.Buttons
 {
-    public class PauseMenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public class PauseMenuButton : CustomButton
     {
         [SerializeField] internal string target;
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            PauseMenu(target);
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
+        public override void OnPointerClick(PointerEventData eventData) => PauseMenu(target);
+        public override void OnPointerEnter(PointerEventData eventData)
         {
             gameObject.transform.localScale += Vector3.one * 0.1f;
         }
-
-        public void OnPointerExit(PointerEventData eventData)
+        public override void OnPointerExit(PointerEventData eventData)
         {
             gameObject.transform.localScale -= Vector3.one * 0.1f;
         }

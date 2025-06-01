@@ -1,6 +1,6 @@
 using TFG.UIElements;
-using UnityEngine;
 using static TFG.Game;
+using static TFG.Navigation.Navigation;
 
 namespace TFG.ExtensionMethods
 {
@@ -38,6 +38,11 @@ namespace TFG.ExtensionMethods
                 
                 case "ExitGame": QuitGame(); break;
             }
+        }
+
+        public static void NavigationMenu(int target)
+        {
+            Visit(target);
         }
     }
 }

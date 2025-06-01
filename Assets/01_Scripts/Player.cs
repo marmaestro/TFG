@@ -5,7 +5,8 @@ namespace TFG
     [Serializable]
     public class Player
     {
-        public static int energy;
+        private int baseEnergy = 7;
+        public static int energy = 7;
         public static int location = 0;
     }
 }

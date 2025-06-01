@@ -95,7 +95,6 @@ namespace TFG.Simulation
 
         public static void SimulationStart()
         {
-            // Switch active action map
             Actions.SwitchActionMap(true);
         }
 
@@ -107,7 +106,6 @@ namespace TFG.Simulation
         internal static void SimulationEnd()
         {
             SceneManager.UnloadMultipleScenes(SimulationScenes);
-            // Switch active action map
             Actions.SwitchActionMap();
         }
     }
