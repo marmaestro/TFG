@@ -95,7 +95,7 @@ namespace TFG.SaveSystem
 
         public static bool LoadGraphFromFile(string fileName, out int[][] result)
         {
-            string fullPath = Path.Combine(Application.persistentDataPath, fileName);
+            string fullPath = Path.Combine("Assets/06_Data/RawJSON", fileName);
             
             try
             {
