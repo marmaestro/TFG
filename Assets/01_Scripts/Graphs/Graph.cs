@@ -1,31 +1,34 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TFG.SaveSystem;
+using TFG.ExtensionMethods;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Graphs
 {
     [Serializable]
-    public class Graph
+    [CreateAssetMenu(fileName = "Graph", menuName = "SIL/Graphs/Graph")]
+    public class Graph : ScriptableObject
     {
-        private readonly List<Node> nodes;
+        [SerializeField] private List<Node> nodes;
 
         private readonly int home;
-        private readonly int current; 
+        private readonly int current;
+        internal string[] nodeNames => nodes.Select(n => n.name).ToArray();
 
         public Graph(TextAsset file)
         {
             home = 0;
             current = 0;
             
-            nodes = new List<Node>();
-            FileManager.LoadGraphFromFile(file,  out int[][] data);
-            foreach (int[] node in data)
+            /*nodes = new List<Node>();
+            FileManager.LoadGraphFromFile(file,  out GraphData data);
+            for (int id = 0; id < data.ints.Length; id++)
             {
-                nodes.Add(new Node(node));
-            }
+                nodes.Add(new Node(id, data.ints[id]));
+            }*/
+            
             #if DEBUG
             Show();
             #endif
@@ -34,11 +37,19 @@ namespace TFG.Graphs
         public void Show()
         {
             string data = "Graph:\n";
-            for (int i = 0; i < nodes.Count; i++)
+            /*for (int i = 0; i < nodes.Count; i++)
             {
-                data += $"{i} > {nodes[i].Edges}\n";
+                data += $"{i} >";
+                data = nodes[i].Edges.Aggregate(data, (s, n) => $"{s} {n}");
+                data += "\n";
+            }*/
+            foreach (Node node in nodes)
+            {
+                data += $"{node.id} >";
+                data = node.Edges.Aggregate(data, (s, n) => $"{s} {n}");
+                data += "\n";
             }
-            Console.Log("Graph", data);
+            Console.Log(ConsoleCategories.Graph, data);
         }
 
         public int NodeCount => nodes.Count;

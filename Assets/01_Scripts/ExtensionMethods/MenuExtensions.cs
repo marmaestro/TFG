@@ -1,6 +1,5 @@
 using TFG.UIElements;
 using static TFG.Game;
-using static TFG.Navigation.Navigation;
 
 namespace TFG.ExtensionMethods
 {

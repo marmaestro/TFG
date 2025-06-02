@@ -1,9 +1,6 @@
 using System;
 using TFG.Graphs;
-using TFG.SaveSystem;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static TFG.Player;
 
 namespace TFG.Navigation
 {
@@ -11,21 +8,19 @@ namespace TFG.Navigation
     [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]
     public class City : ScriptableObject
     {
-        [SerializeField] private TextAsset graphFile;
-        [SerializeField] private TextAsset scenesFile;
+        [SerializeField] private Graph city;
         
         internal int home = 0;
-
-        public static Graph city;
-        internal static bool[] visitedLocations;
-        internal static string[] scenes;
+        
+        internal bool[] visitedLocations;
+        internal string[] scenes;
 
         public void Awake()
         {
-            city = new Graph(graphFile);
-            FileManager.LoadScenesFromFile(scenesFile, out string[] data);
-            scenes = data;
+            scenes = city.nodeNames;
             visitedLocations = new bool[city.NodeCount];
         }
+
+        public int[] VisitableSpots() => city.VisitableNodes();
     }
 }

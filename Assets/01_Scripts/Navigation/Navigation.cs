@@ -4,27 +4,33 @@ using static TFG.Navigation.City;
 
 namespace TFG.Navigation
 {
-    public static class Navigation
+    public class Navigation
     {
-        public static string CurrentLocation => scenes[location];
+        private readonly Game game;
+        public string CurrentLocation => game.city.scenes[location];
 
-        public static string[] NextLocations()
+        public Navigation(Game game)
         {
-            int[] locationIDs = city.VisitableNodes();
+            this.game = game;
+        }
+
+        public string[] NextLocations()
+        {
+            int[] locationIDs = game.city.VisitableSpots();
             string[] nextLocations = new string[locationIDs.Length];
             
             for (int i = 0; i < locationIDs.Length; i++)
-                nextLocations[i] = scenes[locationIDs[i]];
+                nextLocations[i] = game.city.scenes[locationIDs[i]];
             
             return nextLocations;
         }
         
-        public static void Visit(int destination)
+        public void Visit(int destination)
         {
-            SceneManager.AddScene(scenes[destination]);
-            SceneManager.UnloadScene(scenes[location]);
+            SceneManager.AddScene(game.city.scenes[destination]);
+            SceneManager.UnloadScene(game.city.scenes[location]);
             
-            visitedLocations[destination] = true;
+            game.city.visitedLocations[destination] = true;
             location = destination;
         }
     }

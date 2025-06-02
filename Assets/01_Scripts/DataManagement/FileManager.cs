@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using TFG.ExtensionMethods;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 
-namespace TFG.SaveSystem
+namespace TFG.DataManagement
 {
     public static class FileManager
     {
@@ -20,9 +21,9 @@ namespace TFG.SaveSystem
 
             catch (Exception e)
             {
-#if DEBUG
+                #if DEBUG
                 Console.LogError(ConsoleCategories.DataLoading, $"Failed to open {fileName} with exception {e}.");
-#endif
+                #endif
                 return false;
             }
         }
@@ -34,17 +35,17 @@ namespace TFG.SaveSystem
             try
             {
                 File.WriteAllText(fullPath, fileContents);
-#if DEBUG
+                #if DEBUG
                 Console.Log(ConsoleCategories.DataLoading, $"Data written to {fullPath} successfully.");
-#endif
+                #endif
                 return true;
             }
 
             catch (Exception e)
             {
-#if DEBUG
+                #if DEBUG
                 Console.LogError(ConsoleCategories.DataLoading, $"Failed to write to {fullPath} with exception {e}.");
-#endif
+                #endif
                 return false;
             }
         }
@@ -56,16 +57,16 @@ namespace TFG.SaveSystem
             try
             {
                 File.WriteAllBytes(fullPath, fileContents);
-#if DEBUG
+                #if DEBUG
                 Console.Log(ConsoleCategories.DataLoading, $"Image written to {fullPath} successfully.");
-#endif
+                #endif
             }
 
             catch (Exception e)
             {
-#if DEBUG
+                #if DEBUG
                 Console.LogError(ConsoleCategories.DataLoading, $"Failed to write image to {fullPath} with exception {e}.");
-#endif
+                #endif
             }
         }
 
@@ -76,63 +77,19 @@ namespace TFG.SaveSystem
             try
             {
                 result = File.ReadAllText(fullPath);
-#if DEBUG
+                #if DEBUG
                 Console.Log(ConsoleCategories.DataLoading, $"Data read from {fullPath} successfully.");
-#endif
+                #endif
                 return true;
             }
 
             catch (Exception e)
             {
-#if DEBUG
+                #if DEBUG
                 Console.LogError(ConsoleCategories.DataLoading, $"Failed to read data from {fullPath} with exception {e}.");
-#endif
+                #endif
                 
                 result = "";
-                return false;
-            }
-        }
-
-        public static bool LoadGraphFromFile(TextAsset json, out int[][] result)
-        {
-            try
-            {
-                result = JsonUtility.FromJson<int[][]>(json.text);
-#if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Graph {json.name} read successfully.");
-#endif
-                return true;
-            }
-
-            catch (Exception e)
-            {
-#if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read graph {json.name} with exception {e}.");
-#endif
-                
-                result = Array.Empty<int[]>();
-                return false;
-            }
-        }
-        
-        public static bool LoadScenesFromFile(TextAsset json, out string[] result)
-        {
-            try
-            {
-                result = JsonUtility.FromJson<string[]>(json.text);
-#if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Scene name list {json.name} read successfully.");
-#endif
-                return true;
-            }
-
-            catch (Exception e)
-            {
-#if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read scene list {json.name} with exception {e}.");
-#endif
-                
-                result = Array.Empty<string>();
                 return false;
             }
         }

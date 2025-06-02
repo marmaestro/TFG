@@ -1,7 +1,7 @@
 using TFG.ExtensionMethods;
 using TFG.InputSystem;
 using TFG.Navigation;
-using TFG.SaveSystem;
+using TFG.DataManagement;
 using UnityEngine;
 
 namespace TFG
@@ -9,14 +9,16 @@ namespace TFG
     public class Game : MonoBehaviour, ISaveableData
     {
         private static ISaveableData[] gameData;
-        [SerializeField] private City City;
-        private static Player Player;
+        [SerializeField] public City city;
+        private static Player player;
+        private static Navigation.Navigation navigation;
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
 
-        /*public void Awake()
+        public void Awake()
         {
-            SceneManager.LoadScene("MainMenu");
-        }*/
+            //SceneManager.LoadScene("MainMenu");
+            navigation = new Navigation.Navigation(this);
+        }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
 
@@ -28,7 +30,7 @@ namespace TFG
 
         public static void StartNewGame()
         {
-            Player = new Player();
+            player = new Player();
             StartGame();
         }
 
@@ -57,15 +59,17 @@ namespace TFG
             SceneManager.LoadScene("Pause");
         }
 
-        public void PopulateSaveData(SaveSystem.SaveSystem saveData)
+        public void PopulateSaveData(SaveSystem saveData)
         {
-            saveData.playerData.city = City;
-            saveData.playerData.player = Player;
+            saveData.playerData.city = city;
+            saveData.playerData.player = player;
         }
-        public void LoadFromSaveData(SaveSystem.SaveSystem saveData)
+        public void LoadFromSaveData(SaveSystem saveData)
         {
-            City = saveData.playerData.city;
-            Player = saveData.playerData.player;
+            city = saveData.playerData.city;
+            player = saveData.playerData.player;
         }
+        
+        public static void Visit(int destination) => navigation.Visit(destination);
     }
 }

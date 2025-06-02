@@ -1,8 +1,14 @@
+using System;
+using UnityEngine;
+
 namespace TFG.Graphs
 {
-    internal struct Node
+    [Serializable]
+    [CreateAssetMenu(fileName = "Node", menuName = "SIL/Graphs/Node")]
+    internal class Node : ScriptableObject
     {
-        private readonly int[] edges;
+        internal string id;
+        [SerializeField] private int[] edges;
         public int[] Edges => edges;
 
         private int visited;
@@ -10,6 +16,7 @@ namespace TFG.Graphs
 
         public Node(int[] edges)
         {
+            id = name;
             this.edges = edges;
             visited = 0;
         }
