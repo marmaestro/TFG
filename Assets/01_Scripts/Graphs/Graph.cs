@@ -37,12 +37,7 @@ namespace TFG.Graphs
         public void Show()
         {
             string data = "Graph:\n";
-            /*for (int i = 0; i < nodes.Count; i++)
-            {
-                data += $"{i} >";
-                data = nodes[i].Edges.Aggregate(data, (s, n) => $"{s} {n}");
-                data += "\n";
-            }*/
+            
             foreach (Node node in nodes)
             {
                 data += $"{node.id} >";

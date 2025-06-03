@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static TFG.ExtensionMethods.UserInterfaceExtensions;
+using static TFG.ExtensionMethods.UIExtensions;
 
 namespace TFG.UIElements.Buttons
 {

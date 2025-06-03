@@ -171,14 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5062327136129950420, guid: 865674772c099cb4a831067a787894a1, type: 3}
-      propertyPath: orthographic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5062327136129950420, guid: 865674772c099cb4a831067a787894a1, type: 3}
-      propertyPath: far clip plane
-      value: 100000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

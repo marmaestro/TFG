@@ -1,6 +1,8 @@
+using System;
 using TFG.ExtensionMethods;
+using UnityEngine;
 using static TFG.Player;
-using static TFG.Navigation.City;
+using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Navigation
 {
@@ -14,7 +16,7 @@ namespace TFG.Navigation
             this.game = game;
         }
 
-        public string[] NextLocations()
+        private string[] NextLocations()
         {
             int[] locationIDs = game.city.VisitableSpots();
             string[] nextLocations = new string[locationIDs.Length];
@@ -25,13 +27,22 @@ namespace TFG.Navigation
             return nextLocations;
         }
         
-        public void Visit(int destination)
+        public void Visit(int uncodedDestination)
         {
-            SceneManager.AddScene(game.city.scenes[destination]);
-            SceneManager.UnloadScene(game.city.scenes[location]);
+            string[] nextLocations = NextLocations();
+            string destination = nextLocations[uncodedDestination];
+         
+            #if DEBUG
+            Console.Log(ConsoleCategories.SceneManagement,
+                $"Leaving scene {game.city.scenes[location]} to {destination}");
+            #endif
             
-            game.city.visitedLocations[destination] = true;
-            location = destination;
+            SceneManager.AddScene(destination);
+            SceneManager.UnloadScene(game.city.scenes[location]);
+
+            int id = Array.IndexOf(game.city.scenes, destination);
+            game.city.visitedLocations[id] = true;
+            location = id;
         }
     }
 }

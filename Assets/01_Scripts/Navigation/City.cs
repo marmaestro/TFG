@@ -1,6 +1,7 @@
 using System;
 using TFG.Graphs;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TFG.Navigation
 {
@@ -8,7 +9,7 @@ namespace TFG.Navigation
     [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]
     public class City : ScriptableObject
     {
-        [SerializeField] private Graph city;
+        [FormerlySerializedAs("city")] [SerializeField] private Graph graph;
         
         internal int home = 0;
         
@@ -17,10 +18,10 @@ namespace TFG.Navigation
 
         public void Awake()
         {
-            scenes = city.nodeNames;
-            visitedLocations = new bool[city.NodeCount];
+            scenes = graph.nodeNames;
+            visitedLocations = new bool[graph.NodeCount];
         }
 
-        public int[] VisitableSpots() => city.VisitableNodes();
+        public int[] VisitableSpots() => graph.VisitableNodes();
     }
 }
