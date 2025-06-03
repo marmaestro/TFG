@@ -7,6 +7,6 @@ namespace TFG
     {
         private int baseEnergy = 7;
         public static int energy = 7;
-        public static int location = 0;
+        public static int location = 1;
     }
 }

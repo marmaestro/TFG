@@ -12,23 +12,62 @@ EditorBuildSettings:
     path: Assets/07_Scenes/Persistent.unity
     guid: 8d3da88ee13357443b4fe6c171b28d06
   - enabled: 1
-    path: Assets/07_Scenes/Start.unity
+    path: Assets/07_Scenes/Home.unity
     guid: 84c911b75ca944745aa6f8f4ae87f79c
   - enabled: 1
     path: Assets/07_Scenes/UI/Pause.unity
     guid: 4e2c1b7bae7d5bf43af1305b99853da2
-  - enabled: 1
+  - enabled: 0
     path: Assets/07_Scenes/RandomSpace.unity
     guid: e38524eab99e6484f8e5f6a43af341d9
   - enabled: 1
     path: Assets/07_Scenes/CameraInterface.unity
     guid: 77c69320051333a4ea04863e49185548
-  - enabled: 1
+  - enabled: 0
     path: Assets/07_Scenes/UI/Journal.unity
     guid: 7c32530a215794b4982981c2e8ebf2ec
   - enabled: 1
     path: Assets/07_Scenes/Navigation.unity
     guid: d462d82b41813544c9f897aa91f06589
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/A.unity
+    guid: 412b43c328be3f64a9a9f186fb4985e8
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/B.unity
+    guid: bcc7b4f7c14a8cc44a8be81113a085d4
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/C.unity
+    guid: d1308037c3bacac408656b055f4d8975
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/D.unity
+    guid: 04db0ab097e8e7a489e97e94ac1fc252
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/E.unity
+    guid: daf850743b071514dbadb47d9c1256f5
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/F.unity
+    guid: b5d0e129d01cbda4aa3ddfda980eeba0
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/G.unity
+    guid: cc273f5ea53dbd441aa6667d631319ff
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/H.unity
+    guid: c02df186b30548b4ab3024efe205d128
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/I.unity
+    guid: 53f7863dbb47d5549a334de9bd645686
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/J.unity
+    guid: a15626047379bb646b3ca01414628e55
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/K.unity
+    guid: 09c62e6ac74890e42a2c0cb9780683e4
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/L.unity
+    guid: 9ce405f024b9ed84c84eda70ceb5b3a9
+  - enabled: 1
+    path: Assets/07_Scenes/Locations/M.unity
+    guid: 84784422e8a7b3047b25ba5b75b8691f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8e84296f9150e024497f6103a6fd4222, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
