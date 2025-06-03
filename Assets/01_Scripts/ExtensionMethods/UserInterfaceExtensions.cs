@@ -3,7 +3,7 @@ using static TFG.Game;
 
 namespace TFG.ExtensionMethods
 {
-    public static class MenuExtensions
+    public static class UserInterfaceExtensions
     {
         public static void MainMenu(string target, Popup popup)
         {
@@ -41,6 +41,7 @@ namespace TFG.ExtensionMethods
 
         public static void NavigationMenu(int target)
         {
+            Console.Log(ConsoleCategories.Debug, "And this comes from the extension.");
             Visit(target);
         }
     }
