@@ -7,7 +7,6 @@ namespace TFG.Graphs
     [CreateAssetMenu(fileName = "Node", menuName = "SIL/Graphs/Node")]
     internal class Node : ScriptableObject
     {
-        internal string id;
         [SerializeField] private int[] edges;
         public int[] Edges => edges;
 
@@ -16,7 +15,6 @@ namespace TFG.Graphs
 
         public Node(int[] edges)
         {
-            id = name;
             this.edges = edges;
             visited = 0;
         }

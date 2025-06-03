@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TFG.ExtensionMethods;
+using UnityEditor;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 
@@ -17,35 +18,20 @@ namespace TFG.Graphs
         private readonly int current;
         internal string[] nodeNames => nodes.Select(n => n.name).ToArray();
 
-        public Graph(TextAsset file)
-        {
-            home = 0;
-            current = 0;
-            
-            /*nodes = new List<Node>();
-            FileManager.LoadGraphFromFile(file,  out GraphData data);
-            for (int id = 0; id < data.ints.Length; id++)
-            {
-                nodes.Add(new Node(id, data.ints[id]));
-            }*/
-            
-            #if DEBUG
-            Show();
-            #endif
-        }
-
+        #if UNITY_EDITOR
         public void Show()
         {
             string data = "Graph:\n";
             
             foreach (Node node in nodes)
             {
-                data += $"{node.id} >";
+                data += $"{node.name} >";
                 data = node.Edges.Aggregate(data, (s, n) => $"{s} {n}");
                 data += "\n";
             }
             Console.Log(ConsoleCategories.Graph, data);
         }
+        #endif
 
         public int NodeCount => nodes.Count;
 
