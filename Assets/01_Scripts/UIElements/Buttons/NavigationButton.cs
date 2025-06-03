@@ -8,7 +8,7 @@ namespace TFG.UIElements.Buttons
     {
         [SerializeField] internal int target;
 
-        public void OnPointerClick(PointerEventData eventData) //=> UserInterfaceExtensions.NavigationMenu(target);
+        public void OnPointerClick(PointerEventData eventData)
         {
             Console.Log(ConsoleCategories.Debug, "This is from the button.");
             UserInterfaceExtensions.NavigationMenu(target);

@@ -7,8 +7,10 @@ namespace TFG.DataManagement
     {
         public static void SaveJsonData(IEnumerable<ISaveableData> saveables)
         {
+            if (saveables == null) return;
+            
             SaveSystem sd = new();
-            foreach (ISaveableData saveable in saveables) saveable.PopulateSaveData(sd);
+            foreach (ISaveableData saveable in saveables) saveable?.PopulateSaveData(sd);
 
             if (FileManager.WriteToFile("SaveData01.dat", sd.ToJson())) Debug.Log("Save successful");
         }
