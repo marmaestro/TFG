@@ -16,14 +16,17 @@ namespace TFG.Navigation
             this.game = game;
         }
 
-        private string[] NextLocations()
+        public string[] NextLocations()
         {
-            int[] locationIDs = game.city.VisitableSpots();
-            string[] nextLocations = new string[locationIDs.Length];
-            
-            for (int i = 0; i < locationIDs.Length; i++)
-                nextLocations[i] = game.city.scenes[locationIDs[i]];
-            
+            int[] locationIndexes = game.city.VisitableSpots();
+            string[] nextLocations = new string[locationIndexes.Length];
+
+            for (int i = 0; i < locationIndexes.Length; i++)
+            {
+                nextLocations[i] = game.city.scenes[locationIndexes[i]];
+                Console.Log(ConsoleCategories.Debug, $"Edge: {nextLocations[i]} and index: {locationIndexes[i]}.");
+            }
+
             return nextLocations;
         }
         
@@ -31,7 +34,7 @@ namespace TFG.Navigation
         {
             string[] nextLocations = NextLocations();
             string destination = nextLocations[uncodedDestination];
-         
+            
             #if DEBUG
             Console.Log(ConsoleCategories.SceneManagement,
                 $"Leaving scene {game.city.scenes[location]} to {destination}");

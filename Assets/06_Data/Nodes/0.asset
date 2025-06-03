@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9000aae0d16c417d8c252593f162a1e0, type: 3}
   m_Name: 0
   m_EditorClassIdentifier: 
-  id: 0
+  sceneName: Home
   edges: 030000000500000006000000

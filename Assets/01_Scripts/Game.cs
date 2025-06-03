@@ -72,5 +72,6 @@ namespace TFG
         }
         
         public static void Visit(int destination) => navigation.Visit(destination);
+        public static string[] NextLocations() => navigation.NextLocations();
     }
 }

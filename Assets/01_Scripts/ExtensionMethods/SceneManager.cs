@@ -6,6 +6,8 @@ namespace TFG.ExtensionMethods
 {
     public static class SceneManager
     {
+        private static string currentNavigationScene = "";
+        
         public static void LoadScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Single);
         public static void AddScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Additive);
 
@@ -19,6 +21,24 @@ namespace TFG.ExtensionMethods
         public static void UnloadMultipleScenes(string[] sceneNames)
         {
             foreach (string sceneName in sceneNames.Reverse()) UnloadScene(sceneName);
+        }
+
+        public static void SceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            int amount = Game.NextLocations().Length;
+            
+            if (currentNavigationScene == "")
+            {
+                currentNavigationScene = $"Navigation_{amount}";
+                AddScene(currentNavigationScene);
+            }
+            
+            else if (!currentNavigationScene.Contains((char) amount))
+            {
+                UnloadScene(currentNavigationScene);
+                currentNavigationScene = $"Navigation_{amount}";
+                AddScene(currentNavigationScene);
+            }
         }
     }
 }

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9000aae0d16c417d8c252593f162a1e0, type: 3}
   m_Name: D
   m_EditorClassIdentifier: 
+  sceneName: 
   edges: 030000000b000000

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TFG.ExtensionMethods;
-using UnityEditor;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
+using static TFG.Player;
 
 namespace TFG.Graphs
 {
@@ -15,17 +15,16 @@ namespace TFG.Graphs
         [SerializeField] private List<Node> nodes;
 
         private readonly int home;
-        private readonly int current;
-        internal string[] nodeNames => nodes.Select(n => n.name).ToArray();
+        internal string[] nodeNames => nodes.Select(n => n.SceneName).ToArray();
 
         #if UNITY_EDITOR
         public void Show()
         {
-            string data = "Graph:\n";
+            string data = "\n";
             
             foreach (Node node in nodes)
             {
-                data += $"{node.name} >";
+                data += $"{node.SceneName} >";
                 data = node.Edges.Aggregate(data, (s, n) => $"{s} {n}");
                 data += "\n";
             }
@@ -35,7 +34,7 @@ namespace TFG.Graphs
 
         public int NodeCount => nodes.Count;
 
-        public int[] VisitableNodes() => nodes[current].Edges;
+        public int[] VisitableNodes() => nodes[location].Edges;
         
         public int Distance(int origin, int target)
         {
