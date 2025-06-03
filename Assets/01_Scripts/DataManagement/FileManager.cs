@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using TFG.ExtensionMethods;
 using UnityEngine;
@@ -13,19 +12,7 @@ namespace TFG.DataManagement
         {
             string fullPath = Path.Combine(Application.persistentDataPath, fileName);
             
-            try
-            {
-                File.OpenRead(fullPath).Close();
-                return true;
-            }
-
-            catch (Exception e)
-            {
-                #if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to open {fileName} with exception {e}.");
-                #endif
-                return false;
-            }
+            return File.Exists(fullPath);
         }
         
         public static bool WriteToFile(string fileName, string fileContents)
