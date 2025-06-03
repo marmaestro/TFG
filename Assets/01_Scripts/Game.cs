@@ -25,7 +25,8 @@ namespace TFG
         private static void StartGame()
         {
             PauseGame(false);
-            SceneManager.LoadScene("Start");
+            SceneManager.UnloadScene("MainMenu");
+            SceneManager.AddScene("Start");
         }
 
         public static void StartNewGame()

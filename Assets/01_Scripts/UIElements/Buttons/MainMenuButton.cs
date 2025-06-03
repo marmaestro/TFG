@@ -1,6 +1,6 @@
-using TFG.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static TFG.ExtensionMethods.UserInterfaceExtensions;
 
 namespace TFG.UIElements.Buttons
 {
@@ -11,7 +11,7 @@ namespace TFG.UIElements.Buttons
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            UserInterfaceExtensions.MainMenu(target, popup);
+            MainMenu(target, popup);
         }
         
         public void OnPointerEnter(PointerEventData eventData)

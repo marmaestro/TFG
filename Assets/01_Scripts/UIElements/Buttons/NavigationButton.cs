@@ -1,6 +1,7 @@
 using TFG.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static TFG.ExtensionMethods.UserInterfaceExtensions;
 
 namespace TFG.UIElements.Buttons
 {
@@ -11,7 +12,7 @@ namespace TFG.UIElements.Buttons
         public void OnPointerClick(PointerEventData eventData)
         {
             Console.Log(ConsoleCategories.Debug, "This is from the button.");
-            UserInterfaceExtensions.NavigationMenu(target);
+            NavigationMenu(target);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
