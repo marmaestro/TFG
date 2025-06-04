@@ -14,11 +14,10 @@ namespace TFG.Navigation
         internal int home = 0;
         
         internal bool[] visitedLocations;
-        internal string[] scenes;
+        internal string[] scenes => graph.nodeNames;
 
         public void Awake()
         {
-            scenes = graph.nodeNames;
             visitedLocations = new bool[graph.NodeCount];
         }
 

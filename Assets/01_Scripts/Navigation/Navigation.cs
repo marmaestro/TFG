@@ -1,6 +1,5 @@
 using System;
 using TFG.ExtensionMethods;
-using UnityEngine;
 using static TFG.Player;
 using Console = TFG.ExtensionMethods.Console;
 
@@ -22,10 +21,7 @@ namespace TFG.Navigation
             string[] nextLocations = new string[locationIndexes.Length];
 
             for (int i = 0; i < locationIndexes.Length; i++)
-            {
                 nextLocations[i] = game.city.scenes[locationIndexes[i]];
-                Console.Log(ConsoleCategories.Debug, $"Edge: {nextLocations[i]} and index: {locationIndexes[i]}.");
-            }
 
             return nextLocations;
         }

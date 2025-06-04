@@ -6,8 +6,6 @@ namespace TFG.ExtensionMethods
 {
     public static class SceneManager
     {
-        private static string currentNavigationScene = "";
-        
         public static void LoadScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Single);
         public static void AddScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Additive);
 
@@ -23,22 +21,26 @@ namespace TFG.ExtensionMethods
             foreach (string sceneName in sceneNames.Reverse()) UnloadScene(sceneName);
         }
 
-        public static void SceneLoaded(Scene scene, LoadSceneMode mode)
+        private static bool LoadedScene(string sceneName) => SM.GetSceneByName(sceneName).isLoaded;
+
+        public static void LocationSceneLoaded()
         {
+            UnloadNavigation();
+            
             int amount = Game.NextLocations().Length;
-            
-            if (currentNavigationScene == "")
-            {
-                currentNavigationScene = $"Navigation_{amount}";
-                AddScene(currentNavigationScene);
-            }
-            
-            else if (!currentNavigationScene.Contains((char) amount))
-            {
-                UnloadScene(currentNavigationScene);
-                currentNavigationScene = $"Navigation_{amount}";
-                AddScene(currentNavigationScene);
-            }
+            string navScene = $"Navigation_{amount}";
+
+            AddScene(navScene);
+        }
+
+        private static void UnloadNavigation()
+        {
+            if (LoadedScene("Navigation_1"))
+                UnloadScene("Navigation_1");
+            else if (LoadedScene("Navigation_2"))
+                UnloadScene("Navigation_2");
+            else if (LoadedScene("Navigation_3"))
+                UnloadScene("Navigation_3");
         }
     }
 }

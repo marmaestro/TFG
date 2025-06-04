@@ -1,14 +1,13 @@
 using UnityEngine;
-using SM = UnityEngine.SceneManagement.SceneManager;
+using static TFG.ExtensionMethods.SceneManager;
 
 namespace TFG.ExtensionMethods
 {
     public class NavigationLoader : MonoBehaviour
     {
-        [RuntimeInitializeOnLoadMethod]
-        private static void SceneLoaded()
+        private void Awake()
         {
-            SM.sceneLoaded += SceneManager.SceneLoaded;
+            LocationSceneLoaded();
         }
     }
 }
