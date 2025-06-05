@@ -1,7 +1,7 @@
-using TFG.ExtensionMethods;
+using TFG.Simulation;
 using UnityEngine;
 
-namespace TFG.Simulation
+namespace _01_Scripts.Animation
 {
     public partial class DiaphragmAnimator : MonoBehaviour
     {
