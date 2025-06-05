@@ -1,5 +1,5 @@
 using System;
-using TFG.Graphs;
+using TFG.Graph;
 using TFG.Navigation;
 using UnityEngine;
 

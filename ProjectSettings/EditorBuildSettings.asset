@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 8d3da88ee13357443b4fe6c171b28d06
   - enabled: 1
     path: Assets/07_Scenes/UI/MainMenu.unity
-    guid: 3d2abbeb16225ec46bb2f41b8c6985fb
+    guid: 620b557a9b8052143beccbd140df90cc
   - enabled: 1
     path: Assets/07_Scenes/UI/Pause.unity
     guid: 4e2c1b7bae7d5bf43af1305b99853da2

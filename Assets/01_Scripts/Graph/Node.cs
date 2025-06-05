@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace TFG.Graphs
+namespace TFG.Graph
 {
     [Serializable]
     [CreateAssetMenu(fileName = "Node", menuName = "SIL/Graphs/Node")]

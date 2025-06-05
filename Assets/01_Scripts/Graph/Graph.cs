@@ -6,7 +6,7 @@ using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 using static TFG.Player;
 
-namespace TFG.Graphs
+namespace TFG.Graph
 {
     [Serializable]
     [CreateAssetMenu(fileName = "Graph", menuName = "SIL/Graphs/Graph")]

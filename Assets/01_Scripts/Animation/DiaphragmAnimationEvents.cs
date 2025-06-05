@@ -1,11 +1,13 @@
+using TFG.Simulation;
 using UnityEngine;
 
-namespace TFG.Simulation
+namespace TFG.Animation
 {
     public class DiaphragmAnimationEvents : MonoBehaviour
     {
         public void OpenFinished(int n)
-        {DiaphragmAnimator.OpenFinished();
+        {
+            DiaphragmAnimator.OpenFinished();
         }
 
         public void CloseFinished(int n)

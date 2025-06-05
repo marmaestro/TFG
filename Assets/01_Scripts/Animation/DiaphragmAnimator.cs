@@ -1,9 +1,9 @@
 using TFG.Simulation;
 using UnityEngine;
 
-namespace _01_Scripts.Animation
+namespace TFG.Animation
 {
-    public partial class DiaphragmAnimator : MonoBehaviour
+    public class DiaphragmAnimator : MonoBehaviour
     {
         private static Animator _animator;
         private static GameObject _diaphragm; 
@@ -12,7 +12,6 @@ namespace _01_Scripts.Animation
 
         public void Awake()
         {
-            // TODO : Move the animator into the camera interface
             _animator = gameObject.GetComponentInChildren<Animator>(true);
             _diaphragm = transform.GetChild(0).gameObject;
         }

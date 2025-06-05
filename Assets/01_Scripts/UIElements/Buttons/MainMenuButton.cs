@@ -7,11 +7,10 @@ namespace TFG.UIElements.Buttons
     public class MainMenuButton : MonoBehaviour, ICustomButton
     {
         [SerializeField] internal string target;
-        [SerializeField] internal Popup popup;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            MainMenu(target, popup);
+            MainMenu(target);
         }
         
         public void OnPointerEnter(PointerEventData eventData)

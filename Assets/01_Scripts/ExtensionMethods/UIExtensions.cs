@@ -1,22 +1,23 @@
 using TFG.UIElements;
+using static TFG.Animation.TitleAnimator;
 using static TFG.Game;
 
 namespace TFG.ExtensionMethods
 {
     public static class UIExtensions
     {
-        public static void MainMenu(string target, Popup popup)
+        public static void MainMenu(string target)
         {
             switch (target)
             {
-                case "Start" when ExistingSaveFile(): popup.Show(); break;
+                case "Start" when ExistingSaveFile(): ShowTitlePopup(); break;
                 
                 case "Start":
                 case "StartOverride": StartNewGame(); break;
                 
                 case "Continue": LoadGame(); break;
                 
-                case "ClosePopup": popup.Hide(); break;
+                case "ClosePopup": HideTitlePopup(); break;
                 
                 case "Close": QuitGame(); break;
                 

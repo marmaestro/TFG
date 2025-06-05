@@ -1,7 +1,5 @@
 using System;
-using TFG.Graphs;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace TFG.Navigation
 {
@@ -9,7 +7,7 @@ namespace TFG.Navigation
     [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]
     public class City : ScriptableObject
     {
-        [FormerlySerializedAs("city")] [SerializeField] private Graph graph;
+        private Graph.Graph graph;
         
         internal int home = 0;
         

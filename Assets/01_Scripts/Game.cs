@@ -16,7 +16,7 @@ namespace TFG
 
         public void Awake()
         {
-            //SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenu");
             navigation = new Navigation.Navigation(this);
         }
 
@@ -73,5 +73,11 @@ namespace TFG
         
         public static void Visit(int destination) => navigation.Visit(destination);
         public static string[] NextLocations() => navigation.NextLocations();
+
+        public static void LoadMainMenu()
+        {
+            SceneManager.AddScene("MainMenu");
+            SceneManager.UnloadScene("Title");
+        }
     }
 }

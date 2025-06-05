@@ -3,7 +3,7 @@ using TFG.InputSystem;
 using TFG.DataManagement;
 using TFG.ExtensionMethods;
 using UnityEngine;
-using static TFG.Simulation.DiaphragmAnimator;
+using static TFG.Animation.DiaphragmAnimator;
 using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Simulation
