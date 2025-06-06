@@ -1,4 +1,3 @@
-using TFG.UIElements;
 using static TFG.Animation.TitleAnimator;
 using static TFG.Game;
 
@@ -44,5 +43,10 @@ namespace TFG.ExtensionMethods
         {
             Visit(target);
         }
+
+        public static void CreditsMenu()
+        {
+            Game.MainMenu();
+        } 
     }
 }

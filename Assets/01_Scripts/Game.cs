@@ -16,11 +16,16 @@ namespace TFG
 
         public void Awake()
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.AddScene("MainMenu");
             navigation = new Navigation.Navigation(this);
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
+
+        public static void MainMenu()
+        {
+            SceneManager.UnloadScene("Credits");
+        }
 
         private static void StartGame()
         {
