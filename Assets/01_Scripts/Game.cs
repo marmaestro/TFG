@@ -60,7 +60,7 @@ namespace TFG
         public static void PauseGame(bool paused)
         {
             Time.timeScale = paused ? 0 : 1;
-            Actions.SwitchActionMap(paused);
+            Actions.PauseInputSystem();
 
             SceneManager.LoadScene("Pause");
         }

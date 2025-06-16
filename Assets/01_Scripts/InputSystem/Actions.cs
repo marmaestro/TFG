@@ -1,3 +1,6 @@
+using System;
+using System.ComponentModel;
+using TFG.Constants;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static TFG.Simulation.CameraSimulator;
@@ -6,98 +9,112 @@ namespace TFG.InputSystem
 {
     public class Actions : MonoBehaviour
     {
-        private static PlayerInput _playerInput;
-    
-        // Game-world actions
-        private static InputAction _movePointer;
-        private static InputAction _interact;
-        private static InputAction _cancel;
-        private static InputAction _pause;
-        private static InputAction _openCamera;
-    
-        // Camera actions
-        private static InputAction _moveCamera;
-        private static InputAction _takePicture;
-        private static InputAction _closeCamera;
+        private static PlayerInput playerInput;
+        
+        #region Action Definitions
+        // World
+        private InputAction navigate;
+        private InputAction openCamera;
+        private InputAction pause;
+        
+        // Camera
+        private InputAction moveCamera;
+        private InputAction takePicture;
+        private InputAction closeCamera;
+        
+        // Reflections
+        private InputAction moveFocusPoint;
+        private InputAction reflect;
 
         public void Awake()
         {
-            _playerInput = transform.parent.GetComponent<PlayerInput>();
+            playerInput = transform.parent.GetComponent<PlayerInput>();
         
-            // Game-world actions
-            _movePointer = _playerInput.actions["Move Pointer"];
-            _interact = _playerInput.actions["Interact"];
-            _cancel = _playerInput.actions["Cancel"];
-            _pause = _playerInput.actions["Pause"];
-            _openCamera = _playerInput.actions["Open Camera"];
-        
-            // Camera actions
-            _moveCamera = _playerInput.actions["Move Camera"];
-            _takePicture = _playerInput.actions["Take Picture"];
-            _closeCamera = _playerInput.actions["Close Camera"];
+            // World
+            navigate = playerInput.actions["Navigate"];
+            openCamera = playerInput.actions["Open Camera"];
+            pause = playerInput.actions["Pause"];
+            
+            // Camera
+            moveCamera = playerInput.actions["Move Camera"];
+            takePicture = playerInput.actions["Take Picture"];
+            closeCamera = playerInput.actions["Close Camera"];
+            
+            // Reflections
+            moveFocusPoint = playerInput.actions["Move Focus Point"];
+            reflect = playerInput.actions["Reflect Further"];
         }
+        #endregion
 
         public void Start()
         {
-            // Game-world actions
-            _movePointer.performed += context => OnMovePointer(context.ReadValue<Vector2>()); 
-            _interact.performed  += OnInteract;
-            _cancel.performed += OnCancel;
-            _pause.performed += OnPause;
-            _openCamera.performed += OnOpenCamera;
-        
-            // Camera actions
-            _moveCamera.performed += context => OnMoveCamera(context.ReadValue<Vector2>());
-            _takePicture.performed += OnTakePicture;
-            _closeCamera.performed += OnCloseCamera;
+            // World
+            navigate.performed += context => OnNavigate(context.ReadValue<Vector2>());
+            openCamera.performed += OnOpenCamera;
+            pause.performed += OnPause;
+            
+            // Camera
+            moveCamera.performed += context => OnMoveCamera(context.ReadValue<Vector2>());
+            takePicture.performed += OnTakePicture;
+            closeCamera.performed += OnCloseCamera;
+            
+            // Reflect
+            moveFocusPoint.performed += context => OnMoveFocusPoint(context.ReadValue<Vector2>());
+            reflect.performed += context => OnReflect(context.ReadValue<Vector2>());
         }
 
-        private void OnMovePointer(Vector2 delta)
+        #region World Actions
+        private void OnNavigate(Vector2 delta)
         {
-            // TODO : MOVE POINTER
+            // TODO : NAVIGATE
         }
-
-        private void OnInteract(InputAction.CallbackContext context)
-        {
-            // TODO : INTERACT
-        }
-
-        private void OnCancel(InputAction.CallbackContext context)
-        {
-            // TODO : CANCEL
-        }
-
-        private void OnPause(InputAction.CallbackContext context)
-        {
-            Game.PauseGame(true);
-        }
-
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
             OpenCamera();
         }
+        private void OnPause(InputAction.CallbackContext context)
+        {
+            Game.PauseGame(true);
+        }
+        #endregion
 
-
-        // Camera actions
-        private void OnMoveCamera(Vector2 delta)
+        #region Camera Actions
+        private static void OnMoveCamera(Vector2 delta)
         {
             MoveCamera(delta);
         }
-
         private void OnTakePicture(InputAction.CallbackContext context)
         {
             TakePicture();
         }
-
         private void OnCloseCamera(InputAction.CallbackContext context)
         {
             CloseCamera();
         }
-
-        // Other action-related methods
-        public static void SwitchActionMap(bool openCamera = false)
+        #endregion
+        
+        #region Reflection Actions
+        private void OnMoveFocusPoint(Vector2 delta)
         {
-            _playerInput.SwitchCurrentActionMap(!openCamera ? "Game-world" : "Camera");
+            // TODO : MOVE IN REFLECTION
+        }
+        private void OnReflect(Vector2 delta)
+        {
+            // TODO : REFLECT
+        }
+        #endregion
+        
+        public static void SwitchActionMap(ActionMaps actionMap)
+        {
+            if (!Enum.IsDefined(typeof(ActionMaps), actionMap))
+                throw new InvalidEnumArgumentException($"{nameof(actionMap)} is not defined.");
+            
+            playerInput.SwitchCurrentActionMap(nameof(actionMap));
+        }
+        
+        public static void PauseInputSystem()
+        {
+            playerInput.enabled = !playerInput.enabled;
         }
     }
 }

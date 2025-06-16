@@ -2,31 +2,22 @@
     "name": "InputSystemActions",
     "maps": [
         {
-            "name": "Game-world",
-            "id": "4150329f-8878-42e3-adfc-91dec41fd5c7",
+            "name": "World",
+            "id": "df57254d-465a-40c2-832c-7689989fad92",
             "actions": [
                 {
-                    "name": "Move Pointer",
+                    "name": "Navigate",
                     "type": "Value",
-                    "id": "23eb820f-4fbc-46f2-8239-0708e805765d",
+                    "id": "efb99e1e-a13d-4c35-840b-3f37b854ebe8",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
+                    "name": "Open Camera",
                     "type": "Button",
-                    "id": "d604dd8d-4568-4bfb-824f-c9544d05fd50",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Hold",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Cancel",
-                    "type": "Button",
-                    "id": "fcade8cd-044b-4f49-8196-c1a42bcc0a48",
+                    "id": "b5acdb71-071f-45d3-b7d5-66bfa3abdd16",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -35,16 +26,7 @@
                 {
                     "name": "Pause",
                     "type": "Button",
-                    "id": "83f9c431-6107-4c2a-90e2-3013d308c288",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Open Camera",
-                    "type": "Button",
-                    "id": "8a1781cc-d38b-4d1b-a3c0-a0d09a72342b",
+                    "id": "d2cd6954-5cea-43ef-8676-01b4cdbf2774",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -54,70 +36,103 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "11079555-691f-4e85-a8ef-3bd3ad458b84",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "daeafb0f-c951-4c56-a871-78dd37713d13",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "75f6d5b3-88fe-40ce-aa78-faa428ef2222",
+                    "id": "fd2fd58e-c595-4289-adfa-13bc31566b83",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Open Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "095820e5-5844-4eee-afa0-b576506c984a",
-                    "path": "<Pointer>/delta",
+                    "id": "db9ce203-109a-4bb2-a204-56b5c3b76602",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Move Pointer",
+                    "groups": "",
+                    "action": "Open Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "1cc12b90-5fcb-4657-a8b3-0aa8936057c9",
-                    "path": "<Keyboard>/escape",
+                    "id": "f51393d5-94a2-4075-bfb1-62362b9e5d11",
+                    "path": "<Keyboard>/{Back}",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "12171983-5a6e-4371-a3fa-9b68493610ea",
+                    "path": "<Keyboard>/{Cancel}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "cdad5401-5e4f-4d03-b0fc-1ab7a25231cc",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "down",
+                    "id": "13bcb932-f5df-45c8-903c-c4a6d980c2b5",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "cc92cb89-5c53-4dfa-a8f4-97c7c9035f60",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "d67fefef-d811-45f8-a1d6-b04bc4c0700c",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
         {
             "name": "Camera",
-            "id": "2bed2911-e5f1-46d1-8332-28f11b5c76f6",
+            "id": "e6c011c1-4555-46f4-aebf-d60f13c94d18",
             "actions": [
                 {
                     "name": "Move Camera",
                     "type": "Value",
-                    "id": "67e9d1c5-05bc-41ff-bfad-c8fef3c2e464",
-                    "expectedControlType": "Vector2",
+                    "id": "ded51dd8-e884-4d2f-9652-b6cd1543047f",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -125,7 +140,7 @@
                 {
                     "name": "Take Picture",
                     "type": "Button",
-                    "id": "b035b634-6d79-461c-a2a4-da304fe5d1f0",
+                    "id": "1c55ba27-4932-4c22-b7fb-72e5ff8f61d1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -134,7 +149,7 @@
                 {
                     "name": "Close Camera",
                     "type": "Button",
-                    "id": "0a0fa4b6-5b9b-4e97-a51d-fc6d7aa1b77f",
+                    "id": "96e77ddb-7be5-4cf4-a8f2-d20c8394dfc0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -144,34 +159,225 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "6bfec17f-13f5-4a50-9b7f-16827d23a34b",
-                    "path": "<Pointer>/delta",
+                    "id": "16f2a7a1-7185-487a-ae6f-bd1fccc08f48",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Move Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "65a727c2-5381-4bd8-9099-64d0996badfe",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Close Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "cc10f7b8-2085-4fb0-9574-5a8ff8f2d92c",
+                    "id": "83205507-c662-41c5-94e3-06a508366809",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5d5567e-00f7-48f9-a0c3-dc8facdadb63",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "50e1bac0-2c48-4447-b979-3d59882b7832",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Camera",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "f6c6e59a-cfa8-4b3b-b972-ddee3f48809d",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "13e3d65e-a979-48b0-afc8-27967f2f444d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "dc166fc9-2801-447f-a62a-12a20314419a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "fec96624-24c8-4185-94f3-d4142365ec66",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "89f23667-892a-4d98-bc35-fed068ae4583",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Take Picture",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac5020ba-7c0b-441d-80a5-ea592f8cccbd",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Take Picture",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Reflections",
+            "id": "c9659436-d024-4247-9c36-58dcc5418c3b",
+            "actions": [
+                {
+                    "name": "Move Focus Point",
+                    "type": "Value",
+                    "id": "21d475e6-f387-44e1-b50f-7c078a1fbaad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Reflect Further",
+                    "type": "Button",
+                    "id": "0024e4fb-6366-481b-ab40-2831b44878ea",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9a63bc33-b9c9-4557-b206-d698a0a98647",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Focus Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "56da3377-355d-4480-af98-8c5e1f17dcbb",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Focus Point",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "1f36d715-cfc8-4d42-93b6-70b332a57256",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Focus Point",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "01bf411c-d228-4815-99ba-887c8b236da2",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Focus Point",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "17e9ef92-63a6-4cc4-964e-f400e5827e39",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Focus Point",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "69edcd67-c3a7-4c7b-810a-09d9be6ad944",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move Focus Point",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "195b7320-94ff-4800-9fd7-e0a78b5bacd5",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reflect Further",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3073be22-b896-4892-abbc-3a2438fbcc22",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reflect Further",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
