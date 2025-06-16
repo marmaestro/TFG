@@ -9,6 +9,7 @@ namespace TFG.Navigation
     {
         private readonly Game game;
         public string CurrentLocation => game.city.scenes[location];
+        public const string Home = "Home";
 
         public Navigation(Game game)
         {

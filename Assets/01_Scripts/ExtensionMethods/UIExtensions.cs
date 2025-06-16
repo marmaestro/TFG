@@ -41,6 +41,8 @@ namespace TFG.ExtensionMethods
 
         public static void NavigationMenu(int target)
         {
+            if (player.steps <= 0)
+                GoHome();
             Visit(target);
         }
 

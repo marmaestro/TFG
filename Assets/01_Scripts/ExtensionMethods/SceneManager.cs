@@ -26,8 +26,8 @@ namespace TFG.ExtensionMethods
         public static void LocationSceneLoaded()
         {
             UnloadNavigation();
-            
-            int amount = Game.NextLocations().Length;
+
+            int amount = Game.player.steps <= 0 ? 1 : Game.NextLocations().Length;
             string navScene = $"Navigation_{amount}";
 
             AddScene(navScene);

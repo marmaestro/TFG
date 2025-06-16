@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 108960303}
   - component: {fileID: 108960305}
   - component: {fileID: 108960304}
+  - component: {fileID: 108960306}
   m_Layer: 5
   m_Name: ink_2
   m_TagString: Untagged
@@ -417,7 +418,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Copyright 2016 <a href="https://www.inklestudios.com/">inkle Ltd.</a>
+  m_text: Copyright 2016 <a href="https://www.inklestudios.com/"><color=#FF9C36><u>inkle
+    Ltd.</u></color></a>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
   m_sharedMaterial: {fileID: -6384932832586983753, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
@@ -496,6 +498,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108960302}
   m_CullTransparentMesh: 1
+--- !u!114 &108960306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108960302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914ffd7bc7954f54a9fa7c6f7b718760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &143225913
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +521,7 @@ GameObject:
   - component: {fileID: 143225914}
   - component: {fileID: 143225916}
   - component: {fileID: 143225915}
+  - component: {fileID: 143225917}
   m_Layer: 5
   m_Name: Font_1
   m_TagString: Untagged
@@ -553,8 +568,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Copyright 2024 <a href="https://github.com/redstonedesign/parkinsans">The
-    Parkinsans Project</a> Authors
+  m_text: Copyright 2024 <a href="https://github.com/redstonedesign/parkinsans"><color=#FF9C36><u>The
+    Parkinsans Project</u></color></a> Authors
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
   m_sharedMaterial: {fileID: -6384932832586983753, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
@@ -633,6 +648,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143225913}
   m_CullTransparentMesh: 1
+--- !u!114 &143225917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143225913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914ffd7bc7954f54a9fa7c6f7b718760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &246370381
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Idon'tknow
+  m_text: Borealis, Reverie, Castles in the Sky, Glow
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
   m_sharedMaterial: {fileID: -6384932832586983753, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
@@ -844,6 +871,7 @@ GameObject:
   - component: {fileID: 504004531}
   - component: {fileID: 504004533}
   - component: {fileID: 504004532}
+  - component: {fileID: 504004534}
   m_Layer: 5
   m_Name: Music_2
   m_TagString: Untagged
@@ -890,7 +918,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I still have no idea !!
+  m_text: Copyright (c) <a href="https://www.scottbuckley.com.au/"><color=#FF9C36><u>Scott
+    Buckley</u></color></a> under CC-BY 4.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
   m_sharedMaterial: {fileID: -6384932832586983753, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
@@ -969,6 +998,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504004530}
   m_CullTransparentMesh: 1
+--- !u!114 &504004534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504004530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914ffd7bc7954f54a9fa7c6f7b718760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &504813563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1237,7 @@ GameObject:
   - component: {fileID: 877326374}
   - component: {fileID: 877326376}
   - component: {fileID: 877326375}
+  - component: {fileID: 877326377}
   m_Layer: 5
   m_Name: FMOD_1
   m_TagString: Untagged
@@ -1242,7 +1284,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Copyright <a href="https://www.fmod.com/">Firelight Technologies Pty Ltd.</a>
+  m_text: Copyright <a href="https://www.fmod.com/"><color=#FF9C36><u>Firelight Technologies
+    Pty Ltd.</u></color></a>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
   m_sharedMaterial: {fileID: -6384932832586983753, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
@@ -1321,6 +1364,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877326373}
   m_CullTransparentMesh: 1
+--- !u!114 &877326377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877326373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914ffd7bc7954f54a9fa7c6f7b718760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &933458108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2278,7 @@ GameObject:
   - component: {fileID: 1472709570}
   - component: {fileID: 1472709572}
   - component: {fileID: 1472709571}
+  - component: {fileID: 1472709573}
   m_Layer: 5
   m_Name: Visuals_3
   m_TagString: Untagged
@@ -2269,8 +2325,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Developed at <a href=\"https://fotoastrogonzalez.com/sobre-nosotros/\">Foto
-    Astro Gonz\xE1lez</a> (Valencia)"
+  m_text: "Developed at <a href=\"https://fotoastrogonzalez.com/sobre-nosotros/\"><color=#FF9C36><u>Foto
+    Astro Gonz\xE1lez</u></color></a> (Valencia)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
   m_sharedMaterial: {fileID: -6384932832586983753, guid: fcd083e74e8dd334c8b452860ff9af48, type: 2}
@@ -2349,6 +2405,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472709569}
   m_CullTransparentMesh: 1
+--- !u!114 &1472709573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472709569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914ffd7bc7954f54a9fa7c6f7b718760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1641422930
 GameObject:
   m_ObjectHideFlags: 0

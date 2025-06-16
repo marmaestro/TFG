@@ -7,17 +7,22 @@ namespace TFG
     {
         private const int baseSteps = 7;
         public int steps = 7;
-        public static int location = 1;
+        public static int location = 0;
 
         public void Reset()
         {
             steps = baseSteps;
+            location = 0;
         }
 
         public void Visit(int destination)
         {
             steps--;
-            location = destination;
+        }
+
+        public void GoHome()
+        {
+            Reset();
         }
     }
 }

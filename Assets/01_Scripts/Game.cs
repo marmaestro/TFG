@@ -10,7 +10,7 @@ namespace TFG
     {
         private static ISaveableData[] gameData;
         [SerializeField] public City city;
-        private static Player player;
+        internal static Player player;
         private static Navigation.Navigation navigation;
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
 
@@ -70,6 +70,7 @@ namespace TFG
             saveData.playerData.city = city;
             saveData.playerData.player = player;
         }
+        
         public void LoadFromSaveData(SaveSystem saveData)
         {
             city = saveData.playerData.city;
@@ -78,9 +79,15 @@ namespace TFG
         
         public static void Visit(int destination)
         {
-            player.Visit(destination);
             navigation.Visit(destination);
+            player.Visit(destination);
         }
+
+        public static void GoHome()
+        {
+            player.GoHome();
+        }
+        
         public static string[] NextLocations() => navigation.NextLocations();
 
         public static void LoadMainMenu()
