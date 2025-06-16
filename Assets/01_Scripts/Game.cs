@@ -76,7 +76,11 @@ namespace TFG
             player = saveData.playerData.player;
         }
         
-        public static void Visit(int destination) => navigation.Visit(destination);
+        public static void Visit(int destination)
+        {
+            player.Visit(destination);
+            navigation.Visit(destination);
+        }
         public static string[] NextLocations() => navigation.NextLocations();
 
         public static void LoadMainMenu()
