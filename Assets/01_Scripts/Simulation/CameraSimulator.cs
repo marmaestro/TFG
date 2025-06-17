@@ -1,4 +1,5 @@
 using System;
+using TFG.Constants;
 using TFG.InputSystem;
 using TFG.DataManagement;
 using TFG.ExtensionMethods;
@@ -95,7 +96,7 @@ namespace TFG.Simulation
 
         public static void SimulationStart()
         {
-            Actions.SwitchActionMap(true);
+            Actions.SwitchActionMap(ActionMaps.Camera);
         }
 
         private static void SimulationEndAnimation()
@@ -106,7 +107,7 @@ namespace TFG.Simulation
         internal static void SimulationEnd()
         {
             SceneManager.UnloadMultipleScenes(SimulationScenes);
-            Actions.SwitchActionMap();
+            Actions.SwitchActionMap(ActionMaps.World);
         }
     }
 }

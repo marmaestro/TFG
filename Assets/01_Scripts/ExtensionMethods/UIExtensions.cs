@@ -1,4 +1,3 @@
-using TFG.UIElements;
 using static TFG.Animation.TitleAnimator;
 using static TFG.Game;
 
@@ -42,7 +41,14 @@ namespace TFG.ExtensionMethods
 
         public static void NavigationMenu(int target)
         {
+            if (player.steps <= 0)
+                GoHome();
             Visit(target);
         }
+
+        public static void CreditsMenu()
+        {
+            Game.MainMenu();
+        } 
     }
 }

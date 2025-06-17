@@ -10,17 +10,22 @@ namespace TFG
     {
         private static ISaveableData[] gameData;
         [SerializeField] public City city;
-        private static Player player;
+        internal static Player player;
         private static Navigation.Navigation navigation;
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
 
         public void Awake()
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.AddScene("MainMenu");
             navigation = new Navigation.Navigation(this);
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
+
+        public static void MainMenu()
+        {
+            SceneManager.UnloadScene("Credits");
+        }
 
         private static void StartGame()
         {
@@ -55,7 +60,7 @@ namespace TFG
         public static void PauseGame(bool paused)
         {
             Time.timeScale = paused ? 0 : 1;
-            Actions.SwitchActionMap(paused);
+            Actions.PauseInputSystem();
 
             SceneManager.LoadScene("Pause");
         }
@@ -65,13 +70,24 @@ namespace TFG
             saveData.playerData.city = city;
             saveData.playerData.player = player;
         }
+        
         public void LoadFromSaveData(SaveSystem saveData)
         {
             city = saveData.playerData.city;
             player = saveData.playerData.player;
         }
         
-        public static void Visit(int destination) => navigation.Visit(destination);
+        public static void Visit(int destination)
+        {
+            navigation.Visit(destination);
+            player.Visit(destination);
+        }
+
+        public static void GoHome()
+        {
+            player.GoHome();
+        }
+        
         public static string[] NextLocations() => navigation.NextLocations();
 
         public static void LoadMainMenu()

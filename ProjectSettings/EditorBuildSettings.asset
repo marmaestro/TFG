@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/07_Scenes/UI/MainMenu.unity
     guid: 620b557a9b8052143beccbd140df90cc
   - enabled: 1
+    path: Assets/07_Scenes/UI/CreditsMenu.unity
+    guid: c57cd55480503cc40b49f5751afee4de
+  - enabled: 1
     path: Assets/07_Scenes/UI/Pause.unity
     guid: 4e2c1b7bae7d5bf43af1305b99853da2
   - enabled: 1
