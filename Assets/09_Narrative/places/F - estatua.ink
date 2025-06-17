@@ -1,0 +1,34 @@
+=== estatua ===
+* [This man wears an uniform...] I wonder what his job was.
+-> job
+* [Huh, aren't statues usually accompanied by a pigeon or two?] Birds don't seem to like him a lot...
+-> birds
+* [Looks a little worn.] I wonder how long it has been here.
+-> time
+
+= job
+* Might be a driver[.] of some kind? Oh, forget it, I think he's one of those men that kept watch at night and lit the streetlamps. How were they called again?
+I have no idea, should ask mum next time I ring her.
+~elevate(reflective)
+* Well, there's a statue[...] so, whatever the job was, it must've been important to the city.
+~raise(reflective)
+- ->conclussion
+
+= birds
+* Actually, no one seems to[.] care. Each person is in their own bubble of existence.
+~raise(reflective)
+~lower(fun)
+* [It has probably been here for a while...] Well, it has probably been here for a while. I guess the local birds just got used to it.
+~raise(fun)
+~lower(reflective)
+- ->conclussion
+
+= time
+* [Must be old...] It looks like old bronze to me. Although it could just have been made to seem so.
+* [Really, how much?] How come I haven't seen it before? Do I pay that little attention to my surroundings?
+~raise(reflective)
+~lower(cheerful)
+- ->conclussion
+
+= conclussion
+- -> next
