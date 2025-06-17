@@ -21,8 +21,11 @@ VAR fun = INITIAL_SWING // sad
 VAR cheerful = INITIAL_SWING // depressed
 VAR reflective = INITIAL_SWING // it's own thing
 
+// GLOBAL VARIABLES
+VAR dead_plant = false
+
 Something, something, something...
--> terrat_plantes
+-> balco_verd
 
 === next ===
 I'm <>

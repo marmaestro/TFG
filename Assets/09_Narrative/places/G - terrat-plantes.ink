@@ -11,6 +11,7 @@ Oh, look at this terrace... Beautiful.
 ~raise(reflective)
 ~lower(fun)
 * [And to keep them so beautiful, too...] I wish I could keep plants that lush. The last one I owned drowned, the poor thing...
+~dead_plant = true
 I can barely keep myself alive and goind. Why am I acting so surprised?
 ~lower(cheerful)
 - -> conclussion
