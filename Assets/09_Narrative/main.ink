@@ -25,7 +25,7 @@ VAR reflective = INITIAL_SWING // it's own thing
 VAR dead_plant = false
 
 Something, something, something...
--> estany
+-> fruiteria_mercat
 
 === next ===
 I'm <>

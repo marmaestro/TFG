@@ -13,7 +13,7 @@ What a beautiful place, and it has a pond...
 - -> conclussion
 
 = ducks
-* [<i>Look at the duck.</i>] This one... She's looking into the camera, isn't she? Well, I guess I was staring at her first.
+* [<i>Look at the duck in front.</i>] This one... She's looking into the camera, isn't she? Well, I guess I was staring at her first.
 * [<i>Look around.</i>] Is that a fish under the water? It looks huge... Could that eat a sparrow?
 - -> conclussion
 
