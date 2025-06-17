@@ -1,6 +1,7 @@
+// FUNCTIONS
 INCLUDE functions/swing.ink
 
-
+// PLACES
 INCLUDE places/A - carrer-sant-blai.ink
 INCLUDE places/B - terrat-casetes.ink
 INCLUDE places/C - cafe-artistes.ink
@@ -15,25 +16,13 @@ INCLUDE places/K - carrer-ample.ink
 INCLUDE places/L - estany.ink
 INCLUDE places/M - fruiteria-mercat.ink
 
-
-
-
-
-
-
-
-
-
-
+// MOOD VARIABLES
 VAR fun = INITIAL_SWING // sad
 VAR cheerful = INITIAL_SWING // depressed
 VAR reflective = INITIAL_SWING // it's own thing
 
-VAR its_a_pub = false
-VAR visited_carrer_ample = false
-
 Something, something, something...
--> estatua
+-> terrat_plantes
 
 === next ===
 I'm <>

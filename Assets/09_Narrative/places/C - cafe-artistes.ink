@@ -12,7 +12,6 @@ Oh, a café...
 ~lower(fun)
 * [It's a pub...] Forget it, it's a pub! What a funny name for a place like this.
 ~elevate(fun)
-~its_a_pub = true
 - -> conclussion
 
 = front 

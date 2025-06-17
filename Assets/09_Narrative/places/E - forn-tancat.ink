@@ -8,7 +8,7 @@ Seems like a closed-down baker's. It must've been like this for a long while.
 = closed
 * [These times...] In a time like this, is it even worth it to try to keep a small shop afloat? It must be so hard...
 ~lower(cheerful)
-* {its_a_pub} This one did really close[.]... I wonder how their pastries tasted. Must've been such a lively place in the neighbourhood.
+* {cafe_artistes.closed} This one did really close[.]... I wonder how their pastries tasted. Must've been such a lively place in the neighbourhood.
 ~raise(fun)
 ~raise(reflective)
 ~lower(cheerful)
