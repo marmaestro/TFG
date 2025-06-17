@@ -6,7 +6,6 @@
 -> details
 * [<i>Look at the trees.</i>] And there are so many trees!
 -> trees
-- -> conclussion
 
 = cost
 ~ditch(cheerful)

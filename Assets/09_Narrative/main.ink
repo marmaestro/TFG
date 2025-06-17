@@ -7,8 +7,19 @@ INCLUDE places/C - cafe-artistes.ink
 INCLUDE places/D - fruiteria.ink
 INCLUDE places/E - forn-tancat.ink
 INCLUDE places/F - estatua.ink
-
+INCLUDE places/G - terrat-plantes.ink
+INCLUDE places/H - balco-verd.ink
+INCLUDE places/I - antics-negocis.ink
+INCLUDE places/J - terrat-nau.ink
 INCLUDE places/K - carrer-ample.ink
+INCLUDE places/L - estany.ink
+INCLUDE places/M - fruiteria-mercat.ink
+
+
+
+
+
+
 
 
 
