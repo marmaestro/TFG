@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: 620b557a9b8052143beccbd140df90cc
   - enabled: 1
     path: Assets/07_Scenes/UI/CreditsMenu.unity
-    guid: c57cd55480503cc40b49f5751afee4de
+    guid: d909644bfb5465e40846ab3c9cd5767c
   - enabled: 1
     path: Assets/07_Scenes/UI/Pause.unity
     guid: 4e2c1b7bae7d5bf43af1305b99853da2
@@ -71,6 +71,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/07_Scenes/UI/Navigation_3.unity
     guid: d462d82b41813544c9f897aa91f06589
+  - enabled: 1
+    path: Assets/07_Scenes/CreditsScene.unity
+    guid: c57cd55480503cc40b49f5751afee4de
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8e84296f9150e024497f6103a6fd4222, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
