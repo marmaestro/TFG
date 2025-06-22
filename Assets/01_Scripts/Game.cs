@@ -1,6 +1,6 @@
 using TFG.ExtensionMethods;
 using TFG.InputSystem;
-using TFG.Navigation;
+using TFG.NavigationSystem;
 using TFG.DataManagement;
 using UnityEngine;
 
@@ -11,13 +11,13 @@ namespace TFG
         private static ISaveableData[] gameData;
         [SerializeField] public City city;
         internal static Player player;
-        private static Navigation.Navigation navigation;
+        private static Navigation navigation;
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
 
         public void Awake()
         {
             SceneManager.AddScene("MainMenu");
-            navigation = new Navigation.Navigation(this);
+            navigation = new Navigation(this);
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
@@ -79,13 +79,14 @@ namespace TFG
         
         public static void Visit(int destination)
         {
+            player.Move();
             navigation.Visit(destination);
-            player.Visit(destination);
         }
 
         public static void GoHome()
         {
-            player.GoHome();
+            navigation.GoHome();
+            player.Reset();
         }
         
         public static string[] NextLocations() => navigation.NextLocations();

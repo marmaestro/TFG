@@ -1,4 +1,4 @@
-namespace TFG.Constants
+namespace TFG.InputSystem
 {
     public enum ActionMaps
     {

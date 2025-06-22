@@ -3,13 +3,13 @@ using TFG.ExtensionMethods;
 using static TFG.Player;
 using Console = TFG.ExtensionMethods.Console;
 
-namespace TFG.Navigation
+namespace TFG.NavigationSystem
 {
     public class Navigation
     {
         private readonly Game game;
-        public string CurrentLocation => game.city.scenes[location];
-        public const string Home = "Home";
+        private string currentLocation => game.city.scenes[locationID];
+        private const string Home = "Home";
 
         public Navigation(Game game)
         {
@@ -33,16 +33,21 @@ namespace TFG.Navigation
             string destination = nextLocations[uncodedDestination];
             
             #if DEBUG
-            Console.Log(ConsoleCategories.SceneManagement,
-                $"Leaving scene {game.city.scenes[location]} to {destination}");
+            Console.Log(ConsoleCategories.SceneManagement, $"Leaving scene {currentLocation} to {destination}");
             #endif
             
             SceneManager.AddScene(destination);
-            SceneManager.UnloadScene(game.city.scenes[location]);
+            SceneManager.UnloadScene(currentLocation);
 
             int id = Array.IndexOf(game.city.scenes, destination);
             game.city.visitedLocations[id] = true;
-            location = id;
+            locationID = id;
+        }
+
+        public void GoHome()
+        {
+            SceneManager.AddScene(Home);
+            SceneManager.UnloadScene(currentLocation);
         }
     }
 }

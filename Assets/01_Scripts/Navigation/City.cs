@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace TFG.Navigation
+namespace TFG.NavigationSystem
 {
     [Serializable]
     [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]

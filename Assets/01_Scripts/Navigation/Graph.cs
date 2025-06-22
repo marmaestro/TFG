@@ -5,7 +5,7 @@ using TFG.ExtensionMethods;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
 
-namespace TFG.Navigation
+namespace TFG.NavigationSystem
 {
     [Serializable]
     [CreateAssetMenu(fileName = "Graph", menuName = "SIL/Graphs/Graph")]
@@ -13,7 +13,6 @@ namespace TFG.Navigation
     {
         [SerializeField] private List<Node> nodes;
 
-        private readonly int home;
         internal string[] nodeNames => nodes.Select(n => n.SceneName).ToArray();
 
         #if UNITY_EDITOR
@@ -33,7 +32,7 @@ namespace TFG.Navigation
 
         public int NodeCount => nodes.Count;
 
-        public int[] VisitableNodes() => nodes[Player.location].Edges;
+        public int[] VisitableNodes() => nodes[Player.locationID].Edges;
         
         public int Distance(int origin, int target)
         {

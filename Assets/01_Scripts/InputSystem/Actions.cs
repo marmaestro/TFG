@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel;
-using TFG.Constants;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static TFG.Simulation.CameraSimulator;

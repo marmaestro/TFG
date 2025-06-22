@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace TFG.Navigation
+namespace TFG.NavigationSystem
 {
     [Serializable]
     [CreateAssetMenu(fileName = "Node", menuName = "SIL/Graphs/Node")]
@@ -14,7 +14,7 @@ namespace TFG.Navigation
         public int[] Edges => edges;
 
         private int visited;
-        public int Visited => visited;
+        //public int Visited => visited;
 
         public Node(int[] edges)
         {

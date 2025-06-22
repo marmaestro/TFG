@@ -1,5 +1,5 @@
 using System;
-using TFG.Navigation;
+using TFG.NavigationSystem;
 using UnityEngine;
 
 namespace TFG.DataManagement

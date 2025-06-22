@@ -5,24 +5,19 @@ namespace TFG
     [Serializable]
     public class Player
     {
-        private const int baseSteps = 7;
-        public int steps = 7;
-        public static int location = 0;
+        private const int baseSteps = 4; // full game steps : 7
+        public int steps = 4;
+        public static int locationID;
 
         public void Reset()
         {
             steps = baseSteps;
-            location = 0;
+            locationID = 0;
         }
 
-        public void Visit(int destination)
+        public void Move()
         {
             steps--;
-        }
-
-        public void GoHome()
-        {
-            Reset();
         }
     }
 }
