@@ -4,14 +4,14 @@ using UnityEngine;
 #if UNITY_EDITOR
 namespace TFG.UIElements.Editor
 {
-    [CustomEditor(typeof(Graph.Graph))]
+    [CustomEditor(typeof(Navigation.Graph))]
     public class GraphInterface : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            Graph.Graph graph = (Graph.Graph)target;
+            Navigation.Graph graph = (Navigation.Graph)target;
             if (GUILayout.Button("Show graph"))
             {
                 graph.Show();

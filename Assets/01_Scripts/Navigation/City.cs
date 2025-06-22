@@ -7,9 +7,7 @@ namespace TFG.Navigation
     [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]
     public class City : ScriptableObject
     {
-        private Graph.Graph graph;
-        
-        internal int home = 0;
+        [SerializeField] private Graph graph;
         
         internal bool[] visitedLocations;
         internal string[] scenes => graph.nodeNames;

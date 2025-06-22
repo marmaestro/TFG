@@ -4,9 +4,8 @@ using System.Linq;
 using TFG.ExtensionMethods;
 using UnityEngine;
 using Console = TFG.ExtensionMethods.Console;
-using static TFG.Player;
 
-namespace TFG.Graph
+namespace TFG.Navigation
 {
     [Serializable]
     [CreateAssetMenu(fileName = "Graph", menuName = "SIL/Graphs/Graph")]
@@ -34,7 +33,7 @@ namespace TFG.Graph
 
         public int NodeCount => nodes.Count;
 
-        public int[] VisitableNodes() => nodes[location].Edges;
+        public int[] VisitableNodes() => nodes[Player.location].Edges;
         
         public int Distance(int origin, int target)
         {
