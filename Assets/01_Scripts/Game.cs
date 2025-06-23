@@ -16,7 +16,7 @@ namespace TFG
         internal static Player player;
         
         private static Navigation navigation;
-        private static StoryTracker storyTracker;
+        private static StoryHandler storyHandler;
         
         private static ISaveableData[] gameData;
 
@@ -26,7 +26,7 @@ namespace TFG
         {
             SceneManager.AddScene("MainMenu");
             navigation = new Navigation(this);
-            storyTracker = new StoryTracker(gameNarrative);
+            storyHandler = new StoryHandler(gameNarrative);
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
@@ -78,14 +78,14 @@ namespace TFG
         {
             data.gameData.city = city;
             data.gameData.player = player;
-            data.gameData.story = storyTracker.SaveStory();
+            data.gameData.story = storyHandler.SaveStory();
         }
         
         public void LoadFromSaveData(SaveSystem data)
         {
             city = data.gameData.city;
             player = data.gameData.player;
-            storyTracker.LoadStory(data.gameData.story);
+            storyHandler.LoadStory(data.gameData.story);
         }
         
         public static void Visit(int destination)

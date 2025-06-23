@@ -1,7 +1,10 @@
 using System;
+using EasyTextEffects;
 using TFG.InputSystem;
 using TFG.DataManagement;
+using TFG.DialogueSystem;
 using TFG.ExtensionMethods;
+using TMPro;
 using UnityEngine;
 using static TFG.Animation.DiaphragmAnimator;
 using Console = TFG.ExtensionMethods.Console;
@@ -13,8 +16,10 @@ namespace TFG.Simulation
         private static Camera _camera;
         private static Transform _target;
 
-        private static readonly string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
-        private static readonly string RenderTargetPath = "Images/Renderers/FM2Output";
+        [SerializeField] private GameObject textHolder;
+
+        private const string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
+        private const string RenderTargetPath = "Images/Renderers/FM2Output";
         private static readonly string[] SimulationScenes = { "CameraInterface" };
 
         private static RenderTexture RenderTarget;
@@ -25,6 +30,9 @@ namespace TFG.Simulation
         public void Awake()
         {
             RenderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
+            
+            Rewriter.textMeshPro = textHolder.GetComponent<TextMeshPro>();
+            Rewriter.textEffect = textHolder.GetComponent<TextEffect>();
         }
         
         public void Start()

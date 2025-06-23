@@ -6,10 +6,10 @@ namespace TFG.DialogueSystem
 {
     public class Rewriter : MonoBehaviour
     {
-        [SerializeField] private TMP_Text textMeshPro;
-        [SerializeField] private TextEffect textEffect;
+        internal static TMP_Text textMeshPro;
+        internal static TextEffect textEffect;
 
-        public void Rewrite(string text)
+        public static void Rewrite(string text)
         {
             textMeshPro.text = text;
             textEffect.StartManualEffects();
