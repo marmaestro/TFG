@@ -1,13 +1,14 @@
 using System;
 using TFG.NavigationSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TFG.DataManagement
 {
     [Serializable]
     public class SaveSystem
     {
-        public PlayerData playerData;
+        [FormerlySerializedAs("playerData")] public GameData gameData;
 
         public string ToJson()
         {
@@ -20,16 +21,17 @@ namespace TFG.DataManagement
         }
 
         [Serializable]
-        public struct PlayerData
+        public struct GameData
         {
             internal City city;
             internal Player player;
+            internal string story;
         }
     }
 
     public interface ISaveableData
     {
-        void PopulateSaveData(SaveSystem saveData);
-        void LoadFromSaveData(SaveSystem saveData);
+        void PopulateSaveData(SaveSystem data);
+        void LoadFromSaveData(SaveSystem data);
     }
 }

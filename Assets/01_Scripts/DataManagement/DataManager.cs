@@ -9,10 +9,10 @@ namespace TFG.DataManagement
         {
             if (saveables == null) return;
 
-            SaveSystem saveData = new();
-            foreach (ISaveableData saveable in saveables) saveable?.PopulateSaveData(saveData);
+            SaveSystem data = new();
+            foreach (ISaveableData saveable in saveables) saveable?.PopulateSaveData(data);
 
-            if (FileManager.WriteToFile("SaveData.dat", saveData.ToJson()))
+            if (FileManager.WriteToFile("SaveData.dat", data.ToJson()))
                 Debug.Log("Save successful");
         }
 

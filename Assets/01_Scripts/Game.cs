@@ -2,22 +2,31 @@ using TFG.ExtensionMethods;
 using TFG.InputSystem;
 using TFG.NavigationSystem;
 using TFG.DataManagement;
+using TFG.DialogueSystem;
 using UnityEngine;
 
 namespace TFG
 {
     public class Game : MonoBehaviour, ISaveableData
     {
-        private static ISaveableData[] gameData;
         [SerializeField] public City city;
-        internal static Player player;
-        private static Navigation navigation;
+        
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
+        
+        internal static Player player;
+        
+        private static Navigation navigation;
+        private static StoryTracker storyTracker;
+        
+        private static ISaveableData[] gameData;
+
+        private readonly TextAsset gameNarrative = Resources.Load<TextAsset>("main");
 
         public void Awake()
         {
             SceneManager.AddScene("MainMenu");
             navigation = new Navigation(this);
+            storyTracker = new StoryTracker(gameNarrative);
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
@@ -65,16 +74,18 @@ namespace TFG
             SceneManager.LoadScene("Pause");
         }
 
-        public void PopulateSaveData(SaveSystem saveData)
+        public void PopulateSaveData(SaveSystem data)
         {
-            saveData.playerData.city = city;
-            saveData.playerData.player = player;
+            data.gameData.city = city;
+            data.gameData.player = player;
+            data.gameData.story = storyTracker.SaveStory();
         }
         
-        public void LoadFromSaveData(SaveSystem saveData)
+        public void LoadFromSaveData(SaveSystem data)
         {
-            city = saveData.playerData.city;
-            player = saveData.playerData.player;
+            city = data.gameData.city;
+            player = data.gameData.player;
+            storyTracker.LoadStory(data.gameData.story);
         }
         
         public static void Visit(int destination)

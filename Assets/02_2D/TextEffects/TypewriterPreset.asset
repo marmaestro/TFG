@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TypewriterPreset
   m_EditorClassIdentifier: 
   tagEffects:
-  - triggerWhen: 0
+  - triggerWhen: 1
     effect: {fileID: 11400000, guid: 15f8084251193da4e92864aee7a16d58, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
