@@ -14,7 +14,19 @@ namespace TFG.ExtensionMethods
             foreach (string sceneName in sceneNames) AddScene(sceneName);
         }
 
-        public static void UnloadScene(string sceneName) => SM.UnloadSceneAsync(sceneName);
+        public static void UnloadScene(string sceneName)
+        {
+            try
+            {
+                SM.UnloadSceneAsync(sceneName);
+            }
+            catch
+            {
+                #if DEBUG
+                Console.LogWarning(ConsoleCategories.SceneManagement, $"Scene {sceneName} cannot be unloaded.");
+                #endif
+            }
+        }
 
         public static void UnloadMultipleScenes(string[] sceneNames)
         {

@@ -269,7 +269,7 @@ MonoBehaviour:
   m_PointAction: {fileID: 1493803001}
   m_MoveAction: {fileID: 1777618515}
   m_SubmitAction: {fileID: 1600291785}
-  m_CancelAction: {fileID: -5799032674284232656, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_CancelAction: {fileID: 435817292755593627, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_LeftClickAction: {fileID: 1999594875}
   m_MiddleClickAction: {fileID: 419768597}
   m_RightClickAction: {fileID: 890271232}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 1062876117}
   m_TrackedDeviceOrientationAction: {fileID: 1451182279}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 1
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
 --- !u!114 &1898146205
@@ -685,7 +685,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Game-world
+  m_DefaultActionMap: a6a79aee-deb5-415f-805e-842e233e1cdf
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &7330730127420462221

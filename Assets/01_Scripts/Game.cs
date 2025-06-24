@@ -20,11 +20,13 @@ namespace TFG
         
         private static ISaveableData[] gameData;
 
-        private readonly TextAsset gameNarrative = Resources.Load<TextAsset>("main");
+        private TextAsset gameNarrative;
 
         public void Awake()
         {
+            gameNarrative = Resources.Load<TextAsset>("main");
             SceneManager.AddScene("MainMenu");
+            
             navigation = new Navigation(this);
             storyHandler = new StoryHandler(gameNarrative);
         }
@@ -38,9 +40,9 @@ namespace TFG
 
         private static void StartGame()
         {
-            PauseGame(false);
             SceneManager.UnloadScene("MainMenu");
-            SceneManager.AddScene("Start");
+            PauseGame(false);
+            Visit(0);
         }
 
         public static void StartNewGame()
@@ -51,8 +53,13 @@ namespace TFG
 
         public static void LoadGame()
         {
-            DataManager.LoadJsonData(gameData);
-            StartGame();
+            if (ExistingSaveFile())
+            {
+                DataManager.LoadJsonData(gameData);
+                StartGame();
+            }
+            
+            else StartNewGame();
         }
 
         public static void SaveGame()
@@ -68,10 +75,19 @@ namespace TFG
 
         public static void PauseGame(bool paused)
         {
-            Time.timeScale = paused ? 0 : 1;
-            PlayerActions.PauseInputSystem();
+            if (paused)
+            {
+                Time.timeScale = 0;
+                SceneManager.AddScene("Pause");
+            }
 
-            SceneManager.LoadScene("Pause");
+            else
+            {
+                Time.timeScale = 1;
+                SceneManager.UnloadScene("Pause");
+            }
+            
+            PlayerActions.PauseInputSystem();
         }
 
         public void PopulateSaveData(SaveSystem data)

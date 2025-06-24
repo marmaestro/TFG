@@ -5,8 +5,8 @@ namespace TFG
     [Serializable]
     public class Player
     {
-        private const int baseSteps = 4; // full game steps : 7
-        public int steps = 4;
+        private const int baseSteps = 5; // full game steps : 7
+        public int steps = 5;
         public static int locationID;
 
         public void Reset()

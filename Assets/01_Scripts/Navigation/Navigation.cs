@@ -36,8 +36,8 @@ namespace TFG.NavigationSystem
             Console.Log(ConsoleCategories.SceneManagement, $"Leaving scene {currentLocation} to {destination}");
             #endif
             
-            SceneManager.AddScene(destination);
             SceneManager.UnloadScene(currentLocation);
+            SceneManager.AddScene(destination);
 
             int id = Array.IndexOf(game.city.scenes, destination);
             game.city.visitedLocations[id] = true;
