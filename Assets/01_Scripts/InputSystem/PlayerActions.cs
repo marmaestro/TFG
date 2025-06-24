@@ -1,12 +1,12 @@
 using System;
 using System.ComponentModel;
+using TFG.Simulation;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static TFG.Simulation.CameraSimulator;
 
 namespace TFG.InputSystem
 {
-    public class Actions : MonoBehaviour
+    public class PlayerActions : MonoBehaviour
     {
         private static PlayerInput playerInput;
         
@@ -43,7 +43,6 @@ namespace TFG.InputSystem
             moveFocusPoint = playerInput.actions["Move Focus Point"];
             reflect = playerInput.actions["Reflect Further"];
         }
-        #endregion
 
         public void Start()
         {
@@ -59,17 +58,18 @@ namespace TFG.InputSystem
             
             // Reflect
             moveFocusPoint.performed += context => OnMoveFocusPoint(context.ReadValue<Vector2>());
-            reflect.performed += context => OnReflect(context.ReadValue<Vector2>());
+            reflect.performed += OnReflect;
         }
+        #endregion
 
         #region World Actions
         private void OnNavigate(Vector2 delta)
         {
-            // TODO : NAVIGATE
+            NavigationInput.Parse(delta);
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
-            OpenCamera();
+            CameraSimulator.OpenCamera();
         }
         private void OnPause(InputAction.CallbackContext context)
         {
@@ -80,26 +80,27 @@ namespace TFG.InputSystem
         #region Camera Actions
         private static void OnMoveCamera(Vector2 delta)
         {
-            MoveCamera(delta);
+            CameraSimulator.MovePointer(delta);
         }
         private void OnTakePicture(InputAction.CallbackContext context)
         {
-            TakePicture();
+            CameraSimulator.TakePicture();
         }
         private void OnCloseCamera(InputAction.CallbackContext context)
         {
-            CloseCamera();
+            CameraSimulator.Close();
         }
         #endregion
         
         #region Reflection Actions
-        private void OnMoveFocusPoint(Vector2 delta)
+
+        private static void OnMoveFocusPoint(Vector2 delta)
         {
-            // TODO : MOVE IN REFLECTION
+            CameraReflector.MovePointer(delta);
         }
-        private void OnReflect(Vector2 delta)
+        private static void OnReflect(InputAction.CallbackContext context)
         {
-            // TODO : REFLECT
+            CameraReflector.Reflect();
         }
         #endregion
         

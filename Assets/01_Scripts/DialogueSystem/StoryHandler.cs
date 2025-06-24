@@ -7,14 +7,14 @@ namespace TFG.DialogueSystem
 {
     public class StoryHandler
     {
-        private readonly Story story;
+        private static Story story;
 
         public StoryHandler(TextAsset mainText)
         {
             story = new Story(mainText.text);
         }
 
-        #region SAVING AND LOADING
+        #region Save and Load
         public string SaveStory()
         {
             return story.state.ToJson();
@@ -26,33 +26,45 @@ namespace TFG.DialogueSystem
         }
         #endregion
 
+        #region Story Events
         public void ProgressStory()
         {
             while (story.canContinue)
             {
-                DialogueBridge.NewTextLine(Step());
+                DialogueBridge.IdentifyOption(Step());
                 
-                if (story.currentChoices.Count <= 0)
+                /*if (story.currentChoices.Count <= 0)
                 {
                     GetChoices();
                     break;
-                }
+                }*/
             }
         }
 
-        private string Step()
+        public static string Step()
         {
             return story.Continue();
         }
 
-        private List<string> GetChoices()
-        {
-            return story.currentChoices.Select(c => c.text).ToList();
-        }
-
-        private void Choose(int choice)
+        public static void Choose(int choice)
         {
             story.ChooseChoiceIndex(choice);
         }
+        #endregion
+        
+        #region Story Handling
+        public static int GetOptionIndex(string textID)
+        {
+            foreach (Choice choice in story.currentChoices.
+                         Where(choice => choice.pathStringOnChoice.Equals(textID)))
+                return choice.index;
+            return -1;
+        }
+        
+        public static string GetText()
+        {
+            return story.currentText;
+        }
+        #endregion
     }
 }

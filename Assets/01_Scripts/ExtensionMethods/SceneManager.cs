@@ -35,12 +35,9 @@ namespace TFG.ExtensionMethods
 
         private static void UnloadNavigation()
         {
-            if (LoadedScene("Navigation_1"))
-                UnloadScene("Navigation_1");
-            else if (LoadedScene("Navigation_2"))
-                UnloadScene("Navigation_2");
-            else if (LoadedScene("Navigation_3"))
-                UnloadScene("Navigation_3");
+            UnloadScene($"Navigation_{loadedNavigationScene}");
         }
+        
+        public static int loadedNavigationScene => LoadedScene("Navigation_1") ? 1 : LoadedScene("Navigation_2") ? 2 : 3;
     }
 }

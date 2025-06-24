@@ -7,16 +7,13 @@ using TFG.ExtensionMethods;
 using TMPro;
 using UnityEngine;
 using static TFG.Animation.DiaphragmAnimator;
-using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Simulation
 {
     public class CameraSimulator : MonoBehaviour
     {
-        private static Camera _camera;
-        private static Transform _target;
-
         [SerializeField] private GameObject textHolder;
+        private new static Camera camera;
 
         private const string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
         private const string RenderTargetPath = "Images/Renderers/FM2Output";
@@ -26,41 +23,33 @@ namespace TFG.Simulation
 
         private static Texture2D _shot;
 
-        // Unity events
+        #region Unity Events
         public void Awake()
         {
             RenderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
             
             Rewriter.textMeshPro = textHolder.GetComponent<TextMeshPro>();
             Rewriter.textEffect = textHolder.GetComponent<TextEffect>();
-        }
-        
-        public void Start()
-        {
-            _camera = GetComponent<Camera>();
-            _target = GameObject.FindGameObjectWithTag("PointerTarget").transform;
             
-            #if DEBUG
-            Console.Log(ConsoleCategories.Debug, $"_camera is {_camera.name}");
-            Console.Log(ConsoleCategories.Debug, $"_target is {_target.name}");
-            #endif
+            camera = GetComponent<Camera>();
         }
 
         public void LateUpdate()
         {
-            _camera.Render();
+            camera.Render();
         }
+        #endregion
 
-        // Behaviour
-        public static void MoveCamera(Vector2 delta)
+        #region Behaviour Methods
+        public static void MovePointer(Vector2 delta)
         {
-            _target.position = new Vector3(delta.x, delta.y, _target.transform.position.z);
+            camera.transform.position = new Vector3(delta.x, delta.y, camera.transform.position.z);
         }
 
         public static void TakePicture()
         {
             // Call the camera to render
-            _camera.Render();
+            camera.Render();
 
             // Set up the Texture2D
             _shot = new Texture2D(RenderTarget.width, RenderTarget.height, TextureFormat.RGB24, false);
@@ -81,15 +70,16 @@ namespace TFG.Simulation
             // The file name is 'CurrenScene_Date_Time.png'
             return $"{Game.CurrentLocation}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
         }
+        #endregion
 
-        // Simulation
+        #region Simulation
         public static void OpenCamera()
         {
             // Open picture interface/camera simulation
             SimulationStartAnimation();
         }
 
-        public static void CloseCamera()
+        public static void Close()
         {
             // Close picture interface/camera simulation
             SimulationEndAnimation();
@@ -103,7 +93,7 @@ namespace TFG.Simulation
 
         public static void SimulationStart()
         {
-            Actions.SwitchActionMap(ActionMaps.Camera);
+            PlayerActions.SwitchActionMap(ActionMaps.Camera);
         }
 
         private static void SimulationEndAnimation()
@@ -114,7 +104,8 @@ namespace TFG.Simulation
         internal static void SimulationEnd()
         {
             SceneManager.UnloadMultipleScenes(SimulationScenes);
-            Actions.SwitchActionMap(ActionMaps.World);
+            PlayerActions.SwitchActionMap(ActionMaps.World);
         }
+        #endregion
     }
 }

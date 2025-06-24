@@ -9,7 +9,7 @@ namespace TFG.DialogueSystem
         internal static TMP_Text textMeshPro;
         internal static TextEffect textEffect;
 
-        public static void Rewrite(string text)
+        internal static void Rewrite(string text)
         {
             textMeshPro.text = text;
             textEffect.StartManualEffects();

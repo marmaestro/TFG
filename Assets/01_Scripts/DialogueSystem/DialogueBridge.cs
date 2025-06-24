@@ -2,11 +2,11 @@ namespace TFG.DialogueSystem
 {
     public static class DialogueBridge
     {
-        private static Rewriter rewriter;
-        
-        public static void NewTextLine(string text)
+        public static void IdentifyOption(string textID)
         {
-            Rewriter.Rewrite(text);
+            int optionID = StoryHandler.GetOptionIndex(textID);
+            StoryHandler.Choose(optionID);
+            Rewriter.Rewrite(StoryHandler.Step());
         }
     }
 }
