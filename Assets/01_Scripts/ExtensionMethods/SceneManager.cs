@@ -8,6 +8,12 @@ namespace TFG.ExtensionMethods
     {
         public static void LoadScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Single);
         public static void AddScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Additive);
+        
+        public static void AddSceneWithCheck(string sceneName)
+        {
+            if (!LoadedScene(sceneName))
+                AddScene(sceneName);
+        }
 
         public static void AddMultipleScenes(string[] sceneNames)
         {
@@ -32,12 +38,22 @@ namespace TFG.ExtensionMethods
         {
             foreach (string sceneName in sceneNames.Reverse()) UnloadScene(sceneName);
         }
+        
+        public static void ClearScenes()
+        {
+            for (int i = 0; i <= SM.loadedSceneCount; i++)
+            {
+                Scene scene = SM.GetSceneAt(i);
+                if (!scene.name.Equals("Persistent"))
+                    SM.UnloadSceneAsync(scene.name);
+            }
+        }
 
         private static bool LoadedScene(string sceneName) => SM.GetSceneByName(sceneName).isLoaded;
 
-        public static void LocationSceneLoaded()
+        public static void OnLocationSceneLoaded()
         {
-            UnloadNavigation();
+            UnloadNavigationScene();
 
             int amount = Game.player.steps <= 0 ? 1 : Game.NextLocations().Length;
             string navScene = $"Navigation_{amount}";
@@ -46,11 +62,11 @@ namespace TFG.ExtensionMethods
                 AddScene(navScene);
         }
 
-        internal static void UnloadNavigation()
+        internal static void UnloadNavigationScene()
         {
-            UnloadScene($"Navigation_{loadedNavigationScene}");
+            UnloadScene($"Navigation_{currentNavigationSceneID}");
         }
         
-        public static int loadedNavigationScene => LoadedScene("Navigation_1") ? 1 : LoadedScene("Navigation_2") ? 2 : 3;
+        public static int currentNavigationSceneID => LoadedScene("Navigation_1") ? 1 : LoadedScene("Navigation_2") ? 2 : LoadedScene("Navigation_3") ? 3 : 0;
     }
 }

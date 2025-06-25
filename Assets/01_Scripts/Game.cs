@@ -14,11 +14,11 @@ namespace TFG
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
         
         internal static Player player;
-        
         private static Navigation navigation;
         private static StoryHandler storyHandler;
-        
         private static ISaveableData[] gameData;
+
+        internal static bool FirstPlay = true; 
 
         private TextAsset gameNarrative;
 
@@ -35,8 +35,8 @@ namespace TFG
 
         public static void MainMenu()
         {
-            SceneManager.UnloadScene("CreditsMenu");
-            SceneManager.UnloadScene("CreditsScene");
+            SceneManager.ClearScenes();
+            SceneManager.AddScene("MainMenu");
         }
 
         private static void StartGame()
@@ -78,13 +78,13 @@ namespace TFG
             if (paused)
             {
                 Time.timeScale = 0;
-                SceneManager.AddScene("Pause");
+                SceneManager.AddSceneWithCheck("PauseMenu");
             }
 
             else
             {
                 Time.timeScale = 1;
-                SceneManager.UnloadScene("Pause");
+                SceneManager.UnloadScene("PauseMenu");
             }
         }
 

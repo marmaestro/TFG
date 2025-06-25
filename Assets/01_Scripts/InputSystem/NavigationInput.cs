@@ -7,7 +7,7 @@ namespace TFG.InputSystem
     {
         public static void Parse(Vector2 delta)
         {
-            switch (SceneManager.loadedNavigationScene)
+            switch (SceneManager.currentNavigationSceneID)
             {
                 case 1:
                     if (delta.y < 0)

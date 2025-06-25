@@ -28,20 +28,18 @@ namespace TFG.ExtensionMethods
         {
             switch (target)
             {
-                case "Continue": UIElements.PauseMenu.PauseGame(false); break;
+                case "Continue": PauseGame(false); break;
 
-                case "Settings":
-                case "MainMenu": SceneManager.AddScene(target); break;
+                case "Settings": SceneManager.AddScene(target); break;
+                
+                case "MainMenu": Game.MainMenu(); break; 
                 
                 case "SaveGame": SaveGame(); break;
-                
-                case "ExitGame": QuitGame(); break;
             }
         }
 
         public static void NavigationMenu(int target)
         {
-            Console.Log(ConsoleCategories.Debug, "IDK OKAY");
             if (player.steps <= 0)
                 GoHome();
             Visit(target);

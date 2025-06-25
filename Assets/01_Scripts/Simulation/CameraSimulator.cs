@@ -10,10 +10,11 @@ using static TFG.Animation.DiaphragmAnimator;
 
 namespace TFG.Simulation
 {
+    [RequireComponent(typeof(Camera))]
     public class CameraSimulator : MonoBehaviour
     {
         [SerializeField] private GameObject textHolder;
-        private new static Camera camera;
+        private static Camera camera;
 
         private const string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
         private const string RenderTargetPath = "Images/Renderers/FM2Output";
