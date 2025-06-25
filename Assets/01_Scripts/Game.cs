@@ -35,7 +35,8 @@ namespace TFG
 
         public static void MainMenu()
         {
-            SceneManager.UnloadScene("Credits");
+            SceneManager.UnloadScene("CreditsMenu");
+            SceneManager.UnloadScene("CreditsScene");
         }
 
         private static void StartGame()

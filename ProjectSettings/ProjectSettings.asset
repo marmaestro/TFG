@@ -14,8 +14,8 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: marmaestro
   productName: Still I Linger
-  defaultCursor: {fileID: 0}
-  cursorHotspot: {x: 0, y: 0}
+  defaultCursor: {fileID: 2800000, guid: 2aae36e1b9014df40bae91944e43b532, type: 3}
+  cursorHotspot: {x: 0.145, y: 0.7448422}
   m_SplashScreenBackgroundColor: {r: 0.96470594, g: 0.97647065, b: 0.93725497, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
