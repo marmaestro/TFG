@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace TFG.InputSystem
 {
-    public static class NavigationInput
+    public static class InputDecoding
     {
-        public static void Parse(Vector2 delta)
+        public static void ParseDelta(Vector2 delta)
         {
             switch (SceneManager.currentNavigationSceneID)
             {

@@ -68,7 +68,7 @@ namespace TFG.InputSystem
         private void OnNavigate(Vector2 delta)
         {
             if (Game.player.steps > 0)
-                NavigationInput.Parse(delta);
+                InputDecoding.ParseDelta(delta);
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {

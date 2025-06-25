@@ -1,7 +1,5 @@
-using System;
 using EasyTextEffects;
 using TFG.InputSystem;
-using TFG.DataManagement;
 using TFG.DialogueSystem;
 using TFG.ExtensionMethods;
 using TMPro;
@@ -15,23 +13,24 @@ namespace TFG.Simulation
     {
         [SerializeField] private GameObject textHolder;
         private new static Camera camera;
+        private static readonly Vector2 bounds = new(635, 420); // (635/2, 420/2) // (317.5f, 210f)
 
-        private const string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
-        private const string RenderTargetPath = "Images/Renderers/FM2Output";
-        private static readonly string[] SimulationScenes = { "CameraInterface" };
+        //private static RenderTexture renderTarget;
+        private static Texture2D shot;
 
-        private static RenderTexture RenderTarget;
-
-        private static Texture2D _shot;
+        //private const string SavedImagesPath = "";
+        //private const string RenderTargetPath = "Images/Renderers/FM2Output";
+        private static readonly string[] simulationScenes = { "CameraInterface" };
 
         #region Unity Events
+
         public void Awake()
         {
-            RenderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
-            
+            //renderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
+
             Rewriter.textMeshPro = textHolder.GetComponent<TextMeshPro>();
             Rewriter.textEffect = textHolder.GetComponent<TextEffect>();
-            
+
             camera = GetComponent<Camera>();
         }
 
@@ -44,12 +43,17 @@ namespace TFG.Simulation
         #region Behaviour Methods
         public static void MovePointer(Vector2 delta)
         {
-            float x = camera.transform.position.x + delta.x;
-            float y = camera.transform.position.y + delta.y;
+            float rawX = camera.transform.position.x + delta.x;
+            float rawY = camera.transform.position.y + delta.y;
             
-            camera.transform.position = new Vector3(x, y, camera.transform.position.z);
+            float clampedX = Mathf.Clamp(rawX, - bounds.x , bounds.x);
+            float clampedY = Mathf.Clamp(rawY, - bounds.y, bounds.y);
+            
+            Console.Log(ConsoleCategories.Simulation, $"({clampedX}, {clampedY})");
+            
+            camera.transform.position = new Vector3(clampedX, clampedY, camera.transform.position.z);
         }
-
+        
         /*public static void TakePicture()
         {
             // Call the camera to render
@@ -92,7 +96,7 @@ namespace TFG.Simulation
         private static void SimulationStartAnimation()
         {
             OpenAnimation();
-            SceneManager.AddMultipleScenes(SimulationScenes);
+            SceneManager.AddMultipleScenes(simulationScenes);
         }
 
         public static void SimulationStart()
@@ -107,7 +111,7 @@ namespace TFG.Simulation
 
         internal static void SimulationEnd()
         {
-            SceneManager.UnloadMultipleScenes(SimulationScenes);
+            SceneManager.UnloadMultipleScenes(simulationScenes);
             PlayerActions.SwitchActionMap(ActionMaps.World);
         }
         #endregion
