@@ -669,9 +669,9 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 94a3e25e-b29d-43cd-b889-1e45e1a14c56
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: a6a79aee-deb5-415f-805e-842e233e1cdf
+  m_DefaultActionMap: df57254d-465a-40c2-832c-7689989fad92
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &7330730127420462221

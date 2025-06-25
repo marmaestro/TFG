@@ -25,7 +25,7 @@ namespace TFG
         public void Awake()
         {
             gameNarrative = Resources.Load<TextAsset>("main");
-            SceneManager.AddScene("MainMenu");
+            //SceneManager.AddScene("MainMenu");
             
             navigation = new Navigation(this);
             storyHandler = new StoryHandler(gameNarrative);

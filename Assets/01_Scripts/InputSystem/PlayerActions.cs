@@ -1,8 +1,10 @@
 using System;
 using System.ComponentModel;
+using TFG.ExtensionMethods;
 using TFG.Simulation;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.InputSystem
 {
@@ -36,7 +38,7 @@ namespace TFG.InputSystem
             
             // Camera
             moveCamera = playerInput.actions["Move Camera"];
-            takePicture = playerInput.actions["Take Picture"];
+            //takePicture = playerInput.actions["Take Picture"];
             closeCamera = playerInput.actions["Close Camera"];
             
             // Reflections
@@ -53,7 +55,7 @@ namespace TFG.InputSystem
             
             // Camera
             moveCamera.performed += context => OnMoveCamera(context.ReadValue<Vector2>());
-            takePicture.performed += OnTakePicture;
+            //takePicture.performed += OnTakePicture;
             closeCamera.performed += OnCloseCamera;
             
             // Reflect
@@ -83,10 +85,10 @@ namespace TFG.InputSystem
         {
             CameraSimulator.MovePointer(delta);
         }
-        private void OnTakePicture(InputAction.CallbackContext context)
+        /*private void OnTakePicture(InputAction.CallbackContext context)
         {
             CameraSimulator.TakePicture();
-        }
+        }*/
         private void OnCloseCamera(InputAction.CallbackContext context)
         {
             CameraSimulator.Close();
@@ -110,6 +112,7 @@ namespace TFG.InputSystem
             if (!Enum.IsDefined(typeof(ActionMaps), actionMap))
                 throw new InvalidEnumArgumentException($"{actionMap} is not defined.");
             
+            Console.Log(ConsoleCategories.Debug, $"Switching action map to <u>{actionMap}</u>.");
             playerInput.SwitchCurrentActionMap(actionMap.ToString());
         }
         

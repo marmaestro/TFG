@@ -44,10 +44,13 @@ namespace TFG.Simulation
         #region Behaviour Methods
         public static void MovePointer(Vector2 delta)
         {
-            camera.transform.position = new Vector3(delta.x, delta.y, camera.transform.position.z);
+            float x = camera.transform.position.x + delta.x;
+            float y = camera.transform.position.y + delta.y;
+            
+            camera.transform.position = new Vector3(x, y, camera.transform.position.z);
         }
 
-        public static void TakePicture()
+        /*public static void TakePicture()
         {
             // Call the camera to render
             camera.Render();
@@ -70,7 +73,7 @@ namespace TFG.Simulation
         {
             // The file name is 'CurrenScene_Date_Time.png'
             return $"{Game.CurrentLocation}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
-        }
+        }*/
         #endregion
 
         #region Simulation
