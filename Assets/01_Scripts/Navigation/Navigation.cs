@@ -9,7 +9,7 @@ namespace TFG.NavigationSystem
     {
         private readonly Game game;
         private string currentLocation => game.city.scenes[locationID];
-        private const string Home = "Home";
+        private const string Home = "0 Home";
 
         public Navigation(Game game)
         {
@@ -44,10 +44,18 @@ namespace TFG.NavigationSystem
             locationID = id;
         }
 
-        public void GoHome()
+        public void GoHome(bool endOfDay)
         {
-            SceneManager.AddScene(Home);
             SceneManager.UnloadScene(currentLocation);
+            SceneManager.AddScene(Home);
+            
+            if (endOfDay)
+            {
+                SceneManager.UnloadNavigation();
+                SceneManager.AddScene("Diary");
+                
+                // TODO : Create diary scene and logic
+            }
         }
     }
 }

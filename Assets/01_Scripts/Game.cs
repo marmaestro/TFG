@@ -42,7 +42,7 @@ namespace TFG
         {
             SceneManager.UnloadScene("MainMenu");
             PauseGame(false);
-            Visit(0);
+            GoHome(false);
         }
 
         public static void StartNewGame()
@@ -110,9 +110,9 @@ namespace TFG
             navigation.Visit(destination);
         }
 
-        public static void GoHome()
+        public static void GoHome(bool  endOfDay = true)
         {
-            navigation.GoHome();
+            navigation.GoHome(endOfDay);
             player.Reset();
         }
         

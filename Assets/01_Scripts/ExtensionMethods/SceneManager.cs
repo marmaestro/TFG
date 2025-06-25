@@ -45,7 +45,7 @@ namespace TFG.ExtensionMethods
             AddScene(navScene);
         }
 
-        private static void UnloadNavigation()
+        internal static void UnloadNavigation()
         {
             UnloadScene($"Navigation_{loadedNavigationScene}");
         }

@@ -118,10 +118,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 4293783743901062751}
-  usePreset: 1
+  usePreset: 0
   preset: {fileID: 11400000, guid: a677227b415c35f4fbfbcc250c57148b, type: 2}
   tagEffects: []
-  globalEffects: []
+  globalEffects:
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: 15f8084251193da4e92864aee7a16d58, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+    overrideTagEffects: 0
   updatesPerSecond: 30
 --- !u!114 &4293783743901062751 stripped
 MonoBehaviour:
