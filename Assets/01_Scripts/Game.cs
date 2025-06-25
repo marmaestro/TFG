@@ -40,7 +40,6 @@ namespace TFG
 
         private static void StartGame()
         {
-            SceneManager.UnloadScene("MainMenu");
             PauseGame(false);
             GoHome(false);
         }
@@ -86,8 +85,6 @@ namespace TFG
                 Time.timeScale = 1;
                 SceneManager.UnloadScene("Pause");
             }
-            
-            PlayerActions.PauseInputSystem();
         }
 
         public void PopulateSaveData(SaveSystem data)

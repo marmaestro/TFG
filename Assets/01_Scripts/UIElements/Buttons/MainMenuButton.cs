@@ -1,3 +1,4 @@
+using TFG.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static TFG.ExtensionMethods.UIExtensions;
@@ -15,6 +16,7 @@ namespace TFG.UIElements.Buttons
         
         public void OnPointerEnter(PointerEventData eventData)
         {
+            Console.Log(ConsoleCategories.Debug, "OnPointerEnter");
             gameObject.transform.localScale += Vector3.one * 0.2f;
         }
         public void OnPointerExit(PointerEventData eventData)

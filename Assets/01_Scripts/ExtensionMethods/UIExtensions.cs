@@ -41,6 +41,7 @@ namespace TFG.ExtensionMethods
 
         public static void NavigationMenu(int target)
         {
+            Console.Log(ConsoleCategories.Debug, "IDK OKAY");
             if (player.steps <= 0)
                 GoHome();
             Visit(target);
