@@ -13,17 +13,8 @@ MonoBehaviour:
   m_Name: Vertical Slice Graph
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 11400000, guid: cc80dbbe15343e1479ce87fc027b5526, type: 2}
-  - {fileID: 11400000, guid: 525eb5c0b6e394240ba2f252446e9e78, type: 2}
-  - {fileID: 11400000, guid: bc1b9c10209237f428706ef91aa907c8, type: 2}
-  - {fileID: 11400000, guid: ef47b81cbc2a5a243b2c77bd1b9617b2, type: 2}
-  - {fileID: 11400000, guid: 61d27ecf4cfd19642acc2be23a12d3ff, type: 2}
-  - {fileID: 11400000, guid: edbd79ea97db3e24db34b605763b2a10, type: 2}
-  - {fileID: 11400000, guid: 5592d927c138bd246bf66db5bc2a1aca, type: 2}
-  - {fileID: 11400000, guid: e76b5367fbcfd3a4db17f71cab1c79b5, type: 2}
-  - {fileID: 11400000, guid: 65f5dbf80ec9f894891da00c97623d38, type: 2}
-  - {fileID: 11400000, guid: 29c703c4adbf1e14ba09d42b26a86965, type: 2}
-  - {fileID: 11400000, guid: eb1305468c689b44d91f670074567f07, type: 2}
-  - {fileID: 11400000, guid: 7854402d397465f49aa078bea8f2a8a1, type: 2}
-  - {fileID: 11400000, guid: 60adfa9a15419a646b49d74171f36678, type: 2}
-  - {fileID: 11400000, guid: 233af4ddcdf8af946991664f94b30652, type: 2}
+  - {fileID: 11400000, guid: d9b03b17448eebf4aa83fa512445c1ca, type: 2}
+  - {fileID: 11400000, guid: e6a039b999c578542afec86cebc17e67, type: 2}
+  - {fileID: 11400000, guid: a10f2fcfb19df524186848f5375e2af0, type: 2}
+  - {fileID: 11400000, guid: fef7cd906a5d4704fb226e69c2362063, type: 2}
+  - {fileID: 11400000, guid: c25bff81d57f6ba4ca5b11042a6ff7d9, type: 2}

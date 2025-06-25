@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9000aae0d16c417d8c252593f162a1e0, type: 3}
-  m_Name: 0
+  m_Name: VS_F
   m_EditorClassIdentifier: 
-  sceneName: 0 Home
-  edges: 030000000500000006000000
+  sceneName: F Estatua
+  edges: 0000000002000000
