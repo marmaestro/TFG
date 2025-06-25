@@ -108,9 +108,9 @@ namespace TFG.InputSystem
         public static void SwitchActionMap(ActionMaps actionMap)
         {
             if (!Enum.IsDefined(typeof(ActionMaps), actionMap))
-                throw new InvalidEnumArgumentException($"{nameof(actionMap)} is not defined.");
+                throw new InvalidEnumArgumentException($"{actionMap} is not defined.");
             
-            playerInput.SwitchCurrentActionMap(nameof(actionMap));
+            playerInput.SwitchCurrentActionMap(actionMap.ToString());
         }
         
         public static void PauseInputSystem()

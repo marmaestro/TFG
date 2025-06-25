@@ -37,10 +37,13 @@ namespace TFG
         {
             SceneManager.ClearScenes();
             SceneManager.AddScene("MainMenu");
+            PlayerActions.SwitchActionMap(ActionMaps.UI);
         }
 
         private static void StartGame()
         {
+            PlayerActions.SwitchActionMap(ActionMaps.World);
+            Console.Log(ConsoleCategories.Debug, "Starting Game");
             PauseGame(false);
             GoHome(false);
         }
@@ -79,12 +82,14 @@ namespace TFG
             {
                 Time.timeScale = 0;
                 SceneManager.AddSceneWithCheck("PauseMenu");
+                PlayerActions.SwitchActionMap(ActionMaps.UI);
             }
 
             else
             {
                 Time.timeScale = 1;
                 SceneManager.UnloadScene("PauseMenu");
+                PlayerActions.SwitchActionMap(ActionMaps.World);
             }
         }
 
@@ -110,16 +115,12 @@ namespace TFG
 
         public static void GoHome(bool  endOfDay = true)
         {
+            if (endOfDay) PlayerActions.SwitchActionMap(ActionMaps.UI);
+            
             navigation.GoHome(endOfDay);
             player.Reset();
         }
         
         public static string[] NextLocations() => navigation.NextLocations();
-
-        public static void LoadMainMenu()
-        {
-            SceneManager.AddScene("MainMenu");
-            SceneManager.UnloadScene("Title");
-        }
     }
 }

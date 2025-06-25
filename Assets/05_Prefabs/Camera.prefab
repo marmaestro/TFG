@@ -413,8 +413,8 @@ GameObject:
   - component: {fileID: 4232156084007416899}
   - component: {fileID: 5062327136129950420}
   - component: {fileID: 7439884031963498282}
-  - component: {fileID: 3158200975956374444}
   - component: {fileID: -8918404629858138319}
+  - component: {fileID: 3158200975956374444}
   - component: {fileID: 1879629171474668048}
   m_Layer: 0
   m_Name: Camera
@@ -457,7 +457,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 137509870
+  m_FocalLength: 55.000008
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -478,7 +478,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 168
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -534,18 +534,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &3158200975956374444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705362161692122831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9534e85cc33efb847b0a89955e8e6551, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8918404629858138319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +548,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &3158200975956374444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705362161692122831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9534e85cc33efb847b0a89955e8e6551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1879629171474668048
 MonoBehaviour:
   m_ObjectHideFlags: 0

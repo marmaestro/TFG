@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000004, guid: a18c511ce11770540a23a61a1c696981, type: 2}
+  m_LightingDataAsset: {fileID: 112000006, guid: a18c511ce11770540a23a61a1c696981, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -671,7 +671,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: UI
+  m_DefaultActionMap: a6a79aee-deb5-415f-805e-842e233e1cdf
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &7330730127420462221

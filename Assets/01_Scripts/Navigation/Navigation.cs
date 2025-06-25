@@ -1,5 +1,7 @@
 using System;
 using TFG.ExtensionMethods;
+using TFG.InputSystem;
+using UnityEngine.InputSystem;
 using static TFG.Player;
 using Console = TFG.ExtensionMethods.Console;
 
@@ -53,7 +55,6 @@ namespace TFG.NavigationSystem
             if (endOfDay)
             {
                 SceneManager.UnloadScene(currentLocation);
-                
                 SceneManager.UnloadNavigationScene();
                 SceneManager.AddScene("Diary");
                 
