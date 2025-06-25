@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using System.Linq;
 using Ink.Runtime;
 using UnityEngine;
 
-namespace TFG.DialogueSystem
+namespace TFG.Narrative
 {
     public class StoryHandler
     {
@@ -66,5 +65,15 @@ namespace TFG.DialogueSystem
             return story.currentText;
         }
         #endregion
+
+        public static string GetDiary()
+        {
+            string diaryContent = "";
+            while (story.canContinue &&
+                   story.path.lastComponent.name.Equals("endDiary"))
+                diaryContent += story.Continue();
+            
+            return diaryContent;
+        }
     }
 }

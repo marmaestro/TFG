@@ -2,7 +2,7 @@ using EasyTextEffects;
 using TMPro;
 using UnityEngine;
 
-namespace TFG.DialogueSystem
+namespace TFG.Narrative
 {
     public class Rewriter : MonoBehaviour
     {

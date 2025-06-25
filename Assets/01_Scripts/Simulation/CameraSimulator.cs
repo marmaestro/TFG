@@ -1,7 +1,7 @@
 using EasyTextEffects;
 using TFG.InputSystem;
-using TFG.DialogueSystem;
 using TFG.ExtensionMethods;
+using TFG.Narrative;
 using TMPro;
 using UnityEngine;
 using static TFG.Animation.DiaphragmAnimator;

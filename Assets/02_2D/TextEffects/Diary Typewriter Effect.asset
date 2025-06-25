@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16860026da54450394f6a38fe250e740, type: 3}
-  m_Name: TypewriterEffect
+  m_Name: Diary Typewriter Effect
   m_EditorClassIdentifier: 
   effectTag: 
   startCharIndex: 0
   charLength: 0
   animationType: 3
   fixedDuration: 0
-  durationPerChar: 0.1
-  timeBetweenChars: 0.075
+  durationPerChar: 0.05
+  timeBetweenChars: 0.01
   noDelayForChars: 0
   reverseCharOrder: 0
   easingCurve:

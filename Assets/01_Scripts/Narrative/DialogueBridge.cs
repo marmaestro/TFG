@@ -1,4 +1,4 @@
-namespace TFG.DialogueSystem
+namespace TFG.Narrative
 {
     public static class DialogueBridge
     {

@@ -2,7 +2,7 @@ using TFG.ExtensionMethods;
 using TFG.InputSystem;
 using TFG.NavigationSystem;
 using TFG.DataManagement;
-using TFG.DialogueSystem;
+using TFG.Narrative;
 using UnityEngine;
 
 namespace TFG
@@ -25,7 +25,7 @@ namespace TFG
         public void Awake()
         {
             gameNarrative = Resources.Load<TextAsset>("main");
-            //SceneManager.AddScene("MainMenu");
+            SceneManager.AddScene("MainMenu");
             
             navigation = new Navigation(this);
             storyHandler = new StoryHandler(gameNarrative);
@@ -43,7 +43,6 @@ namespace TFG
         private static void StartGame()
         {
             PlayerActions.SwitchActionMap(ActionMaps.World);
-            Console.Log(ConsoleCategories.Debug, "Starting Game");
             PauseGame(false);
             GoHome(false);
         }

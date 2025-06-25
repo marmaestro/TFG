@@ -1,4 +1,4 @@
-using TFG.DialogueSystem;
+using TFG.Narrative;
 using UnityEngine;
 
 namespace TFG.Simulation
