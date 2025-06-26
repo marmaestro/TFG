@@ -32,7 +32,7 @@ namespace TFG.NavigationSystem
 
         public int NodeCount => nodes.Count;
 
-        public int[] VisitableNodes() => nodes[Player.locationID].Edges;
+        public int[] AviableNodes() => nodes[Player.locationID].Edges;
         
         public int Distance(int origin, int target)
         {

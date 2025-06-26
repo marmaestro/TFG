@@ -8,7 +8,7 @@ namespace TFG.NavigationSystem
     public class City : ScriptableObject
     {
         [SerializeField] private Graph graph;
-        
+
         internal bool[] visitedLocations;
         internal string[] scenes => graph.nodeNames;
 
@@ -17,6 +17,8 @@ namespace TFG.NavigationSystem
             visitedLocations = new bool[graph.NodeCount];
         }
 
-        public int[] VisitableSpots() => graph.VisitableNodes();
+        public int[] VisitableLocations() => graph.AviableNodes();
+        
+        public bool Visited(int nodeID) => visitedLocations[nodeID];
     }
 }

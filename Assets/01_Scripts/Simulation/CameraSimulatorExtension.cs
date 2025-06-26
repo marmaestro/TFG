@@ -3,22 +3,9 @@ using UnityEngine;
 
 namespace TFG.Simulation
 {
-    public class CameraReflector : MonoBehaviour
+    public class CameraSimulatorExtension : CameraSimulator
     {
-        private new static Camera camera;
-
-        public void Awake()
-        {
-            camera = GetComponent<Camera>();
-        }
-        
         #region Behvaiour Methods
-        public static void MovePointer(Vector2 delta)
-        {
-            camera.transform.position = new Vector3(delta.x, delta.y, camera.transform.position.z);
-            CastRays();
-        }
-
         public static void Reflect()
         {
             CastRays(true);
@@ -37,12 +24,11 @@ namespace TFG.Simulation
                 
             else ProcessRayCast(hit!);
         }
-        #endregion
-
-        #region Raycast Processing
+        
         private static string ProcessRayCast(RaycastHit hit)
         {
-            return hit.collider.gameObject.layer == LayerMask.NameToLayer("Oneiric") ? hit.collider.gameObject.name : null;
+            return hit.collider.gameObject.layer == LayerMask.NameToLayer("Oneiric") ?
+                   hit.collider.gameObject.name : null;
         }
         #endregion
     }

@@ -59,7 +59,7 @@ namespace TFG.InputSystem
             closeCamera.performed += OnCloseCamera;
             
             // Reflect
-            moveFocusPoint.performed += context => OnMoveFocusPoint(context.ReadValue<Vector2>());
+            moveFocusPoint.performed += context => OnMoveCamera(context.ReadValue<Vector2>());
             reflect.performed += OnReflect;
         }
         #endregion
@@ -72,6 +72,7 @@ namespace TFG.InputSystem
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
+            SwitchActionMap(Game.navigation.Visited() ? ActionMaps.Reflecting : ActionMaps.Camera);
             CameraSimulator.OpenCamera();
         }
         private void OnPause(InputAction.CallbackContext context)
@@ -91,22 +92,19 @@ namespace TFG.InputSystem
         }*/
         private void OnCloseCamera(InputAction.CallbackContext context)
         {
-            CameraSimulator.Close();
+            CameraSimulator.CloseCamera();
+            SwitchActionMap(ActionMaps.World);
         }
         #endregion
         
         #region Reflection Actions
-
-        private static void OnMoveFocusPoint(Vector2 delta)
-        {
-            CameraReflector.MovePointer(delta);
-        }
         private static void OnReflect(InputAction.CallbackContext context)
         {
-            CameraReflector.Reflect();
+            CameraSimulatorExtension.Reflect();
         }
         #endregion
         
+        #region Input System Custom Methods
         public static void SwitchActionMap(ActionMaps actionMap)
         {
             if (!Enum.IsDefined(typeof(ActionMaps), actionMap))
@@ -120,5 +118,6 @@ namespace TFG.InputSystem
         {
             playerInput.enabled = !playerInput.enabled;
         }
+        #endregion
     }
 }

@@ -11,8 +11,8 @@ namespace TFG.Simulation
     [RequireComponent(typeof(Camera))]
     public class CameraSimulator : MonoBehaviour
     {
-        [SerializeField] private GameObject textHolder;
-        private new static Camera camera;
+        [SerializeField] internal GameObject textHolder;
+        internal new static Camera camera;
         private static readonly Vector2 bounds = new(635, 420); // (635/2, 420/2) // (317.5f, 210f)
 
         //private static RenderTexture renderTarget;
@@ -23,7 +23,6 @@ namespace TFG.Simulation
         private static readonly string[] simulationScenes = { "CameraInterface" };
 
         #region Unity Events
-
         public void Awake()
         {
             //renderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
@@ -80,16 +79,16 @@ namespace TFG.Simulation
         }*/
         #endregion
 
-        #region Simulation
+        #region Simulation Handling
         public static void OpenCamera()
         {
-            // Open picture interface/camera simulation
+            PlayerActions.PauseInputSystem();
             SimulationStartAnimation();
         }
 
-        public static void Close()
+        public static void CloseCamera()
         {
-            // Close picture interface/camera simulation
+            PlayerActions.PauseInputSystem();
             SimulationEndAnimation();
         }
 
@@ -101,7 +100,7 @@ namespace TFG.Simulation
 
         public static void SimulationStart()
         {
-            PlayerActions.SwitchActionMap(ActionMaps.Camera);
+            PlayerActions.PauseInputSystem();
         }
 
         private static void SimulationEndAnimation()
@@ -112,7 +111,7 @@ namespace TFG.Simulation
         internal static void SimulationEnd()
         {
             SceneManager.UnloadMultipleScenes(simulationScenes);
-            PlayerActions.SwitchActionMap(ActionMaps.World);
+            PlayerActions.PauseInputSystem();
         }
         #endregion
     }

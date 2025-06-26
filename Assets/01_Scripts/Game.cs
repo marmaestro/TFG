@@ -14,7 +14,7 @@ namespace TFG
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
         
         internal static Player player;
-        private static Navigation navigation;
+        internal static Navigation navigation;
         private static StoryHandler storyHandler;
         private static ISaveableData[] gameData;
 

@@ -1,7 +1,5 @@
 using System;
 using TFG.ExtensionMethods;
-using TFG.InputSystem;
-using UnityEngine.InputSystem;
 using static TFG.Player;
 using Console = TFG.ExtensionMethods.Console;
 
@@ -21,7 +19,7 @@ namespace TFG.NavigationSystem
 
         public string[] NextLocations()
         {
-            int[] locationIndexes = game.city.VisitableSpots();
+            int[] locationIndexes = game.city.VisitableLocations();
             string[] nextLocations = new string[locationIndexes.Length];
 
             for (int i = 0; i < locationIndexes.Length; i++)
@@ -63,5 +61,7 @@ namespace TFG.NavigationSystem
             
             else SceneManager.UnloadScene("MainMenu");
         }
+        
+        public bool Visited() => game.city.visitedLocations[locationID];
     }
 }
