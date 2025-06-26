@@ -17,7 +17,7 @@ namespace TFG.NavigationSystem
             visitedLocations = new bool[graph.NodeCount];
         }
 
-        public int[] VisitableLocations() => graph.AviableNodes();
+        public int[] VisitableLocations() => graph.AvailableNodes();
         
         public bool Visited(int nodeID) => visitedLocations[nodeID];
     }

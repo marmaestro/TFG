@@ -8,15 +8,20 @@ namespace TFG.NavigationSystem
     public class Navigation
     {
         private readonly Game game;
+        
+        public bool visited => game.city.visitedLocations[locationID];
         private string currentLocation => game.city.scenes[locationID];
-
+        
         private const string Home = "0 Home";
 
+        #region Constructor
         public Navigation(Game game)
         {
             this.game = game;
         }
+        #endregion
 
+        #region Navigation Methods
         public string[] NextLocations()
         {
             int[] locationIndexes = game.city.VisitableLocations();
@@ -61,7 +66,6 @@ namespace TFG.NavigationSystem
             
             else SceneManager.UnloadScene("MainMenu");
         }
-        
-        public bool Visited() => game.city.visitedLocations[locationID];
+        #endregion
     }
 }

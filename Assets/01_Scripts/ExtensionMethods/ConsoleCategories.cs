@@ -9,6 +9,7 @@ namespace TFG.ExtensionMethods
         public const string Animation = "Animation";
         public const string Debug = "Debugging";
         public const string Graph = "Graph";
+        public const string InputSystem = "Input System";
     }
     #endif
 }

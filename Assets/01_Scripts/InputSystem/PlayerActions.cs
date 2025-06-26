@@ -72,7 +72,8 @@ namespace TFG.InputSystem
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
-            SwitchActionMap(Game.navigation.Visited() ? ActionMaps.Reflecting : ActionMaps.Camera);
+            SwitchActionMap(Game.navigation.visited ? ActionMaps.Reflecting : ActionMaps.Camera);
+            Console.Log(ConsoleCategories.InputSystem, "Opening camera...");
             CameraSimulator.OpenCamera();
         }
         private void OnPause(InputAction.CallbackContext context)
@@ -110,8 +111,11 @@ namespace TFG.InputSystem
             if (!Enum.IsDefined(typeof(ActionMaps), actionMap))
                 throw new InvalidEnumArgumentException($"{actionMap} is not defined.");
             
-            Console.Log(ConsoleCategories.Debug, $"Switching action map to <u>{actionMap}</u>.");
             playerInput.SwitchCurrentActionMap(actionMap.ToString());
+            
+            #if DEBUG
+            Console.Log(ConsoleCategories.InputSystem, $"Switching action map to <u>{actionMap}</u>.");
+            #endif
         }
         
         public static void PauseInputSystem()

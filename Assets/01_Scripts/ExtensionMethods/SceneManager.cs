@@ -6,6 +6,9 @@ namespace TFG.ExtensionMethods
 {
     public static class SceneManager
     {
+        public static int currentNavigationSceneID => LoadedScene("Navigation_1") ? 1 : LoadedScene("Navigation_2") ? 2 : LoadedScene("Navigation_3") ? 3 : 0;
+        
+        #region Loading Extensions
         public static void LoadScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Single);
         public static void AddScene(string sceneName) => SM.LoadScene(sceneName, LoadSceneMode.Additive);
         
@@ -19,7 +22,9 @@ namespace TFG.ExtensionMethods
         {
             foreach (string sceneName in sceneNames) AddScene(sceneName);
         }
+        #endregion
 
+        #region Unloading Extensions
         public static void UnloadScene(string sceneName)
         {
             try
@@ -48,7 +53,14 @@ namespace TFG.ExtensionMethods
                     SM.UnloadSceneAsync(scene.name);
             }
         }
+        
+        internal static void UnloadNavigationScene()
+        {
+            UnloadScene($"Navigation_{currentNavigationSceneID}");
+        }
+        #endregion
 
+        #region Auxiliar Extensions
         private static bool LoadedScene(string sceneName) => SM.GetSceneByName(sceneName).isLoaded;
 
         public static void OnLocationSceneLoaded()
@@ -61,12 +73,6 @@ namespace TFG.ExtensionMethods
             if (Game.player.steps > 0)
                 AddScene(navScene);
         }
-
-        internal static void UnloadNavigationScene()
-        {
-            UnloadScene($"Navigation_{currentNavigationSceneID}");
-        }
-        
-        public static int currentNavigationSceneID => LoadedScene("Navigation_1") ? 1 : LoadedScene("Navigation_2") ? 2 : LoadedScene("Navigation_3") ? 3 : 0;
+        #endregion
     }
 }

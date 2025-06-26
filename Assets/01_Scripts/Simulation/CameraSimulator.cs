@@ -48,8 +48,6 @@ namespace TFG.Simulation
             float clampedX = Mathf.Clamp(rawX, - bounds.x , bounds.x);
             float clampedY = Mathf.Clamp(rawY, - bounds.y, bounds.y);
             
-            Console.Log(ConsoleCategories.Simulation, $"({clampedX}, {clampedY})");
-            
             camera.transform.position = new Vector3(clampedX, clampedY, camera.transform.position.z);
         }
         

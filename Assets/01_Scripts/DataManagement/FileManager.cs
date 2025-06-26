@@ -8,6 +8,7 @@ namespace TFG.DataManagement
 {
     public static class FileManager
     {
+        #region Write Methods
         public static bool Exists(string fileName)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, fileName);
@@ -37,7 +38,7 @@ namespace TFG.DataManagement
             }
         }
         
-        public static void WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
+        /*public static void WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, filePath, fileName);
 
@@ -55,8 +56,10 @@ namespace TFG.DataManagement
                 Console.LogError(ConsoleCategories.DataLoading, $"Failed to write image to {fullPath} with exception {e}.");
                 #endif
             }
-        }
+        }*/
+        #endregion
 
+        #region Read Methods
         public static bool LoadFromFile(string fileName, out string result)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, fileName);
@@ -80,5 +83,6 @@ namespace TFG.DataManagement
                 return false;
             }
         }
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using TFG.ExtensionMethods;
 using UnityEngine;
@@ -13,9 +14,12 @@ namespace TFG.NavigationSystem
     {
         [SerializeField] private List<Node> nodes;
 
+        public int NodeCount => nodes.Count;
         internal string[] nodeNames => nodes.Select(n => n.SceneName).ToArray();
 
+        #region Graph Visualization
         #if UNITY_EDITOR
+        [Conditional("UNITY_EDITOR")]
         public void Show()
         {
             string data = "\n";
@@ -26,13 +30,14 @@ namespace TFG.NavigationSystem
                 data = node.Edges.Aggregate(data, (s, n) => $"{s} {n}");
                 data += "\n";
             }
+            
             Console.Log(ConsoleCategories.Graph, data);
         }
         #endif
+        #endregion
 
-        public int NodeCount => nodes.Count;
-
-        public int[] AviableNodes() => nodes[Player.locationID].Edges;
+        #region Graph Methods
+        public int[] AvailableNodes() => nodes[Player.locationID].Edges;
         
         public int Distance(int origin, int target)
         {
@@ -62,5 +67,6 @@ namespace TFG.NavigationSystem
             
             return distance[target];
         }
+        #endregion
     }
 }
