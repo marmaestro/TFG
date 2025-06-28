@@ -16,6 +16,10 @@ INCLUDE ../places/K - carrer-ample.ink
 INCLUDE ../places/L - estany.ink
 INCLUDE ../places/M - fruiteria-mercat.ink
 
+// DIARY
+INCLUDE ../diary.ink
+
+
 // MOOD VARIABLES
 VAR fun = INITIAL_SWING // sad
 VAR cheerful = INITIAL_SWING // depressed
@@ -25,36 +29,7 @@ VAR reflective = INITIAL_SWING // it's own thing
 VAR dead_plant = false
 
 Something, something, something...
--> fruiteria_mercat
+-> DONE
 
 === next ===
-I'm <>
-	{ 
-	- up(fun):
-		funny 
-	- down(fun):
-		sad 
-	- else: 
-		undecided 
-	} 
-	<>, <>
-	{ 
-	- up(cheerful):
-		cheerful 
-	- down(cheerful):
-		depressed 
-	- else: 
-		undecided 
-	} 
-	<>, and <>
-	{ 
-	- up(reflective):
-		reflective 
-	- down(reflective):
-		plain 
-	- else: 
-		undecided 
-	} 
-	<>.
-
--> END
+-> diary
