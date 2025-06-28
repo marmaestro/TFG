@@ -1,24 +1,24 @@
-using static TFG.Animation.TitleAnimator;
-using static TFG.Game;
+using TFG.Animation;
+using TFG.ExtensionMethods;
 
-namespace TFG.ExtensionMethods
+namespace TFG.UIElements.Buttons
 {
-    public static class UIExtensions
+    public static class ButtonConnector
     {
         public static void MainMenu(string target)
         {
             switch (target)
             {
-                case "Start" when ExistingSaveFile(): ShowTitlePopup(); break;
+                case "Start" when Game.ExistingSaveFile(): TitleAnimator.ShowTitlePopup(); break;
                 
                 case "Start":
-                case "StartOverride": StartNewGame(); break;
+                case "StartOverride": Game.StartNewGame(); break;
                 
-                case "Continue": LoadGame(); break;
+                case "Continue": Game.LoadGame(); break;
                 
-                case "ClosePopup": HideTitlePopup(); break;
+                case "ClosePopup": TitleAnimator.HideTitlePopup(); break;
                 
-                case "Close": QuitGame(); break;
+                case "Close": Game.QuitGame(); break;
                 
                 default: SceneManager.AddScene(target); break;
             }
@@ -28,21 +28,21 @@ namespace TFG.ExtensionMethods
         {
             switch (target)
             {
-                case "Continue": PauseGame(false); break;
+                case "Continue": Game.PauseGame(false); break;
 
                 case "Settings": SceneManager.AddScene(target); break;
                 
                 case "MainMenu": Game.MainMenu(); break; 
                 
-                case "SaveGame": SaveGame(); break;
+                case "SaveGame": Game.SaveGame(); break;
             }
         }
 
         public static void NavigationMenu(int target)
         {
-            if (player.steps <= 0)
-                GoHome();
-            Visit(target);
+            if (Game.player.steps <= 0)
+                Game.GoHome();
+            Game.Visit(target);
         }
 
         public static void CreditsMenu()
