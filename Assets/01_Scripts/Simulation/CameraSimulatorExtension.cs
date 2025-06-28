@@ -5,27 +5,38 @@ namespace TFG.Simulation
 {
     public class CameraSimulatorExtension : CameraSimulator
     {
+        private static Vector3 origin => camera.transform.position;
+        private static readonly Vector3 direction = camera.transform.forward;
+        
         #region Behvaiour Methods
+        public new static void MovePointer(Vector2 delta)
+        {
+            CameraSimulator.MovePointer(delta);
+            CastRay();
+        }
+        
         public static void Reflect()
         {
-            CastRays(true);
+            CastRay(true);
         }
         #endregion
         
         #region Raycast Methods
-        private static void CastRays(bool reflecting = false)
+        private static void CastRay(bool selectOption = false)
         {
-            Vector3 origin = camera.transform.position;
-            Vector3 direction = camera.transform.forward;
+            Physics.Raycast(origin, direction, out RaycastHit hit,
+            1500f, LayerMask.NameToLayer("Oneiric"));
 
-            Physics.Raycast(origin, direction, out RaycastHit hit, Mathf.Infinity, LayerMask.NameToLayer("Oneiric"), QueryTriggerInteraction.Collide);
-            if (reflecting)
-                DialogueBridge.IdentifyOption(ProcessRayCast(hit));
-                
-            else ProcessRayCast(hit!);
+            if (!hit.collider) TextBridge.Default();
+            
+            string hitID = IdentifyHitID(hit);
+            if (hitID is null) return;
+            
+            if (!selectOption) TextBridge.IdentifyOption(hitID);
+            else TextBridge.SelectOption(hitID);
         }
         
-        private static string ProcessRayCast(RaycastHit hit)
+        private static string IdentifyHitID(RaycastHit hit)
         {
             return hit.collider.gameObject.layer == LayerMask.NameToLayer("Oneiric") ?
                    hit.collider.gameObject.name : null;

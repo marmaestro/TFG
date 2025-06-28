@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Ink.Runtime;
 using UnityEngine;
@@ -30,7 +31,7 @@ namespace TFG.Narrative
         {
             while (story.canContinue)
             {
-                DialogueBridge.IdentifyOption(Step());
+                TextBridge.IdentifyOption(Step());
                 
                 /*if (story.currentChoices.Count <= 0)
                 {
@@ -40,7 +41,7 @@ namespace TFG.Narrative
             }
         }
 
-        public static string Step()
+        private static string Step()
         {
             return story.Continue();
         }
@@ -52,6 +53,19 @@ namespace TFG.Narrative
         #endregion
         
         #region Story Handling
+        public static string GetText()
+        {
+            return story.currentText;
+        }
+        
+        public static string GetOptionText(string textID)
+        {
+            foreach (Choice choice in story.currentChoices.
+                         Where(choice => choice.pathStringOnChoice.Equals(textID)))
+                return choice.text;
+            return GetText();
+        }
+        
         public static int GetOptionIndex(string textID)
         {
             foreach (Choice choice in story.currentChoices.
@@ -60,12 +74,16 @@ namespace TFG.Narrative
             return -1;
         }
         
-        public static string GetText()
+        public static string[] GetPathText()
         {
-            return story.currentText;
-        }
-        #endregion
+            List<string> textList = new List<string>();
+            
+            while (story.canContinue && story.currentChoices.Count <= 0)
+                textList.Add(story.Continue());
 
+            return textList.ToArray();
+        }
+        
         public static string GetDiary()
         {
             string diaryContent = "";
@@ -75,5 +93,7 @@ namespace TFG.Narrative
             
             return diaryContent;
         }
+        #endregion
+        
     }
 }

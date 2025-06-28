@@ -20,7 +20,6 @@ namespace TFG.InputSystem
         
         // Camera
         private InputAction moveCamera;
-        private InputAction takePicture;
         private InputAction closeCamera;
         
         // Reflections
@@ -38,7 +37,6 @@ namespace TFG.InputSystem
             
             // Camera
             moveCamera = playerInput.actions["Move Camera"];
-            //takePicture = playerInput.actions["Take Picture"];
             closeCamera = playerInput.actions["Close Camera"];
             
             // Reflections
@@ -55,11 +53,10 @@ namespace TFG.InputSystem
             
             // Camera
             moveCamera.performed += context => OnMoveCamera(context.ReadValue<Vector2>());
-            //takePicture.performed += OnTakePicture;
             closeCamera.performed += OnCloseCamera;
             
             // Reflect
-            moveFocusPoint.performed += context => OnMoveCamera(context.ReadValue<Vector2>());
+            moveFocusPoint.performed += context => OnMoveCameraReflecting(context.ReadValue<Vector2>());
             reflect.performed += OnReflect;
         }
         #endregion
@@ -87,10 +84,6 @@ namespace TFG.InputSystem
         {
             CameraSimulator.MovePointer(delta);
         }
-        /*private void OnTakePicture(InputAction.CallbackContext context)
-        {
-            CameraSimulator.TakePicture();
-        }*/
         private void OnCloseCamera(InputAction.CallbackContext context)
         {
             CameraSimulator.CloseCamera();
@@ -99,6 +92,11 @@ namespace TFG.InputSystem
         #endregion
         
         #region Reflection Actions
+        private static void OnMoveCameraReflecting(Vector2 delta)
+        {
+            CameraSimulatorExtension.MovePointer(delta);
+        }
+        
         private static void OnReflect(InputAction.CallbackContext context)
         {
             CameraSimulatorExtension.Reflect();
