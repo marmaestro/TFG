@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 2882443724648372886, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 071b1340b8704eb45b76c3d9add3da89, type: 3}
     - target: {fileID: 4351314306069667904, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
       propertyPath: m_Name
       value: Location Canvas
@@ -242,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 7902053746806813942, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: eb753c0a505e13645b8505010253160d, type: 2}
+      objectReference: {fileID: 9100000, guid: c403c1ca82cb6d049b42a977f5811e6b, type: 2}
     - target: {fileID: 8106628424841950357, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
       propertyPath: m_IsActive
       value: 1
