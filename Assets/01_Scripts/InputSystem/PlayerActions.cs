@@ -69,8 +69,7 @@ namespace TFG.InputSystem
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
-            SwitchActionMap(Game.navigation.visited ? ActionMaps.Reflecting : ActionMaps.Camera);
-            Console.Log(ConsoleCategories.InputSystem, "Opening camera...");
+            SwitchActionMap(Game.navigation.Visited ? ActionMaps.Camera : ActionMaps.Reflecting);
             CameraSimulator.OpenCamera();
         }
         private void OnPause(InputAction.CallbackContext context)
@@ -94,6 +93,7 @@ namespace TFG.InputSystem
         #region Reflection Actions
         private static void OnMoveCameraReflecting(Vector2 delta)
         {
+            Console.Log(ConsoleCategories.Debug, "OnMoveCameraReflecting");
             CameraSimulatorExtension.MovePointer(delta);
         }
         

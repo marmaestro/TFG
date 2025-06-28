@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.Serialization;
 
 namespace TFG
 {
@@ -7,12 +8,12 @@ namespace TFG
     {
         private const int baseSteps = 5; // full game steps : 7
         public int steps = 5;
-        public static int locationID;
+        [FormerlySerializedAs("currentPlayerLocation")] public int location;
 
         public void Reset()
         {
             steps = baseSteps;
-            locationID = 0;
+            location = 0;
         }
 
         public void Move()

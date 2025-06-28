@@ -1,20 +1,23 @@
+using TFG.Data;
 using TFG.ExtensionMethods;
 using TFG.InputSystem;
 using TFG.NavigationSystem;
 using TFG.DataManagement;
 using TFG.Narrative;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TFG
 {
     public class Game : MonoBehaviour, ISaveableData
     {
-        [SerializeField] public City city;
+        [SerializeField] private GraphData gameGraphData; 
+        public City City;
         
         public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
         
         internal static Player player;
-        internal static Navigation navigation;
+        internal static NavigationSystem.Navigation navigation;
         private static StoryHandler storyHandler;
         private static ISaveableData[] gameData;
 
@@ -24,10 +27,12 @@ namespace TFG
 
         public void Awake()
         {
+            City = new City(gameGraphData);
+            
             gameNarrative = Resources.Load<TextAsset>("main");
             SceneManager.AddScene("MainMenu");
             
-            navigation = new Navigation(this);
+            navigation = new NavigationSystem.Navigation(this);
             storyHandler = new StoryHandler(gameNarrative);
         }
 
@@ -94,14 +99,14 @@ namespace TFG
 
         public void PopulateSaveData(SaveSystem data)
         {
-            data.gameData.city = city;
+            data.gameData.city = City;
             data.gameData.player = player;
             data.gameData.story = storyHandler.SaveStory();
         }
         
         public void LoadFromSaveData(SaveSystem data)
         {
-            city = data.gameData.city;
+            City = data.gameData.city;
             player = data.gameData.player;
             storyHandler.LoadStory(data.gameData.story);
         }

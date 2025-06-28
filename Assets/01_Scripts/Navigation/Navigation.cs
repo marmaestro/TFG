@@ -1,6 +1,6 @@
 using System;
 using TFG.ExtensionMethods;
-using static TFG.Player;
+using static TFG.Game;
 using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.NavigationSystem
@@ -8,9 +8,9 @@ namespace TFG.NavigationSystem
     public class Navigation
     {
         private readonly Game game;
-        
-        public bool visited => game.city.visitedLocations[locationID];
-        private string currentLocation => game.city.scenes[locationID];
+
+        public bool Visited => game.City.VisitedLocations[player.location];
+        private string currentLocationName => game.City.SceneNames[player.location];
         
         private const string Home = "0 Home";
 
@@ -24,11 +24,11 @@ namespace TFG.NavigationSystem
         #region Navigation Methods
         public string[] NextLocations()
         {
-            int[] locationIndexes = game.city.VisitableLocations();
+            int[] locationIndexes = game.City.VisitableLocations();
             string[] nextLocations = new string[locationIndexes.Length];
 
             for (int i = 0; i < locationIndexes.Length; i++)
-                nextLocations[i] = game.city.scenes[locationIndexes[i]];
+                nextLocations[i] = game.City.SceneNames[locationIndexes[i]];
 
             return nextLocations;
         }
@@ -39,25 +39,25 @@ namespace TFG.NavigationSystem
             string destination = nextLocations[uncodedDestination];
             
             #if DEBUG
-            Console.Log(ConsoleCategories.SceneManagement, $"Leaving scene {currentLocation} to {destination}");
+            Console.Log(ConsoleCategories.SceneManagement, $"Leaving scene {currentLocationName} to {destination}");
             #endif
             
-            SceneManager.UnloadScene(currentLocation);
+            SceneManager.UnloadScene(currentLocationName);
             SceneManager.AddScene(destination);
 
-            int id = Array.IndexOf(game.city.scenes, destination);
-            game.city.visitedLocations[id] = true;
-            locationID = id;
+            int id = Array.IndexOf(game.City.SceneNames, destination);
+            game.City.VisitedLocations[player.location] = true;
+            player.location = id;
         }
 
         public void GoHome(bool endOfDay)
         {
             SceneManager.AddScene(Home);
-            locationID = 0;
+            player.location = 0;
             
             if (endOfDay)
             {
-                SceneManager.UnloadScene(currentLocation);
+                SceneManager.UnloadScene(currentLocationName);
                 SceneManager.UnloadNavigationScene();
                 SceneManager.AddScene("Diary");
                 

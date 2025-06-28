@@ -119,20 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &419768597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: UI/MiddleClick
-  m_EditorClassIdentifier: 
-  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_ActionId: 68743a69-3fb1-4fe3-a43a-08abb04deef6
 --- !u!114 &890271232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,48 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: 9b9eaf3d-029c-4cfd-9e8e-0819abf249b9
---- !u!114 &1062876117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: UI/TrackedDevicePosition
-  m_EditorClassIdentifier: 
-  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_ActionId: 5979d3a8-e7b9-4b13-ae94-7326d7e2830f
---- !u!114 &1443880282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: UI/ScrollWheel
-  m_EditorClassIdentifier: 
-  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_ActionId: 7d89c568-51a0-45ba-979d-f8e0829d6237
---- !u!114 &1451182279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: UI/TrackedDeviceOrientation
-  m_EditorClassIdentifier: 
-  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_ActionId: 94a3e25e-b29d-43cd-b889-1e45e1a14c56
 --- !u!114 &1493803001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,11 +215,11 @@ MonoBehaviour:
   m_SubmitAction: {fileID: 1600291785}
   m_CancelAction: {fileID: 435817292755593627, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_LeftClickAction: {fileID: 8535270568629422916, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_MiddleClickAction: {fileID: 419768597}
+  m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 890271232}
-  m_ScrollWheelAction: {fileID: 1443880282}
-  m_TrackedDevicePositionAction: {fileID: 1062876117}
-  m_TrackedDeviceOrientationAction: {fileID: 1451182279}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 1
   m_CursorLockBehavior: 0
@@ -671,7 +615,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: World
+  m_DefaultActionMap: a6a79aee-deb5-415f-805e-842e233e1cdf
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &7330730127420462221
@@ -702,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6b52b16e1b41b3b197b21867e05d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  city: {fileID: 11400000, guid: 787008d5c56150f4299de594248d864a, type: 2}
+  gameGraphData: {fileID: 11400000, guid: 5535508a6c0fe47409b317ce7b25aee1, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

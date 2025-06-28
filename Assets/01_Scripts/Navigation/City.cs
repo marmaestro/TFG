@@ -1,24 +1,35 @@
 using System;
-using UnityEngine;
+using TFG.Data;
+using TFG.ExtensionMethods;
+using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.NavigationSystem
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]
-    public class City : ScriptableObject
+    public class City
     {
-        [SerializeField] private Graph graph;
+        private Graph graph;
+        public string[] SceneNames => graph.NodeNames;
 
-        internal bool[] visitedLocations;
-        internal string[] scenes => graph.nodeNames;
-
-        public void Awake()
+        private bool[] visitedLocations;
+        public bool[] VisitedLocations
         {
-            visitedLocations = new bool[graph.NodeCount];
+            get => visitedLocations;
+            set => visitedLocations = value;
         }
 
-        public int[] VisitableLocations() => graph.AvailableNodes();
-        
-        public bool Visited(int nodeID) => visitedLocations[nodeID];
+        public City(GraphData data)
+        {
+            graph = new Graph(data);
+
+            visitedLocations = new bool[graph.NodeCount];
+            for (int i = 0; i < visitedLocations!.Length; i++)
+                Console.LogWarning(ConsoleCategories.Debug, $"Location [{i}] visited? {visitedLocations[i]}");
+        }
+
+        public int[] VisitableLocations()
+        {
+            return graph.AvailableNodes();
+        }
     }
 }

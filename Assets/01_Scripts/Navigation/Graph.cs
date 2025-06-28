@@ -1,43 +1,37 @@
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using TFG.Data;
 using TFG.ExtensionMethods;
-using UnityEngine;
-using Console = TFG.ExtensionMethods.Console;
+using TFG.Navigation;
 
 namespace TFG.NavigationSystem
 {
-    [Serializable]
-    [CreateAssetMenu(fileName = "Graph", menuName = "SIL/Graphs/Graph")]
-    public class Graph : ScriptableObject
+    public class Graph
     {
-        [SerializeField] private List<Node> nodes;
-
+        private readonly List<NodeData> nodes;
+        
         public int NodeCount => nodes.Count;
-        internal string[] nodeNames => nodes.Select(n => n.SceneName).ToArray();
-
-        #region Graph Visualization
-        #if UNITY_EDITOR
-        [Conditional("UNITY_EDITOR")]
-        public void Show()
+        public string[] NodeNames => nodes.Select(n => n.SceneName).ToArray();
+        
+        public Graph (GraphData data)
         {
-            string data = "\n";
-            
-            foreach (Node node in nodes)
+            if (!data)
             {
-                data += $"{node.SceneName} >";
-                data = node.Edges.Aggregate(data, (s, n) => $"{s} {n}");
-                data += "\n";
+                Console.LogError(ConsoleCategories.Graph, "Graph not provided.");
+                throw new System.Exception("Graph not provided.");
+            }
+            if (data.nodes == null)
+            {
+                Console.LogError(ConsoleCategories.Graph, $"Graph {data.name} is empty.");
+                throw new System.Exception($"Graph {data.name} empty.");
             }
             
-            Console.Log(ConsoleCategories.Graph, data);
+            nodes = new List<NodeData>(data.nodes);
         }
-        #endif
-        #endregion
-
+        
         #region Graph Methods
-        public int[] AvailableNodes() => nodes[Player.locationID].Edges;
+        public int[] AvailableNodes() => nodes[Game.player.location].Edges;
         
         public int Distance(int origin, int target)
         {
