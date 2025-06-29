@@ -39,7 +39,7 @@ namespace TFG.NavigationSystem
             string destination = nextLocations[uncodedDestination];
             
             #if DEBUG
-            Console.Log(ConsoleCategories.SceneManagement, $"Leaving scene {currentLocationName} to {destination}");
+            Console.Log(ConCat.SceneManagement, $"Leaving scene {currentLocationName} to {destination}");
             #endif
             
             SceneManager.UnloadScene(currentLocationName);

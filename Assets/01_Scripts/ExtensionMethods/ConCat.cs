@@ -1,7 +1,7 @@
 namespace TFG.ExtensionMethods
 {
     #if DEBUG
-    public static class ConsoleCategories
+    public static class ConCat
     {
         public const string SceneManagement  = "Scene Management";
         public const string Simulation = "Simulation";

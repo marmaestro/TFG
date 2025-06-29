@@ -161,20 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: 3bed9e7b-d150-4527-acdd-52bf6ca7185f
---- !u!114 &1777618515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: UI/Navigate
-  m_EditorClassIdentifier: 
-  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_ActionId: 6db017dd-6de8-4695-83c5-d2927d9bb0c0
 --- !u!1 &1898146203
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +197,7 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_PointAction: {fileID: 1493803001}
-  m_MoveAction: {fileID: 1777618515}
+  m_MoveAction: {fileID: -1195994920880558018, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_SubmitAction: {fileID: 1600291785}
   m_CancelAction: {fileID: 435817292755593627, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_LeftClickAction: {fileID: 8535270568629422916, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -254,38 +240,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &571934149058626376
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 721814082443658868}
-  - component: {fileID: 3803518964537783750}
-  m_Layer: 0
-  m_Name: ActionsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &721814082443658868
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571934149058626376}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7330730127420462221}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2976554681021567842
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7330730127420462221}
   - component: {fileID: 9194257767136211495}
+  - component: {fileID: 9194257767136211496}
   - component: {fileID: 5191904777342241439}
   m_Layer: 0
   m_Name: InputReader
@@ -304,18 +259,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!114 &3803518964537783750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571934149058626376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a91e67081442ba91f4320c1389c0d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5191904777342241439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +286,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -359,7 +302,7 @@ MonoBehaviour:
     m_ActionName: 'Game-world/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnLook
         m_Mode: 0
@@ -375,7 +318,7 @@ MonoBehaviour:
     m_ActionName: 'Game-world/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnInteract
         m_Mode: 0
@@ -391,7 +334,7 @@ MonoBehaviour:
     m_ActionName: 'Game-world/Interact[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnCancel
         m_Mode: 0
@@ -407,7 +350,7 @@ MonoBehaviour:
     m_ActionName: 'Game-world/Cancel[/Keyboard/q]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 0
@@ -423,7 +366,7 @@ MonoBehaviour:
     m_ActionName: 'Game-world/Pause[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnOpenCamera
         m_Mode: 0
@@ -439,7 +382,7 @@ MonoBehaviour:
     m_ActionName: 'Game-world/Open Camera[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnTurnCamera
         m_Mode: 0
@@ -455,7 +398,7 @@ MonoBehaviour:
     m_ActionName: 'Camera/Turn Camera[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnTakePicture
         m_Mode: 0
@@ -471,7 +414,7 @@ MonoBehaviour:
     m_ActionName: 'Camera/Take Picture[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnSavePicture
         m_Mode: 0
@@ -487,7 +430,7 @@ MonoBehaviour:
     m_ActionName: 'Camera/Save Picture[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnCloseCamera
         m_Mode: 0
@@ -503,7 +446,7 @@ MonoBehaviour:
     m_ActionName: 'Camera/Discard Picture / Close Camera[/Keyboard/q]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnUINavigate
         m_Mode: 0
@@ -519,7 +462,7 @@ MonoBehaviour:
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnUISelect
         m_Mode: 0
@@ -535,7 +478,7 @@ MonoBehaviour:
     m_ActionName: 'UI/Select[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnUICancel
         m_Mode: 0
@@ -551,7 +494,7 @@ MonoBehaviour:
     m_ActionName: 'UI/Cancel[/Keyboard/q]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnUIPause
         m_Mode: 0
@@ -567,7 +510,7 @@ MonoBehaviour:
     m_ActionName: 'UI/Pause[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3803518964537783750}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameActions, Assembly-CSharp
         m_MethodName: OnUITabNavigation
         m_Mode: 0
@@ -630,8 +573,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 721814082443658868}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9194257767136211495
@@ -647,6 +589,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameGraphData: {fileID: 11400000, guid: 5535508a6c0fe47409b317ce7b25aee1, type: 2}
+--- !u!114 &9194257767136211496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2976554681021567842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a91e67081442ba91f4320c1389c0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

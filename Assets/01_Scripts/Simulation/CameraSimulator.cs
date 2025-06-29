@@ -49,6 +49,7 @@ namespace TFG.Simulation
 
         public static void CloseCamera()
         {
+            Console.Log(ConCat.Debug, "CLOSING CAMERA");
             PlayerActions.PauseInputSystem();
             SimulationEndAnimation();
         }
@@ -62,6 +63,7 @@ namespace TFG.Simulation
         public static void SimulationStart()
         {
             PlayerActions.PauseInputSystem();
+            PlayerActions.SwitchActionMap(Game.navigation.Visited ? ActionMaps.Camera : ActionMaps.Reflecting);
         }
 
         private static void SimulationEndAnimation()
@@ -73,6 +75,7 @@ namespace TFG.Simulation
         {
             SceneManager.UnloadMultipleScenes(simulationScenes);
             PlayerActions.PauseInputSystem();
+            PlayerActions.SwitchActionMap(ActionMaps.World);
         }
         #endregion
     }

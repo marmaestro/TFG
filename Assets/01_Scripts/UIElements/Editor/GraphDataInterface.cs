@@ -6,7 +6,7 @@ using UnityEngine;
 namespace TFG.UIElements.Editor
 {
     [CustomEditor(typeof(GraphData))]
-    public class GraphInterface : UnityEditor.Editor
+    public class GraphDataInterface : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

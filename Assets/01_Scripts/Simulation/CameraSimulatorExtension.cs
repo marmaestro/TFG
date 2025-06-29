@@ -24,8 +24,8 @@ namespace TFG.Simulation
         #region Raycast Methods
         private static void CastRay(bool selectOption = false)
         {
-            Physics.Raycast(origin, direction, out RaycastHit hit,
-            1500f, LayerMask.NameToLayer("Oneiric"));
+            if (!Physics.Raycast(origin, direction, out RaycastHit hit,
+            1500f, LayerMask.NameToLayer("Oneiric"))) return;
 
             if (!hit.collider) TextBridge.Default();
             

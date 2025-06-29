@@ -28,7 +28,7 @@ namespace TFG.Data
                 data += "\n";
             }
             
-            Console.Log(ConsoleCategories.Graph, data);
+            Console.Log(ConCat.Graph, data);
         }
         #endif
         #endregion

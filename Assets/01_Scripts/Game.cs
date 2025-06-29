@@ -5,7 +5,6 @@ using TFG.NavigationSystem;
 using TFG.DataManagement;
 using TFG.Narrative;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace TFG
 {
@@ -47,7 +46,6 @@ namespace TFG
 
         private static void StartGame()
         {
-            PlayerActions.SwitchActionMap(ActionMaps.World);
             PauseGame(false);
             GoHome(false);
         }

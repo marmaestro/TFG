@@ -138,15 +138,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Take Picture",
-                    "type": "Button",
-                    "id": "1c55ba27-4932-4c22-b7fb-72e5ff8f61d1",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Close Camera",
                     "type": "Button",
                     "id": "96e77ddb-7be5-4cf4-a8f2-d20c8394dfc0",
@@ -189,28 +180,6 @@
                     "action": "Move Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "89f23667-892a-4d98-bc35-fed068ae4583",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Take Picture",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ac5020ba-7c0b-441d-80a5-ea592f8cccbd",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Take Picture",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -219,13 +188,22 @@
             "id": "c9659436-d024-4247-9c36-58dcc5418c3b",
             "actions": [
                 {
-                    "name": "Move Focus Point",
+                    "name": "Move Camera (Reflecting)",
                     "type": "Value",
-                    "id": "21d475e6-f387-44e1-b50f-7c078a1fbaad",
+                    "id": "fd8b1c84-6677-4b9d-99f4-43a4fece1a5e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Close Camera (Reflecting)",
+                    "type": "Button",
+                    "id": "1f194443-10ea-46ab-a57f-f5fa30729906",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Reflect Further",
@@ -240,12 +218,34 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "9a63bc33-b9c9-4557-b206-d698a0a98647",
+                    "id": "fda9055e-0c57-4f08-8d84-46a29fe8008f",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move Focus Point",
+                    "action": "Move Camera (Reflecting)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b876d067-871e-4942-8a12-66589ac9d37f",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close Camera (Reflecting)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36c2e858-b0da-4903-93a2-e2979aa2c71b",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close Camera (Reflecting)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -278,15 +278,6 @@
             "id": "a6a79aee-deb5-415f-805e-842e233e1cdf",
             "actions": [
                 {
-                    "name": "Navigate",
-                    "type": "PassThrough",
-                    "id": "6db017dd-6de8-4695-83c5-d2927d9bb0c0",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Select",
                     "type": "Button",
                     "id": "8f638cbd-ba0a-4e45-a934-b223e7318531",
@@ -299,15 +290,6 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "1cf0574f-b288-493b-9d0e-75f13a803945",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "16dda9fb-cff4-4b69-858f-c3fdc2da5cdf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -458,72 +440,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "RightClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Keyboard",
-                    "id": "bf97c6b4-11e5-41b3-af09-8c3ae252201b",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "8dc5af4c-28aa-42d3-9f52-1ca209759739",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "07a973e5-41d4-44a8-9c5f-f432552f0d4c",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "93587865-339a-4224-be83-8d5ca8e48d0e",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "7d3c1dcc-8d63-4ebd-a535-72f5d6bd9e1d",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "adc51470-a4a8-43ff-96d2-d8e0b395ae5b",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

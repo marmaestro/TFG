@@ -21,10 +21,7 @@ namespace TFG.NavigationSystem
         public City(GraphData data)
         {
             graph = new Graph(data);
-
             visitedLocations = new bool[graph.NodeCount];
-            for (int i = 0; i < visitedLocations!.Length; i++)
-                Console.LogWarning(ConsoleCategories.Debug, $"Location [{i}] visited? {visitedLocations[i]}");
         }
 
         public int[] VisitableLocations()

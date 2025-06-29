@@ -34,7 +34,7 @@ namespace TFG.ExtensionMethods
             catch
             {
                 #if DEBUG
-                Console.LogWarning(ConsoleCategories.SceneManagement, $"Scene {sceneName} cannot be unloaded.");
+                Console.LogWarning(ConCat.SceneManagement, $"Scene {sceneName} cannot be unloaded.");
                 #endif
             }
         }

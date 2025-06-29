@@ -18,12 +18,12 @@ namespace TFG.NavigationSystem
         {
             if (!data)
             {
-                Console.LogError(ConsoleCategories.Graph, "Graph not provided.");
+                Console.LogError(ConCat.Graph, "Graph not provided.");
                 throw new System.Exception("Graph not provided.");
             }
             if (data.nodes == null)
             {
-                Console.LogError(ConsoleCategories.Graph, $"Graph {data.name} is empty.");
+                Console.LogError(ConCat.Graph, $"Graph {data.name} is empty.");
                 throw new System.Exception($"Graph {data.name} empty.");
             }
             

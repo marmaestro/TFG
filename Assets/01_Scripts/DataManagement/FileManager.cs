@@ -24,7 +24,7 @@ namespace TFG.DataManagement
             {
                 File.WriteAllText(fullPath, fileContents);
                 #if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Data written to {fullPath} successfully.");
+                Console.Log(ConCat.DataLoading, $"Data written to {fullPath} successfully.");
                 #endif
                 return true;
             }
@@ -32,7 +32,7 @@ namespace TFG.DataManagement
             catch (Exception e)
             {
                 #if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to write to {fullPath} with exception {e}.");
+                Console.LogError(ConCat.DataLoading, $"Failed to write to {fullPath} with exception {e}.");
                 #endif
                 return false;
             }
@@ -68,7 +68,7 @@ namespace TFG.DataManagement
             {
                 result = File.ReadAllText(fullPath);
                 #if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Data read from {fullPath} successfully.");
+                Console.Log(ConCat.DataLoading, $"Data read from {fullPath} successfully.");
                 #endif
                 return true;
             }
@@ -76,7 +76,7 @@ namespace TFG.DataManagement
             catch (Exception e)
             {
                 #if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read data from {fullPath} with exception {e}.");
+                Console.LogError(ConCat.DataLoading, $"Failed to read data from {fullPath} with exception {e}.");
                 #endif
                 
                 result = "";

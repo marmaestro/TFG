@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using TFG.ExtensionMethods;
 using TFG.Simulation;
 using UnityEngine;
@@ -14,21 +15,22 @@ namespace TFG.InputSystem
         
         #region Action Definitions
         // World
-        private InputAction navigate;
-        private InputAction openCamera;
-        private InputAction pause;
+        private static InputAction navigate;
+        private static InputAction openCamera;
+        private static InputAction pause;
         
         // Camera
-        private InputAction moveCamera;
-        private InputAction closeCamera;
+        private static InputAction moveCamera;
+        private static InputAction closeCamera;
         
         // Reflections
-        private InputAction moveFocusPoint;
-        private InputAction reflect;
+        private static InputAction moveCameraReflecting;
+        private static InputAction closeCameraReflecting;
+        private static InputAction reflect;
 
         public void Awake()
         {
-            playerInput = transform.parent.GetComponent<PlayerInput>();
+            playerInput = GetComponent<PlayerInput>();
         
             // World
             navigate = playerInput.actions["Navigate"];
@@ -40,7 +42,8 @@ namespace TFG.InputSystem
             closeCamera = playerInput.actions["Close Camera"];
             
             // Reflections
-            moveFocusPoint = playerInput.actions["Move Focus Point"];
+            moveCameraReflecting = playerInput.actions["Move Camera (Reflecting)"];
+            closeCameraReflecting = playerInput.actions["Close Camera (Reflecting)"];
             reflect = playerInput.actions["Reflect Further"];
         }
 
@@ -56,7 +59,8 @@ namespace TFG.InputSystem
             closeCamera.performed += OnCloseCamera;
             
             // Reflect
-            moveFocusPoint.performed += context => OnMoveCameraReflecting(context.ReadValue<Vector2>());
+            moveCameraReflecting.performed += context => OnMoveCameraReflecting(context.ReadValue<Vector2>());
+            closeCameraReflecting.performed += OnCloseCamera;
             reflect.performed += OnReflect;
         }
         #endregion
@@ -69,7 +73,6 @@ namespace TFG.InputSystem
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
-            SwitchActionMap(Game.navigation.Visited ? ActionMaps.Camera : ActionMaps.Reflecting);
             CameraSimulator.OpenCamera();
         }
         private void OnPause(InputAction.CallbackContext context)
@@ -86,14 +89,12 @@ namespace TFG.InputSystem
         private void OnCloseCamera(InputAction.CallbackContext context)
         {
             CameraSimulator.CloseCamera();
-            SwitchActionMap(ActionMaps.World);
         }
         #endregion
         
         #region Reflection Actions
         private static void OnMoveCameraReflecting(Vector2 delta)
         {
-            Console.Log(ConsoleCategories.Debug, "OnMoveCameraReflecting");
             CameraSimulatorExtension.MovePointer(delta);
         }
         
@@ -112,7 +113,7 @@ namespace TFG.InputSystem
             playerInput.SwitchCurrentActionMap(actionMap.ToString());
             
             #if DEBUG
-            Console.Log(ConsoleCategories.InputSystem, $"Switching action map to <u>{actionMap}</u>.");
+            Console.Log(ConCat.InputSystem, $"Switching action map to <b>{actionMap}</b>.");
             #endif
         }
         
@@ -120,6 +121,22 @@ namespace TFG.InputSystem
         {
             playerInput.enabled = !playerInput.enabled;
         }
+        
+        #if UNITY_EDITOR
+        [Conditional("UNITY_EDITOR")]
+        public void Show()
+        {
+            if (Application.isPlaying)
+            {
+                Console.Log(ConCat.InputSystem, $"Current action map is <b>{playerInput.currentActionMap.name}</b>.");
+            }
+
+            else
+            {
+                Console.LogWarning(ConCat.InputSystem, "This debug button only works in <b>Play</b> mode.");
+            }
+        }
+        #endif
         #endregion
     }
 }
