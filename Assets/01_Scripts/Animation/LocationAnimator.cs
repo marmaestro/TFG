@@ -9,6 +9,7 @@ namespace TFG.Animation
         public void Awake()
         {
             animator = GetComponent<Animator>();
+            //animator.Play("base");
         }
 
         public static void TriggerAnimation(string trigger)

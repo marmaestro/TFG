@@ -13,8 +13,6 @@ namespace TFG
         [SerializeField] private GraphData gameGraphData; 
         public City City;
         
-        public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
-        
         internal static Player player;
         internal static NavigationSystem.Navigation navigation;
         private static StoryHandler storyHandler;

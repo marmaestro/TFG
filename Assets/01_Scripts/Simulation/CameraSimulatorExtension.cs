@@ -1,3 +1,4 @@
+using TFG.ExtensionMethods;
 using TFG.Narrative;
 using UnityEngine;
 
@@ -24,10 +25,13 @@ namespace TFG.Simulation
         #region Raycast Methods
         private static void CastRay(bool selectOption = false)
         {
-            if (!Physics.Raycast(origin, direction, out RaycastHit hit,
-            1500f, LayerMask.NameToLayer("Oneiric"))) return;
+            if (!Physics.Raycast(origin, direction, out RaycastHit hit, 305)) return;
 
-            if (!hit.collider) TextBridge.Default();
+            if (!hit.collider)
+            {
+                TextBridge.Default();
+                return;
+            }
             
             string hitID = IdentifyHitID(hit);
             if (hitID is null) return;
@@ -38,8 +42,8 @@ namespace TFG.Simulation
         
         private static string IdentifyHitID(RaycastHit hit)
         {
-            return hit.collider.gameObject.layer == LayerMask.NameToLayer("Oneiric") ?
-                   hit.collider.gameObject.name : null;
+            return hit.collider.gameObject.layer.Equals(LayerMask.NameToLayer("Oneiric"))
+                ? hit.collider.gameObject.name : null; 
         }
         #endregion
     }

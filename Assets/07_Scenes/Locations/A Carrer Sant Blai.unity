@@ -219,10 +219,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6570295195087324713, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7902053746806813942, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: eb753c0a505e13645b8505010253160d, type: 2}
+    - target: {fileID: 8106628424841950357, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8164918580444783769, guid: 34aa685a116352c4ca1cb6c7c4906aae, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1760.625
@@ -320,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8819981463039595170}
   - component: {fileID: 8418708029803740947}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +384,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -424,7 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7867345916303758229}
   - component: {fileID: 3349640825976238622}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5833233723570079614}
   - component: {fileID: 4718633567214040037}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8040999936793887795}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +502,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -538,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2987599753877589701}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: silence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3735450548757754099}
   - component: {fileID: 2977632082179947314}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170851483508453775}
   - component: {fileID: 6212708963640574420}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: silence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,59 +596,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4841754220276086631}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1253882459079033504
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2822292738510887433}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 178.16556, y: -4.39917}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 333.5841, y: 2097.6436}
-  m_EdgeRadius: 20
 --- !u!224 &1618123360841723060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -753,7 +715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7874659833663610683}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: silence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +771,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -834,7 +796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 354882174575248316}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4250630862600241306}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: nice_street
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,14 +828,35 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1944423003687902408}
-  - component: {fileID: 1253882459079033504}
-  m_Layer: 7
+  - component: {fileID: 2822292738510887434}
+  m_Layer: 6
   m_Name: nice_street
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &2822292738510887434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822292738510887433}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 327.2091, y: 2121.541, z: 100}
+  m_Center: {x: 163.48659, y: 9.304235, z: 0}
 --- !u!224 &2877236604048572092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -923,7 +906,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -970,7 +953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6196052920445886698}
   - component: {fileID: 3651558120620559732}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3825043516644484356}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695085149593912493}
   - component: {fileID: 4691092423406223153}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,7 +1092,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1135,7 +1118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 728266283484326695}
   - component: {fileID: 669714266586619180}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1213,7 +1196,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1258,7 +1241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5323678920892678063}
   - component: {fileID: 5179020903544579420}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: silence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,7 +1258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6650998667288734719}
   - component: {fileID: 5108981745662211387}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1332,7 +1315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5043183942986797607}
   - component: {fileID: 5411980218637676470}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1388,7 +1371,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1414,7 +1397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2435504854701462463}
   - component: {fileID: 6755268631754690939}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1434,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1497,7 +1480,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1522,7 +1505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5178416553402658959}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1600,7 +1583,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1668,7 +1651,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1694,7 +1677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7603257610354907234}
   - component: {fileID: 6873241556652373616}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1711,7 +1694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7098959524932404914}
   - component: {fileID: 8730308141798131639}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1746,7 +1729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6725662663156622777}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1783,7 +1766,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1809,7 +1792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2877236604048572092}
   - component: {fileID: 5734999313543465462}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1826,7 +1809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8695016630458872441}
   - component: {fileID: 6177484164221023781}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1843,7 +1826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618123360841723060}
   - component: {fileID: 2302680107392534210}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1880,7 +1863,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1925,7 +1908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7955815813689540469}
   - component: {fileID: 6185910802491556702}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1962,7 +1945,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2008,7 +1991,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2073,7 +2056,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2118,7 +2101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4358604399683147633}
   - component: {fileID: 2536982389782193682}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2135,7 +2118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4190044616278667358}
   - component: {fileID: 3911391151082419113}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,7 +2134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7090842929016209054}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2210,7 +2193,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2256,7 +2239,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2340,7 +2323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3606016541664622148}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2443,7 +2426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3979385054826754140}
   - component: {fileID: 256353300066514044}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,7 +2482,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2564,7 +2547,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2590,7 +2573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8372775237506814778}
   - component: {fileID: 4507139963543409556}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

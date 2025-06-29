@@ -49,7 +49,6 @@ namespace TFG.Simulation
 
         public static void CloseCamera()
         {
-            Console.Log(ConCat.Debug, "CLOSING CAMERA");
             PlayerActions.PauseInputSystem();
             SimulationEndAnimation();
         }
