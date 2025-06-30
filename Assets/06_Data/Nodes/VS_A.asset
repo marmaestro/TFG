@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: VS_A
   m_EditorClassIdentifier: 
   SceneName: A Carrer Sant Blai
+  SceneTag: carrer_sant_blai
   Edges: 0300000001000000

@@ -5,8 +5,23 @@ namespace TFG.Simulation
 {
     public class CameraSimulatorExtension : CameraSimulator
     {
+        private static Game game;
         private static Vector3 origin => camera.transform.position;
         private static readonly Vector3 direction = camera.transform.forward;
+        
+        #region Unity Events
+        public new void Awake()
+        {
+            base.Awake();
+            game = GetComponent<Game>();
+        }
+
+        public void Start()
+        {
+            StoryHandler.StartStorySection(game.city.sceneTags[Game.player.location]);
+        }
+
+        #endregion
         
         #region Behvaiour Methods
         public new static void MovePointer(Vector2 delta)

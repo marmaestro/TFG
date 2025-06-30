@@ -9,8 +9,8 @@ namespace TFG.NavigationSystem
     {
         private readonly Game game;
 
-        public bool Visited => game.City.VisitedLocations[player.location];
-        private string currentLocationName => game.City.SceneNames[player.location];
+        public bool Visited => game.city.visitedLocations[player.location];
+        private string currentLocationName => game.city.sceneNames[player.location];
         
         private const string Home = "0 Home";
 
@@ -24,11 +24,11 @@ namespace TFG.NavigationSystem
         #region Navigation Methods
         public string[] NextLocations()
         {
-            int[] locationIndexes = game.City.VisitableLocations();
+            int[] locationIndexes = game.city.VisitableLocations();
             string[] nextLocations = new string[locationIndexes.Length];
 
             for (int i = 0; i < locationIndexes.Length; i++)
-                nextLocations[i] = game.City.SceneNames[locationIndexes[i]];
+                nextLocations[i] = game.city.sceneNames[locationIndexes[i]];
 
             return nextLocations;
         }
@@ -45,8 +45,8 @@ namespace TFG.NavigationSystem
             SceneManager.UnloadScene(currentLocationName);
             SceneManager.AddScene(destination);
 
-            int id = Array.IndexOf(game.City.SceneNames, destination);
-            game.City.VisitedLocations[player.location] = true;
+            int id = Array.IndexOf(game.city.sceneNames, destination);
+            game.city.visitedLocations[player.location] = true;
             player.location = id;
         }
 

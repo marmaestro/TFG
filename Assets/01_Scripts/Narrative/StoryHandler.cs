@@ -25,34 +25,19 @@ namespace TFG.Narrative
             story.state.LoadJson(savedJson);
         }
         #endregion
-
-        #region Story Events
-        public void ProgressStory()
+        
+        #region Story Handling
+        public static void StartStorySection(string knotName)
         {
-            while (story.canContinue)
-            {
-                TextBridge.IdentifyOption(Step());
-                
-                /*if (story.currentChoices.Count <= 0)
-                {
-                    GetChoices();
-                    break;
-                }*/
-            }
+            story.ChoosePathString(knotName);
+            TextBridge.Default();
         }
-
-        private static string Step()
-        {
-            return story.Continue();
-        }
-
+        
         public static void Choose(int choice)
         {
             story.ChooseChoiceIndex(choice);
         }
-        #endregion
         
-        #region Story Handling
         public static string GetText()
         {
             return story.currentText;
@@ -68,6 +53,8 @@ namespace TFG.Narrative
         
         public static int GetOptionIndex(string textID)
         {
+            if (int.TryParse(textID, out int n)) return n;
+            
             foreach (Choice choice in story.currentChoices.
                          Where(choice => choice.pathStringOnChoice.Equals(textID)))
                 return choice.index;
@@ -76,9 +63,9 @@ namespace TFG.Narrative
         
         public static string[] GetPathText()
         {
-            List<string> textList = new List<string>();
+            List<string> textList = new();
             
-            while (story.canContinue && story.currentChoices.Count <= 0)
+            while (story.canContinue)
                 textList.Add(story.Continue());
 
             return textList.ToArray();

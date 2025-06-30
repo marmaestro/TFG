@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: VS_0
   m_EditorClassIdentifier: 
   SceneName: 0 Home
+  SceneTag: home
   Edges: 0100000004000000

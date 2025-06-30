@@ -23,7 +23,7 @@ namespace TFG.Data
             
             foreach (NodeData node in nodes)
             {
-                data += $"┗ {node.SceneName}:";
+                data += $"┗ ({node.SceneTag}):"; /* {node.SceneName} */
                 data = node.Edges.Aggregate(data, (s, n) => $"{s} {n}");
                 data += "\n";
             }

@@ -1,7 +1,5 @@
 using System;
 using TFG.Data;
-using TFG.ExtensionMethods;
-using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.NavigationSystem
 {
@@ -9,14 +7,9 @@ namespace TFG.NavigationSystem
     public class City
     {
         private Graph graph;
-        public string[] SceneNames => graph.NodeNames;
-
-        private bool[] visitedLocations;
-        public bool[] VisitedLocations
-        {
-            get => visitedLocations;
-            set => visitedLocations = value;
-        }
+        public string[] sceneNames => graph.NodeNames;
+        public string[] sceneTags => graph.NodeTags;
+        public bool[] visitedLocations;
 
         public City(GraphData data)
         {

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: VS_G
   m_EditorClassIdentifier: 
   SceneName: G Terrat Plantes
+  SceneTag: terrat_plantes
   Edges: 0000000003000000

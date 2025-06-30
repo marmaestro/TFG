@@ -13,7 +13,8 @@ namespace TFG.NavigationSystem
         
         public int NodeCount => nodes.Count;
         public string[] NodeNames => nodes.Select(n => n.SceneName).ToArray();
-        
+        public string[] NodeTags => nodes.Select(n => n.SceneTag).ToArray();
+
         public Graph (GraphData data)
         {
             if (!data)

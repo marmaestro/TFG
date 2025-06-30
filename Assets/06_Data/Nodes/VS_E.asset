@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: VS_E
   m_EditorClassIdentifier: 
   SceneName: E Forn Tancat
+  SceneTag: forn_tancat
   Edges: 0400000002000000

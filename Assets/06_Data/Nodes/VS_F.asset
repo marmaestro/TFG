@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: VS_F
   m_EditorClassIdentifier: 
   SceneName: F Estatua
+  SceneTag: estatua
   Edges: 0200000000000000

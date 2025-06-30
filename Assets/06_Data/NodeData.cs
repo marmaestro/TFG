@@ -9,11 +9,12 @@ namespace TFG.Navigation
     public class NodeData : ScriptableObject
     {
         [FormerlySerializedAs("sceneName")] [SerializeField] public string SceneName;
+        [SerializeField] public string SceneTag;
         [FormerlySerializedAs("edges")] [SerializeField] public int[] Edges;
 
         public NodeData(int[] edges)
         {
-            this.Edges = edges;
+            Edges = edges;
         }
     }
 }

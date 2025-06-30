@@ -5,13 +5,14 @@ using TFG.NavigationSystem;
 using TFG.DataManagement;
 using TFG.Narrative;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TFG
 {
     public class Game : MonoBehaviour, ISaveableData
     {
         [SerializeField] private GraphData gameGraphData; 
-        public City City;
+        [FormerlySerializedAs("City")] public City city;
         
         internal static Player player;
         internal static NavigationSystem.Navigation navigation;
@@ -24,7 +25,7 @@ namespace TFG
 
         public void Awake()
         {
-            City = new City(gameGraphData);
+            city = new City(gameGraphData);
             
             gameNarrative = Resources.Load<TextAsset>("main");
             SceneManager.AddScene("MainMenu");
@@ -95,14 +96,14 @@ namespace TFG
 
         public void PopulateSaveData(SaveSystem data)
         {
-            data.gameData.city = City;
+            data.gameData.city = city;
             data.gameData.player = player;
             data.gameData.story = storyHandler.SaveStory();
         }
         
         public void LoadFromSaveData(SaveSystem data)
         {
-            City = data.gameData.city;
+            city = data.gameData.city;
             player = data.gameData.player;
             storyHandler.LoadStory(data.gameData.story);
         }
