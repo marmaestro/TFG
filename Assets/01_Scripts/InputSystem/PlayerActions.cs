@@ -25,7 +25,6 @@ namespace TFG.InputSystem
         
         // Reflections
         private static InputAction moveCameraReflecting;
-        private static InputAction closeCameraReflecting;
         private static InputAction reflect;
 
         public void Awake()
@@ -43,7 +42,6 @@ namespace TFG.InputSystem
             
             // Reflections
             moveCameraReflecting = playerInput.actions["Move Camera (Reflecting)"];
-            closeCameraReflecting = playerInput.actions["Close Camera (Reflecting)"];
             reflect = playerInput.actions["Reflect Further"];
         }
 
@@ -60,7 +58,6 @@ namespace TFG.InputSystem
             
             // Reflect
             moveCameraReflecting.performed += context => OnMoveCameraReflecting(context.ReadValue<Vector2>());
-            closeCameraReflecting.performed += OnCloseCamera;
             reflect.performed += OnReflect;
         }
         #endregion

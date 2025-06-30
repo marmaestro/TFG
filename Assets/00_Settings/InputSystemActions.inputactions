@@ -197,15 +197,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Close Camera (Reflecting)",
-                    "type": "Button",
-                    "id": "1f194443-10ea-46ab-a57f-f5fa30729906",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Reflect Further",
                     "type": "Button",
                     "id": "0024e4fb-6366-481b-ab40-2831b44878ea",
@@ -224,28 +215,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move Camera (Reflecting)",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b876d067-871e-4942-8a12-66589ac9d37f",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Close Camera (Reflecting)",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "36c2e858-b0da-4903-93a2-e2979aa2c71b",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Close Camera (Reflecting)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
