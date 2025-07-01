@@ -647,14 +647,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96470594, g: 0.97647065, b: 0.93725497, a: 0.33333334}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df47800044760414681bd9153c2c4222, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14c409be4d9a8cd4d9207c6715d23ea6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -759,7 +759,7 @@ RectTransform:
   m_GameObject: {fileID: 6574827165450179320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4265384359452989924}
@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 8026092913598228314}
   - component: {fileID: 5020772182991562395}
   - component: {fileID: 8026092913598228315}
+  - component: {fileID: 8026092913598228316}
   m_Layer: 0
   m_Name: SimCamera
   m_TagString: SimulationCamera
@@ -1041,7 +1042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6582979715401873445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1211,6 +1212,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 391a8fb04b06a7645942c03105399582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textHolder: {fileID: 1692166571}
+--- !u!114 &8026092913598228316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173261531770278602}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce65881487340e5aa6b2b4086e2ea56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textHolder: {fileID: 1692166571}

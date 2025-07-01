@@ -9,6 +9,7 @@ namespace TFG.Simulation
     public class CameraSimulator : MonoBehaviour
     {
         [SerializeField] internal GameObject textHolder;
+        internal static CameraSimulatorExtension reflectingExtension;
         internal new static Camera camera;
         private static readonly Vector2 bounds = new(635, 420);
 
@@ -19,6 +20,7 @@ namespace TFG.Simulation
         public void Awake()
         {
             camera = GetComponent<Camera>();
+            reflectingExtension = GetComponents<CameraSimulatorExtension>()[0];
         }
 
         public void LateUpdate()
@@ -47,8 +49,15 @@ namespace TFG.Simulation
             SimulationStartAnimation();
         }
 
+        public static void OpenCameraReflecting()
+        {
+            OpenCamera();
+            reflectingExtension.enabled = true;
+        }
+
         public static void CloseCamera()
         {
+            reflectingExtension.enabled = false;
             PlayerActions.PauseInputSystem();
             SimulationEndAnimation();
         }

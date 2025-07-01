@@ -10,6 +10,7 @@ namespace TFG.ExtensionMethods
         public const string Debug = "Debugging";
         public const string Graph = "Graph";
         public const string InputSystem = "Input System";
+        public const string Narrative = "Narrative";
     }
     #endif
 }

@@ -16,7 +16,7 @@ namespace TFG
         
         internal static Player player;
         internal static NavigationSystem.Navigation navigation;
-        private static StoryHandler storyHandler;
+        public static StoryHandler storyHandler;
         private static ISaveableData[] gameData;
 
         internal static bool FirstPlay = true; 

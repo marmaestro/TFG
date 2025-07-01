@@ -1,5 +1,7 @@
+using TFG.ExtensionMethods;
 using TFG.Narrative;
 using UnityEngine;
+using static TFG.Game;
 
 namespace TFG.Simulation
 {
@@ -7,18 +9,18 @@ namespace TFG.Simulation
     {
         private static Game game;
         private static Vector3 origin => camera.transform.position;
-        private static readonly Vector3 direction = camera.transform.forward;
+        private static Vector3 direction => camera.transform.forward;
         
         #region Unity Events
-        public new void Awake()
+        public void OnEnable()
         {
-            base.Awake();
+            Console.Log(ConCat.Debug, "Initializing CameraSimulatorExtension");
+            
+            Awake();
             game = GetComponent<Game>();
-        }
-
-        public void Start()
-        {
-            StoryHandler.StartStorySection(game.city.sceneTags[Game.player.location]);
+            
+            storyHandler.StartStorySection(game.city.sceneTags[player.location]);
+            Console.Log(ConCat.Narrative, $"Story jumping to {game.city.sceneTags[player.location]}.");
         }
 
         #endregion
@@ -39,9 +41,8 @@ namespace TFG.Simulation
         #region Raycast Methods
         private static void CastRay(bool selectOption = false)
         {
-            if (!Physics.Raycast(origin, direction, out RaycastHit hit, 305)) return;
-
-            if (!hit.collider)
+            if (!Physics.Raycast(origin, direction, out RaycastHit hit, 305)
+                || !hit.collider)
             {
                 TextBridge.Default();
                 return;

@@ -70,7 +70,8 @@ namespace TFG.InputSystem
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
-            CameraSimulator.OpenCamera();
+            if (!Game.navigation.Visited) CameraSimulator.OpenCamera();
+            else CameraSimulator.OpenCameraReflecting();
         }
         private void OnPause(InputAction.CallbackContext context)
         {

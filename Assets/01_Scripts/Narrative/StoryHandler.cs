@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Ink.Runtime;
+using TFG.ExtensionMethods;
 using UnityEngine;
 
 namespace TFG.Narrative
@@ -27,8 +28,9 @@ namespace TFG.Narrative
         #endregion
         
         #region Story Handling
-        public static void StartStorySection(string knotName)
+        public void StartStorySection(string knotName)
         {
+            Console.LogWarning(ConCat.Debug, knotName);
             story.ChoosePathString(knotName);
             TextBridge.Default();
         }
