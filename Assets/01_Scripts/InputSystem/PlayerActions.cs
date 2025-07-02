@@ -57,7 +57,7 @@ namespace TFG.InputSystem
             closeCamera.performed += OnCloseCamera;
             
             // Reflect
-            moveCameraReflecting.performed += context => OnMoveCameraReflecting(context.ReadValue<Vector2>());
+            moveCameraReflecting.performed += context => OnMoveCamera(context.ReadValue<Vector2>());
             reflect.performed += OnReflect;
         }
         #endregion
@@ -70,8 +70,7 @@ namespace TFG.InputSystem
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
-            if (!Game.navigation.Visited) CameraSimulator.OpenCamera();
-            else CameraSimulator.OpenCameraReflecting();
+            CameraSimulator.OpenCamera();
         }
         private void OnPause(InputAction.CallbackContext context)
         {
@@ -91,14 +90,9 @@ namespace TFG.InputSystem
         #endregion
         
         #region Reflection Actions
-        private static void OnMoveCameraReflecting(Vector2 delta)
-        {
-            CameraSimulatorExtension.MovePointer(delta);
-        }
-        
         private static void OnReflect(InputAction.CallbackContext context)
         {
-            CameraSimulatorExtension.Reflect();
+            CameraSimulator.Reflect();
         }
         #endregion
         

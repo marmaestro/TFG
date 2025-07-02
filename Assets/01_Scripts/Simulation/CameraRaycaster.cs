@@ -5,31 +5,17 @@ using static TFG.Game;
 
 namespace TFG.Simulation
 {
-    public class CameraSimulatorExtension : CameraSimulator
+    public partial class CameraSimulator
     {
-        private static Game game;
         private static Vector3 origin => camera.transform.position;
         private static Vector3 direction => camera.transform.forward;
         
-        #region Unity Events
-        public void OnEnable()
+        #region Behvaiour Methods
+        private static void LoadReflecting()
         {
-            Console.Log(ConCat.Debug, "Initializing CameraSimulatorExtension");
-            
-            Awake();
-            game = GetComponent<Game>();
-            
+            game = GameObject.FindGameObjectWithTag("GameController").GetComponent<Game>();
             storyHandler.StartStorySection(game.city.sceneTags[player.location]);
             Console.Log(ConCat.Narrative, $"Story jumping to {game.city.sceneTags[player.location]}.");
-        }
-
-        #endregion
-        
-        #region Behvaiour Methods
-        public new static void MovePointer(Vector2 delta)
-        {
-            CameraSimulator.MovePointer(delta);
-            CastRay();
         }
         
         public static void Reflect()

@@ -1,3 +1,4 @@
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using TFG.Animation;
 using TFG.ExtensionMethods;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace TFG.Narrative
 
         private static void Print(string[] textList)
         {
+            if (textList.IsNullOrEmpty()) throw new System.Exception("Text list handed for printing is null or empty.");
+            
             foreach (string text in textList)
                 Console.Log(ConCat.Narrative, text);
         }

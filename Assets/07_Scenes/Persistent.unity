@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 5191904777342241439}
   m_Layer: 0
   m_Name: InputReader
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -589,6 +589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameGraphData: {fileID: 11400000, guid: 5535508a6c0fe47409b317ce7b25aee1, type: 2}
+  city:
+    visitedLocations: 
 --- !u!114 &9194257767136211496
 MonoBehaviour:
   m_ObjectHideFlags: 0
