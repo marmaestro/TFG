@@ -21,11 +21,11 @@ EditorBuildSettings:
     path: Assets/07_Scenes/PauseMenu.unity
     guid: 4e2c1b7bae7d5bf43af1305b99853da2
   - enabled: 1
-    path: Assets/07_Scenes/Settings.unity
-    guid: c28b02ab21d32004e8ab3dbdfa4aa1d8
+    path: Assets/07_Scenes/SettingsMenu.unity
+    guid: bc79430ed3855e242840a71552885653
   - enabled: 1
-    path: Assets/07_Scenes/Journal.unity
-    guid: 7c32530a215794b4982981c2e8ebf2ec
+    path: Assets/07_Scenes/Diary.unity
+    guid: 65b0c5986abdb3c4c9bd6c3c3463c1a1
   - enabled: 1
     path: Assets/07_Scenes/CameraInterface.unity
     guid: 77c69320051333a4ea04863e49185548
