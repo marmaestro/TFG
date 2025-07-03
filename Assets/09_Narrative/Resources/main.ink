@@ -28,8 +28,10 @@ VAR reflective = INITIAL_SWING // it's own thing
 // GLOBAL VARIABLES
 VAR dead_plant = false
 
-Something, something, something...
--> DONE
+-> home
+
+=== home ===
+We begin here... -> DONE
 
 === next ===
 -> diary

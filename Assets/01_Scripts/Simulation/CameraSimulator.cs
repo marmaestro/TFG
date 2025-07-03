@@ -35,8 +35,6 @@ namespace TFG.Simulation
         {
             reflecting = !Game.navigation.Visited;
             PlayerActions.PauseInputSystem();
-
-            if (reflecting) LoadReflecting();
             
             SimulationStartAnimation();
         }
@@ -70,6 +68,7 @@ namespace TFG.Simulation
 
         public static void SimulationStart()
         {
+            if (reflecting) LoadReflecting();
             PlayerActions.PauseInputSystem();
             PlayerActions.SwitchActionMap(reflecting ? ActionMaps.Reflecting : ActionMaps.Camera);
         }

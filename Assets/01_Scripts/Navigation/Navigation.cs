@@ -10,9 +10,9 @@ namespace TFG.NavigationSystem
         private readonly Game game;
 
         public bool Visited => game.city.visitedLocations[player.location];
-        private string currentLocationName => game.city.sceneNames[player.location];
+        public string currentLocationName => game.city.sceneNames[player.location];
         
-        private const string Home = "0 Home";
+        public const string Home = "0 Home";
 
         #region Constructor
         public Navigation(Game game)
@@ -35,6 +35,12 @@ namespace TFG.NavigationSystem
         
         public void Visit(int uncodedDestination)
         {
+            if (uncodedDestination.Equals(-1))
+            {
+                Game.GoHome();
+                return;
+            }
+            
             string[] nextLocations = NextLocations();
             string destination = nextLocations[uncodedDestination];
             
@@ -53,7 +59,6 @@ namespace TFG.NavigationSystem
         public void GoHome(bool endOfDay)
         {
             SceneManager.AddScene(Home);
-            player.location = 0;
             
             if (endOfDay)
             {

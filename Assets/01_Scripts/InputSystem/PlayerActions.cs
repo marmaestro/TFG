@@ -6,6 +6,8 @@ using TFG.Simulation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Console = TFG.ExtensionMethods.Console;
+using static TFG.Game;
+using static TFG.NavigationSystem.Navigation;
 
 namespace TFG.InputSystem
 {
@@ -65,12 +67,13 @@ namespace TFG.InputSystem
         #region World Actions
         private void OnNavigate(Vector2 delta)
         {
-            if (Game.player.steps > 0)
+            if (player.steps >= 0)
                 InputDecoding.ParseDelta(delta);
         }
         private void OnOpenCamera(InputAction.CallbackContext context)
         {
-            CameraSimulator.OpenCamera();
+            if (!navigation.currentLocationName.Equals(Home))
+                CameraSimulator.OpenCamera();
         }
         private void OnPause(InputAction.CallbackContext context)
         {
@@ -103,7 +106,8 @@ namespace TFG.InputSystem
                 throw new InvalidEnumArgumentException($"{actionMap} is not defined.");
             
             playerInput.SwitchCurrentActionMap(actionMap.ToString());
-            
+            CursorToggle(actionMap.Equals(ActionMaps.UI));
+
             #if DEBUG
             Console.Log(ConCat.InputSystem, $"Switching action map to <b>{actionMap}</b>.");
             #endif
@@ -112,6 +116,11 @@ namespace TFG.InputSystem
         public static void PauseInputSystem()
         {
             playerInput.enabled = !playerInput.enabled;
+        }
+        
+        private static void CursorToggle(bool show)
+        {
+            Cursor.visible = show;
         }
         
         #if UNITY_EDITOR

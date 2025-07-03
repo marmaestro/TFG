@@ -7,9 +7,9 @@ namespace TFG.NavigationSystem
     public class City
     {
         private Graph graph;
+        public bool[] visitedLocations;
         public string[] sceneNames => graph.NodeNames;
         public string[] sceneTags => graph.NodeTags;
-        public bool[] visitedLocations;
 
         public City(GraphData data)
         {
@@ -17,9 +17,6 @@ namespace TFG.NavigationSystem
             visitedLocations = new bool[graph.NodeCount];
         }
 
-        public int[] VisitableLocations()
-        {
-            return graph.AvailableNodes();
-        }
+        public int[] VisitableLocations() => graph.AvailableNodes();
     }
 }

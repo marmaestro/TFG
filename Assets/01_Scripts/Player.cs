@@ -6,7 +6,7 @@ namespace TFG
     [Serializable]
     public class Player
     {
-        private const int baseSteps = 5; // full game steps : 7
+        public const int baseSteps = 5; // full game steps : 7
         public int steps = 5;
         [FormerlySerializedAs("currentPlayerLocation")] public int location;
 

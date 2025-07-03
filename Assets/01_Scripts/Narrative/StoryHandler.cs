@@ -30,7 +30,7 @@ namespace TFG.Narrative
         #region Story Handling
         public void StartStorySection(string knotName)
         {
-            Console.LogWarning(ConCat.Debug, $"Jumping to knot {knotName} in story {story}.");
+            Console.Log(ConCat.Narrative, $"Jumping to knot {knotName}.");
             story.ChoosePathString(knotName);
             TextBridge.Default();
         }

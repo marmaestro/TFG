@@ -6,12 +6,14 @@ namespace TFG.ExtensionMethods
     #if DEBUG
     public static class Console
     {
+        // ReSharper disable Unity.PerformanceAnalysis
         [Conditional("DEBUG")]
         public static void Log(string category, string message)
         {
             Debug.Log(Format(category, message));
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         [Conditional("DEBUG")]
         public static void LogWarning(string category, string message)
         {

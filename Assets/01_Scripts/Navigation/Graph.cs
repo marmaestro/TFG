@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using TFG.Data;
 using TFG.ExtensionMethods;
 using TFG.Navigation;
@@ -22,7 +23,7 @@ namespace TFG.NavigationSystem
                 Console.LogError(ConCat.Graph, "Graph not provided.");
                 throw new System.Exception("Graph not provided.");
             }
-            if (data.nodes == null)
+            if (data.nodes.IsNullOrEmpty())
             {
                 Console.LogError(ConCat.Graph, $"Graph {data.name} is empty.");
                 throw new System.Exception($"Graph {data.name} empty.");
@@ -47,7 +48,7 @@ namespace TFG.NavigationSystem
             while (queue.Any())
             {
                 int node = queue.Dequeue();
-                if (node == target) break;
+                if (node.Equals(target)) break;
 
                 foreach (int edge in nodes[node].Edges)
                 {

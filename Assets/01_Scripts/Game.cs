@@ -119,7 +119,6 @@ namespace TFG
             if (endOfDay) PlayerActions.SwitchActionMap(ActionMaps.UI);
             
             navigation.GoHome(endOfDay);
-            player.Reset();
         }
         
         public static string[] NextLocations() => navigation.NextLocations();

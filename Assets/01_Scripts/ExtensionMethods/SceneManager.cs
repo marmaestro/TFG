@@ -70,7 +70,7 @@ namespace TFG.ExtensionMethods
             int amount = Game.player.steps <= 0 ? 1 : Game.NextLocations().Length;
             string navScene = $"Navigation_{amount}";
 
-            if (Game.player.steps > 0)
+            if (Game.player.steps >= 0)
                 AddScene(navScene);
         }
         #endregion
