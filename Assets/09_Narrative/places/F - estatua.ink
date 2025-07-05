@@ -1,4 +1,5 @@
 === estatua ===
+This statue here... I don't remember it. 
 * [This man wears an uniform...] I wonder what his job was.
 -> job
 * [Huh, aren't statues usually accompanied by a pigeon or two?] Birds don't seem to like him a lot...

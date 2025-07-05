@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Ink.Runtime;
-using TFG.ExtensionMethods;
 using UnityEngine;
 
 namespace TFG.Narrative
@@ -30,8 +29,8 @@ namespace TFG.Narrative
         #region Story Handling
         public void StartStorySection(string knotName)
         {
-            Console.Log(ConCat.Narrative, $"Jumping to knot {knotName}.");
             story.ChoosePathString(knotName);
+            story.Continue();
             TextBridge.Default();
         }
         
@@ -47,8 +46,9 @@ namespace TFG.Narrative
         
         public static string GetOptionText(string textID)
         {
-            foreach (Choice choice in story.currentChoices.
-                         Where(choice => choice.pathStringOnChoice.Equals(textID)))
+            if (int.TryParse(textID, out int n)) return story.currentChoices[n].text;            
+            
+            foreach (Choice choice in story.currentChoices.Where(choice => choice.tags[0].Equals(textID)))
                 return choice.text;
             return GetText();
         }
@@ -57,8 +57,7 @@ namespace TFG.Narrative
         {
             if (int.TryParse(textID, out int n)) return n;
             
-            foreach (Choice choice in story.currentChoices.
-                         Where(choice => choice.pathStringOnChoice.Equals(textID)))
+            foreach (Choice choice in story.currentChoices.Where(choice => choice.tags[0].Equals(textID)))
                 return choice.index;
             return -1;
         }

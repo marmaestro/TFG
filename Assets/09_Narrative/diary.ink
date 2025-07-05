@@ -1,4 +1,6 @@
 === diary ===
+Okay, this is the diary entry.
+
 I'm <>
 	{ 
 	- up(fun):

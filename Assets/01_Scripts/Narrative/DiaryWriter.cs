@@ -22,13 +22,13 @@ namespace TFG.Narrative
 
         public void Start()
         {
-            //rawText = StoryHandler.GetDiary();
+            rawText = StoryHandler.GetDiary();
             Format();
         }
 
         private void Format()
         {
-            //leftTextBlock.text = rawText[..maxChars];
+            leftTextBlock.text = rawText[..maxChars];
             diaryAnimator.AnimateLeft();
 
             
@@ -36,7 +36,7 @@ namespace TFG.Narrative
 
         public void OnLeftAnimated()
         {
-            //rightTextBlock.text = rawText[maxChars..rawText.Length];
+            rightTextBlock.text = rawText[maxChars..rawText.Length];
             diaryAnimator.AnimateRight();
         }
     }    

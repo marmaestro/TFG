@@ -1,9 +1,10 @@
 ===carrer_sant_blai===
-* I love this kind of street[.]... Look at the houses, each its own thing. It's so nice here.
+Have I been here before? I don't quite remember.
+* I love this kind of street[.#nice_street]... Look at the houses, each its own thing. It's so nice here. 
 -> nice_street
-* Its colours[...], this yellow is everywhere, isn't it?
+* Its colours[... #yellow], this yellow is everywhere, isn't it?
 -> yellow
-* [<i>Listen around.</i>] It's so paceful, too. Not a noise.
+* [<i>Listen around.</i> #silence] It's so paceful, too. Not a noise.
 -> silence
 
 = nice_street
