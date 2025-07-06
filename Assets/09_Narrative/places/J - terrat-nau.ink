@@ -31,4 +31,4 @@ Huh, funny-looking building.
 
 = conclussion
 But, enough feeling sad about a building! On we go...
--> next
+-> DONE

@@ -5,21 +5,21 @@ namespace TFG.Animation
 {
     public class DiaphragmAnimator : MonoBehaviour
     {
-        private static Animator _animator;
-        private static GameObject _diaphragm; 
+        private static Animator animator;
+        private static GameObject diaphragm; 
         private static readonly int Open = Animator.StringToHash("openDiaphragm");
         private static readonly int Close = Animator.StringToHash("closeDiaphragm");
 
         public void Awake()
         {
-            _animator = gameObject.GetComponentInChildren<Animator>(true);
-            _diaphragm = transform.GetChild(0).gameObject;
+            animator = gameObject.GetComponentInChildren<Animator>(true);
+            diaphragm = transform.GetChild(0).gameObject;
         }
 
         public static void OpenAnimation()
         {
-            _diaphragm.SetActive(true);
-            _animator.SetTrigger(Open);
+            diaphragm.SetActive(true);
+            animator.SetTrigger(Open);
         }
         
         public static void OpenFinished()
@@ -29,12 +29,12 @@ namespace TFG.Animation
 
         public static void CloseAnimation()
         {
-            _animator.SetTrigger(Close);
+            animator.SetTrigger(Close);
         }
         
         public static void CloseFinished()
         {
-            _diaphragm.SetActive(false);
+            diaphragm.SetActive(false);
             CameraSimulator.SimulationEnd();
         }
     }

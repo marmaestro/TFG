@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace TFG.DataManagement
 {
     public static class DataManager
     {
-        public static void SaveJsonData(IEnumerable<ISaveableData> saveables)
+        public static void SaveJsonData([NotNull] IEnumerable<ISaveableData> saveables)
         {
-            if (saveables == null) return;
+            SaveSystem data = new();
+            foreach (ISaveableData saveable in saveables) saveable?.PopulateSaveData(data);
 
-            SaveSystem saveData = new();
-            foreach (ISaveableData saveable in saveables) saveable?.PopulateSaveData(saveData);
-
-            if (FileManager.WriteToFile("SaveData.dat", saveData.ToJson()))
+            if (FileManager.WriteToFile("SaveData.dat", data.ToJson()))
                 Debug.Log("Save successful");
         }
 

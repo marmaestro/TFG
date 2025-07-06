@@ -7,7 +7,7 @@ namespace TFG.ExtensionMethods
     {
         private void Awake()
         {
-            LocationSceneLoaded();
+            OnLocationSceneLoaded();
         }
     }
 }

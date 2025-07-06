@@ -1,37 +1,52 @@
+using TFG.Data;
 using TFG.ExtensionMethods;
 using TFG.InputSystem;
 using TFG.NavigationSystem;
 using TFG.DataManagement;
+using TFG.Narrative;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TFG
 {
     public class Game : MonoBehaviour, ISaveableData
     {
-        private static ISaveableData[] gameData;
-        [SerializeField] public City city;
+        [SerializeField] private GraphData gameGraphData; 
+        [FormerlySerializedAs("City")] public City city;
+        
         internal static Player player;
-        private static Navigation navigation;
-        public static string CurrentLocation => "TEST_FACILITY"; //City?.CurrentLocation;
+        internal static NavigationSystem.Navigation navigation;
+        public static StoryHandler storyHandler;
+        private static ISaveableData[] gameData;
+
+        internal static bool FirstPlay = true; 
+
+        private TextAsset gameNarrative;
 
         public void Awake()
         {
+            city = new City(gameGraphData);
+            
+            gameNarrative = Resources.Load<TextAsset>("main");
+            navigation = new NavigationSystem.Navigation(this);
+            storyHandler = new StoryHandler(gameNarrative);
+            
             SceneManager.AddScene("MainMenu");
-            navigation = new Navigation(this);
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
 
         public static void MainMenu()
         {
-            SceneManager.UnloadScene("Credits");
+            SceneManager.ClearScenes();
+            SceneManager.AddScene("MainMenu");
+            GameActions.SwitchActionMap(ActionMaps.UI);
         }
 
         private static void StartGame()
         {
             PauseGame(false);
-            SceneManager.UnloadScene("MainMenu");
-            SceneManager.AddScene("Start");
+            GoHome(false);
         }
 
         public static void StartNewGame()
@@ -42,8 +57,13 @@ namespace TFG
 
         public static void LoadGame()
         {
-            DataManager.LoadJsonData(gameData);
-            StartGame();
+            if (ExistingSaveFile())
+            {
+                DataManager.LoadJsonData(gameData);
+                StartGame();
+            }
+            
+            else StartNewGame();
         }
 
         public static void SaveGame()
@@ -59,22 +79,33 @@ namespace TFG
 
         public static void PauseGame(bool paused)
         {
-            Time.timeScale = paused ? 0 : 1;
-            Actions.PauseInputSystem();
+            if (paused)
+            {
+                Time.timeScale = 0;
+                SceneManager.AddSceneWithCheck("PauseMenu");
+                GameActions.SwitchActionMap(ActionMaps.UI);
+            }
 
-            SceneManager.LoadScene("Pause");
+            else
+            {
+                Time.timeScale = 1;
+                SceneManager.UnloadScene("PauseMenu");
+                GameActions.SwitchActionMap(ActionMaps.World);
+            }
         }
 
-        public void PopulateSaveData(SaveSystem saveData)
+        public void PopulateSaveData(SaveSystem data)
         {
-            saveData.playerData.city = city;
-            saveData.playerData.player = player;
+            data.gameData.city = city;
+            data.gameData.player = player;
+            data.gameData.story = storyHandler.SaveStory();
         }
         
-        public void LoadFromSaveData(SaveSystem saveData)
+        public void LoadFromSaveData(SaveSystem data)
         {
-            city = saveData.playerData.city;
-            player = saveData.playerData.player;
+            city = data.gameData.city;
+            player = data.gameData.player;
+            storyHandler.LoadStory(data.gameData.story);
         }
         
         public static void Visit(int destination)
@@ -83,18 +114,13 @@ namespace TFG
             navigation.Visit(destination);
         }
 
-        public static void GoHome()
+        public static void GoHome(bool  endOfDay = true)
         {
-            navigation.GoHome();
-            player.Reset();
+            if (endOfDay) GameActions.SwitchActionMap(ActionMaps.UI);
+            
+            navigation.GoHome(endOfDay);
         }
         
         public static string[] NextLocations() => navigation.NextLocations();
-
-        public static void LoadMainMenu()
-        {
-            SceneManager.AddScene("MainMenu");
-            SceneManager.UnloadScene("Title");
-        }
     }
 }

@@ -7,15 +7,16 @@ TagManager:
   - Pause
   - SimulationCamera
   - PointerTarget
+  - AnimatedText
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Oneiric
+  - 
   - Water
   - UI
-  - 
-  - 
+  - Oneiric
+  - Location
   - 
   - 
   - 
@@ -44,7 +45,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Oniric
+  - name: Oneiric
     uniqueID: 666443573
     locked: 0
   m_RenderingLayers:

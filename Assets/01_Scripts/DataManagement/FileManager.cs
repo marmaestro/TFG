@@ -8,6 +8,7 @@ namespace TFG.DataManagement
 {
     public static class FileManager
     {
+        #region Write Methods
         public static bool Exists(string fileName)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, fileName);
@@ -23,7 +24,7 @@ namespace TFG.DataManagement
             {
                 File.WriteAllText(fullPath, fileContents);
                 #if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Data written to {fullPath} successfully.");
+                Console.Log(ConCat.DataLoading, $"Data written to {fullPath} successfully.");
                 #endif
                 return true;
             }
@@ -31,13 +32,13 @@ namespace TFG.DataManagement
             catch (Exception e)
             {
                 #if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to write to {fullPath} with exception {e}.");
+                Console.LogError(ConCat.DataLoading, $"Failed to write to {fullPath} with exception {e}.");
                 #endif
                 return false;
             }
         }
         
-        public static void WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
+        /*public static void WriteToPictureFile(string filePath, string fileName, byte[] fileContents)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, filePath, fileName);
 
@@ -55,8 +56,10 @@ namespace TFG.DataManagement
                 Console.LogError(ConsoleCategories.DataLoading, $"Failed to write image to {fullPath} with exception {e}.");
                 #endif
             }
-        }
+        }*/
+        #endregion
 
+        #region Read Methods
         public static bool LoadFromFile(string fileName, out string result)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, fileName);
@@ -65,7 +68,7 @@ namespace TFG.DataManagement
             {
                 result = File.ReadAllText(fullPath);
                 #if DEBUG
-                Console.Log(ConsoleCategories.DataLoading, $"Data read from {fullPath} successfully.");
+                Console.Log(ConCat.DataLoading, $"Data read from {fullPath} successfully.");
                 #endif
                 return true;
             }
@@ -73,12 +76,13 @@ namespace TFG.DataManagement
             catch (Exception e)
             {
                 #if DEBUG
-                Console.LogError(ConsoleCategories.DataLoading, $"Failed to read data from {fullPath} with exception {e}.");
+                Console.LogError(ConCat.DataLoading, $"Failed to read data from {fullPath} with exception {e}.");
                 #endif
                 
                 result = "";
                 return false;
             }
         }
+        #endregion
     }
 }

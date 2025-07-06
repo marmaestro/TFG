@@ -4,6 +4,7 @@ namespace TFG.InputSystem
     {
         World,
         Camera,
-        Reflections
+        Reflecting,
+        UI
     }
 }

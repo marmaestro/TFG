@@ -19,4 +19,4 @@ What a beautiful place, and it has a pond...
 
 = conclussion
 Beautiful place, but I cannot stand these noises any more.
--> next
+-> DONE

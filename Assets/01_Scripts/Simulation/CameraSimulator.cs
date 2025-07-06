@@ -1,101 +1,76 @@
-using System;
 using TFG.InputSystem;
-using TFG.DataManagement;
 using TFG.ExtensionMethods;
 using UnityEngine;
 using static TFG.Animation.DiaphragmAnimator;
-using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.Simulation
 {
-    public class CameraSimulator : MonoBehaviour
+    [RequireComponent(typeof(Camera))]
+    public partial class CameraSimulator : MonoBehaviour
     {
-        private static Camera _camera;
-        private static Transform _target;
+        [SerializeField] private GameObject textHolder;
+        
+        private static Game game;
+        private new static Camera camera;
+        private static Texture2D shot;
+        private static bool reflecting;
+        
+        private static readonly Vector2 bounds = new(635, 420);
+        private const string simulationScene = "CameraInterface";
 
-        private static readonly string SavedImagesPath = ""; //Path.Combine(Application.dataPath, "Resources/Images/Saved");
-        private static readonly string RenderTargetPath = "Images/Renderers/FM2Output";
-        private static readonly string[] SimulationScenes = { "CameraInterface" };
-
-        private static RenderTexture RenderTarget;
-
-        private static Texture2D _shot;
-
-        // Unity events
+        #region Unity Events
         public void Awake()
         {
-            RenderTarget = Resources.Load(RenderTargetPath) as RenderTexture;
-        }
-        
-        public void Start()
-        {
-            _camera = GetComponent<Camera>();
-            _target = GameObject.FindGameObjectWithTag("PointerTarget").transform;
-            
-            #if DEBUG
-            Console.Log(ConsoleCategories.Debug, $"_camera is {_camera.name}");
-            Console.Log(ConsoleCategories.Debug, $"_target is {_target.name}");
-            #endif
+            camera = GetComponent<Camera>();
         }
 
         public void LateUpdate()
         {
-            _camera.Render();
+            camera.Render();
         }
+        #endregion
 
-        // Behaviour
-        public static void MoveCamera(Vector2 delta)
-        {
-            _target.position = new Vector3(delta.x, delta.y, _target.transform.position.z);
-        }
-
-        public static void TakePicture()
-        {
-            // Call the camera to render
-            _camera.Render();
-
-            // Set up the Texture2D
-            _shot = new Texture2D(RenderTarget.width, RenderTarget.height, TextureFormat.RGB24, false);
-
-            // Copy the rendered texture
-            RenderTexture.active = RenderTarget;
-            _shot.ReadPixels(new Rect(0, 0, RenderTarget.width, RenderTarget.height), 0, 0);
-            _shot.Apply();
-
-            // Write (save) the rendered texture
-            FileManager.WriteToPictureFile(SavedImagesPath, EncodePictureName(), _shot.EncodeToPNG());
-
-            _shot = null;
-        }
-
-        private static string EncodePictureName()
-        {
-            // The file name is 'CurrenScene_Date_Time.png'
-            return $"{Game.CurrentLocation}_{DateTime.Now:yyMMdd}_{DateTime.Now:HHmmss}.png";
-        }
-
-        // Simulation
+        #region Behaviour Methods
         public static void OpenCamera()
         {
-            // Open picture interface/camera simulation
+            reflecting = !Game.navigation.Visited;
+            GameActions.EnableInputSystem(false);
+            
             SimulationStartAnimation();
         }
 
         public static void CloseCamera()
         {
-            // Close picture interface/camera simulation
+            GameActions.EnableInputSystem(false);
             SimulationEndAnimation();
         }
+        
+        public static void MovePointer(Vector2 delta)
+        {
+            float rawX = camera.transform.position.x + delta.x;
+            float rawY = camera.transform.position.y + delta.y;
+            
+            float clampedX = Mathf.Clamp(rawX, - bounds.x , bounds.x);
+            float clampedY = Mathf.Clamp(rawY, - bounds.y, bounds.y);
+            
+            camera.transform.position = new Vector3(clampedX, clampedY, camera.transform.position.z);
+            
+            if (reflecting) CastRay();
+        }
+        #endregion
 
+        #region Basic Simulation Handling
         private static void SimulationStartAnimation()
         {
             OpenAnimation();
-            SceneManager.AddMultipleScenes(SimulationScenes);
+            SceneManager.AddScene(simulationScene);
         }
 
         public static void SimulationStart()
         {
-            Actions.SwitchActionMap(ActionMaps.Camera);
+            if (reflecting) LoadReflecting();
+            GameActions.EnableInputSystem(true);
+            GameActions.SwitchActionMap(reflecting ? ActionMaps.Reflecting : ActionMaps.Camera);
         }
 
         private static void SimulationEndAnimation()
@@ -105,8 +80,10 @@ namespace TFG.Simulation
 
         internal static void SimulationEnd()
         {
-            SceneManager.UnloadMultipleScenes(SimulationScenes);
-            Actions.SwitchActionMap(ActionMaps.World);
+            SceneManager.UnloadScene(simulationScene);
+            GameActions.EnableInputSystem(true);
+            GameActions.SwitchActionMap(ActionMaps.World);
         }
+        #endregion
     }
 }

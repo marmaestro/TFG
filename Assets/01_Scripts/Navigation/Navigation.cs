@@ -1,6 +1,6 @@
 using System;
 using TFG.ExtensionMethods;
-using static TFG.Player;
+using static TFG.Game;
 using Console = TFG.ExtensionMethods.Console;
 
 namespace TFG.NavigationSystem
@@ -8,46 +8,68 @@ namespace TFG.NavigationSystem
     public class Navigation
     {
         private readonly Game game;
-        private string currentLocation => game.city.scenes[locationID];
-        private const string Home = "Home";
 
+        public bool Visited => game.city.visitedLocations[player.location];
+        public string currentLocationName => game.city.sceneNames[player.location];
+        
+        public const string Home = "0 Home";
+
+        #region Constructor
         public Navigation(Game game)
         {
             this.game = game;
         }
+        #endregion
 
+        #region Navigation Methods
         public string[] NextLocations()
         {
-            int[] locationIndexes = game.city.VisitableSpots();
+            int[] locationIndexes = game.city.VisitableLocations();
             string[] nextLocations = new string[locationIndexes.Length];
 
             for (int i = 0; i < locationIndexes.Length; i++)
-                nextLocations[i] = game.city.scenes[locationIndexes[i]];
+                nextLocations[i] = game.city.sceneNames[locationIndexes[i]];
 
             return nextLocations;
         }
         
         public void Visit(int uncodedDestination)
         {
+            if (uncodedDestination.Equals(-1))
+            {
+                Game.GoHome();
+                return;
+            }
+            
             string[] nextLocations = NextLocations();
             string destination = nextLocations[uncodedDestination];
             
             #if DEBUG
-            Console.Log(ConsoleCategories.SceneManagement, $"Leaving scene {currentLocation} to {destination}");
+            Console.Log(ConCat.SceneManagement, $"Leaving scene {currentLocationName} to {destination}");
             #endif
             
+            SceneManager.UnloadScene(currentLocationName);
             SceneManager.AddScene(destination);
-            SceneManager.UnloadScene(currentLocation);
 
-            int id = Array.IndexOf(game.city.scenes, destination);
-            game.city.visitedLocations[id] = true;
-            locationID = id;
+            int id = Array.IndexOf(game.city.sceneNames, destination);
+            player.location = id;
         }
 
-        public void GoHome()
+        public void GoHome(bool endOfDay)
         {
             SceneManager.AddScene(Home);
-            SceneManager.UnloadScene(currentLocation);
+            
+            if (endOfDay)
+            {
+                SceneManager.UnloadScene(currentLocationName);
+                SceneManager.UnloadNavigationScene();
+                SceneManager.AddScene("Diary");
+                
+                // TODO : Create diary logic and narrative
+            }
+            
+            else SceneManager.UnloadScene("MainMenu");
         }
+        #endregion
     }
 }

@@ -1,22 +1,22 @@
 using System;
-using UnityEngine;
+using TFG.Data;
 
 namespace TFG.NavigationSystem
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "City", menuName = "SIL/City")]
-    public class City : ScriptableObject
+    public class City
     {
-        [SerializeField] private Graph graph;
-        
-        internal bool[] visitedLocations;
-        internal string[] scenes => graph.nodeNames;
+        private Graph graph;
+        public bool[] visitedLocations;
+        public string[] sceneNames => graph.NodeNames;
+        public string[] sceneTags => graph.NodeTags;
 
-        public void Awake()
+        public City(GraphData data)
         {
+            graph = new Graph(data);
             visitedLocations = new bool[graph.NodeCount];
         }
 
-        public int[] VisitableSpots() => graph.VisitableNodes();
+        public int[] VisitableLocations() => graph.AvailableNodes();
     }
 }

@@ -1,7 +1,7 @@
 using TFG.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static TFG.ExtensionMethods.UIExtensions;
+using static TFG.UIElements.Buttons.ButtonConnector;
 
 namespace TFG.UIElements.Buttons
 {
@@ -16,11 +16,11 @@ namespace TFG.UIElements.Buttons
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            gameObject.transform.localScale += Vector3.one * 0.2f;
+            gameObject.transform.localScale += Vector3.one * 0.1f;
         }
         public void OnPointerExit(PointerEventData eventData)
         {
-            gameObject.transform.localScale -= Vector3.one * 0.2f;
+            gameObject.transform.localScale -= Vector3.one * 0.1f;
         }
     }
 }
