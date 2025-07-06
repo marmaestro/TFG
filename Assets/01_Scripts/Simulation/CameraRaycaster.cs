@@ -1,4 +1,4 @@
-using TFG.ExtensionMethods;
+using TFG.InputSystem;
 using TFG.Narrative;
 using UnityEngine;
 using static TFG.Game;
@@ -14,21 +14,38 @@ namespace TFG.Simulation
         private static void LoadReflecting()
         {
             game = GameObject.FindGameObjectWithTag("GameController").GetComponent<Game>();
-            storyHandler.StartStorySection(game.city.sceneTags[player.location]);
+            StoryHandler.StartStorySection(game.city.sceneTags[player.location]);
+            game.city.visitedLocations[player.location] = true;
         }
         
         public static void Reflect()
         {
+            if (TextBridge.NextLine()) return;
+
+            if (!reflecting && !TextBridge.NextLine())
+            {
+                GameActions.SwitchActionMap(ActionMaps.Camera);
+                TextBridge.Clear();
+                return;
+            }
+
             CastRay(true);
+        }
+        
+        public static void StopReflecting()
+        {
+            reflecting = false;
         }
         #endregion
         
         #region Raycast Methods
         private static void CastRay(bool selectOption = false)
         {
+            Debug.DrawRay(origin, direction * 305, Color.red, 25f);
+            
             if (!Physics.Raycast(origin, direction, out RaycastHit hit, 305) || !hit.collider)
             {
-                TextBridge.Default();
+                TextBridge.CurrentLine();
                 return;
             }
             

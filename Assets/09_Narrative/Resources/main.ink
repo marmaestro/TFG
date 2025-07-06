@@ -33,5 +33,3 @@ VAR dead_plant = false
 === home ===
 We begin here... -> DONE
 
-=== next ===
--> diary

@@ -16,7 +16,7 @@ namespace TFG.Simulation
         private static bool reflecting;
         
         private static readonly Vector2 bounds = new(635, 420);
-        private static readonly string[] simulationScenes = { "CameraInterface" };
+        private const string simulationScene = "CameraInterface";
 
         #region Unity Events
         public void Awake()
@@ -34,14 +34,14 @@ namespace TFG.Simulation
         public static void OpenCamera()
         {
             reflecting = !Game.navigation.Visited;
-            PlayerActions.PauseInputSystem();
+            GameActions.EnableInputSystem(false);
             
             SimulationStartAnimation();
         }
 
         public static void CloseCamera()
         {
-            PlayerActions.PauseInputSystem();
+            GameActions.EnableInputSystem(false);
             SimulationEndAnimation();
         }
         
@@ -63,14 +63,14 @@ namespace TFG.Simulation
         private static void SimulationStartAnimation()
         {
             OpenAnimation();
-            SceneManager.AddMultipleScenes(simulationScenes);
+            SceneManager.AddScene(simulationScene);
         }
 
         public static void SimulationStart()
         {
             if (reflecting) LoadReflecting();
-            PlayerActions.PauseInputSystem();
-            PlayerActions.SwitchActionMap(reflecting ? ActionMaps.Reflecting : ActionMaps.Camera);
+            GameActions.EnableInputSystem(true);
+            GameActions.SwitchActionMap(reflecting ? ActionMaps.Reflecting : ActionMaps.Camera);
         }
 
         private static void SimulationEndAnimation()
@@ -80,9 +80,9 @@ namespace TFG.Simulation
 
         internal static void SimulationEnd()
         {
-            SceneManager.UnloadMultipleScenes(simulationScenes);
-            PlayerActions.PauseInputSystem();
-            PlayerActions.SwitchActionMap(ActionMaps.World);
+            SceneManager.UnloadScene(simulationScene);
+            GameActions.EnableInputSystem(true);
+            GameActions.SwitchActionMap(ActionMaps.World);
         }
         #endregion
     }

@@ -1,3 +1,4 @@
+using TFG.InputSystem;
 using UnityEngine;
 
 namespace TFG.Animation
@@ -19,6 +20,8 @@ namespace TFG.Animation
         public static void OnTitleAnimated()
         {
             Game.FirstPlay = false;
+            GameActions.EnableInputSystem(true);
+            GameActions.SwitchActionMap(ActionMaps.UI);
         }
 
         public static void ShowTitlePopup()

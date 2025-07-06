@@ -1,6 +1,5 @@
 using System.Collections;
 using EasyTextEffects;
-using TFG.Animation;
 using TMPro;
 using UnityEngine;
 
@@ -37,6 +36,12 @@ namespace TFG.Narrative
                 textEffect.StartManualEffects();
                 StartCoroutine(WaitForEffect());
             }
+        }
+        
+        public void Clear()
+        {
+            textMeshPro.text = "";
+            textMeshPro.enabled = false;
         }
         #endregion
 

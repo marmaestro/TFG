@@ -28,15 +28,13 @@ namespace TFG.Narrative
 
         private void Format()
         {
-            leftTextBlock.text = rawText[..maxChars];
+            leftTextBlock.text = rawText.Length > maxChars ? rawText[..maxChars] : rawText;
             diaryAnimator.AnimateLeft();
-
-            
         }
 
         public void OnLeftAnimated()
         {
-            rightTextBlock.text = rawText[maxChars..rawText.Length];
+            if (rawText.Length > maxChars) rightTextBlock.text = rawText[maxChars..rawText.Length];
             diaryAnimator.AnimateRight();
         }
     }    

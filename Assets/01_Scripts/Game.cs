@@ -28,10 +28,10 @@ namespace TFG
             city = new City(gameGraphData);
             
             gameNarrative = Resources.Load<TextAsset>("main");
-            SceneManager.AddScene("MainMenu");
-            
             navigation = new NavigationSystem.Navigation(this);
             storyHandler = new StoryHandler(gameNarrative);
+            
+            SceneManager.AddScene("MainMenu");
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
@@ -40,7 +40,7 @@ namespace TFG
         {
             SceneManager.ClearScenes();
             SceneManager.AddScene("MainMenu");
-            PlayerActions.SwitchActionMap(ActionMaps.UI);
+            GameActions.SwitchActionMap(ActionMaps.UI);
         }
 
         private static void StartGame()
@@ -83,14 +83,14 @@ namespace TFG
             {
                 Time.timeScale = 0;
                 SceneManager.AddSceneWithCheck("PauseMenu");
-                PlayerActions.SwitchActionMap(ActionMaps.UI);
+                GameActions.SwitchActionMap(ActionMaps.UI);
             }
 
             else
             {
                 Time.timeScale = 1;
                 SceneManager.UnloadScene("PauseMenu");
-                PlayerActions.SwitchActionMap(ActionMaps.World);
+                GameActions.SwitchActionMap(ActionMaps.World);
             }
         }
 
@@ -116,7 +116,7 @@ namespace TFG
 
         public static void GoHome(bool  endOfDay = true)
         {
-            if (endOfDay) PlayerActions.SwitchActionMap(ActionMaps.UI);
+            if (endOfDay) GameActions.SwitchActionMap(ActionMaps.UI);
             
             navigation.GoHome(endOfDay);
         }

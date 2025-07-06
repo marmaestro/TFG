@@ -11,7 +11,7 @@ using static TFG.NavigationSystem.Navigation;
 
 namespace TFG.InputSystem
 {
-    public class PlayerActions : MonoBehaviour
+    public class GameActions : MonoBehaviour
     {
         private static PlayerInput playerInput;
         
@@ -86,7 +86,8 @@ namespace TFG.InputSystem
         {
             CameraSimulator.MovePointer(delta);
         }
-        private void OnCloseCamera(InputAction.CallbackContext context)
+
+        private static void OnCloseCamera(InputAction.CallbackContext context)
         {
             CameraSimulator.CloseCamera();
         }
@@ -113,12 +114,12 @@ namespace TFG.InputSystem
             #endif
         }
         
-        public static void PauseInputSystem()
+        public static void EnableInputSystem(bool enabled)
         {
-            playerInput.enabled = !playerInput.enabled;
+            playerInput.enabled = enabled;
         }
-        
-        private static void CursorToggle(bool show)
+
+        public static void CursorToggle(bool show)
         {
             Cursor.visible = show;
         }

@@ -6,4 +6,4 @@ The city's market. I had never been here.
 
 = conclussion
 Well, I'll come get some things next time.
--> next
+-> DONE

@@ -1,3 +1,4 @@
+using TFG.Simulation;
 using UnityEngine;
 
 namespace TFG.Animation
@@ -13,10 +14,9 @@ namespace TFG.Animation
 
         public static void TriggerAnimation(string trigger)
         {
-            if (trigger.Equals("finished"))
-                trigger = "blank";
-
             animator.SetTrigger(trigger);
+
+            if (trigger.Equals("finished")) CameraSimulator.StopReflecting();
         }
     }
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace TFG.UIElements.Editor
 {
-    [CustomEditor(typeof(PlayerActions))]
+    [CustomEditor(typeof(GameActions))]
     public class InputSystemInterface : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
             
-            PlayerActions actions = (PlayerActions)target;
+            GameActions actions = (GameActions)target;
             if (GUILayout.Button("Show current map"))
             {
                 actions.Show();

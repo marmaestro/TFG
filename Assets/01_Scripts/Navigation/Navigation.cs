@@ -52,7 +52,6 @@ namespace TFG.NavigationSystem
             SceneManager.AddScene(destination);
 
             int id = Array.IndexOf(game.city.sceneNames, destination);
-            game.city.visitedLocations[player.location] = true;
             player.location = id;
         }
 
