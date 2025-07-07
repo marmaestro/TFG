@@ -61,13 +61,14 @@ namespace TFG.NavigationSystem
             
             if (endOfDay)
             {
-                SceneManager.UnloadScene(currentLocationName);
-                SceneManager.UnloadNavigationScene();
-                SceneManager.AddScene("Diary");
+                SceneManager.LoadScene("Diary");
             }
-            
-            SceneManager.UnloadScene("MainMenu");
-            SceneManager.UnloadScene("Tutorial");
+
+            else
+            {
+                SceneManager.UnloadScene("MainMenu");
+                SceneManager.UnloadScene("Tutorial");
+            }
         }
         #endregion
     }
