@@ -68,7 +68,8 @@ namespace TFG.NavigationSystem
                 // TODO : Create diary logic and narrative
             }
             
-            else SceneManager.UnloadScene("MainMenu");
+            SceneManager.UnloadScene("MainMenu");
+            SceneManager.UnloadScene("Tutorial");
         }
         #endregion
     }

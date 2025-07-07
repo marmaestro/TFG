@@ -19,12 +19,14 @@ namespace TFG.Narrative
         #endregion
 
         #region Write Methods
-        internal void Rewrite(string text)
+        internal void Rewrite(string text, bool centered = false)
         {
             if (!textMeshPro.text.Equals(text))
             {
                 textMeshPro.text = text;
                 textEffect.StartManualEffects();
+
+                if (centered) textMeshPro.alignment = TextAlignmentOptions.Center;
             }
         }
 

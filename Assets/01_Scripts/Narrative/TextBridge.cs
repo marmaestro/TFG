@@ -1,5 +1,4 @@
 using TFG.Animation;
-using TFG.InputSystem;
 using UnityEngine;
 
 namespace TFG.Narrative

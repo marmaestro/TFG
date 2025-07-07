@@ -79,6 +79,5 @@ namespace TFG.Narrative
             return -1;
         }
         #endregion
-        
     }
 }

@@ -45,8 +45,13 @@ namespace TFG
 
         private static void StartGame()
         {
-            PauseGame(false);
-            GoHome(false);
+            StartTutorial();
+        }
+
+        private static void StartTutorial()
+        {
+            SceneManager.UnloadScene("MainMenu");
+            SceneManager.AddScene("Tutorial");
         }
 
         public static void StartNewGame()
