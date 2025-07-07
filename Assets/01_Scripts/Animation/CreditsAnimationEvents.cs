@@ -10,7 +10,6 @@ public class CreditsAnimationEvents : MonoBehaviour
     
     public void OnCreditsFinished()
     {
-        SceneManager.UnloadScene("CreditsScene");
-        SceneManager.AddScene("MainMenu");
+        SceneManager.LoadScene("Persistent");
     }
 }

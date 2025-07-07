@@ -1,6 +1,11 @@
 // FUNCTIONS
 INCLUDE ../functions/swing.ink
 
+// EVENTS
+INCLUDE ../diary.ink
+INCLUDE ../home.ink
+INCLUDE ../tutorial.ink
+
 // PLACES
 INCLUDE ../places/A - carrer-sant-blai.ink
 INCLUDE ../places/B - terrat-casetes.ink
@@ -16,8 +21,7 @@ INCLUDE ../places/K - carrer-ample.ink
 INCLUDE ../places/L - estany.ink
 INCLUDE ../places/M - fruiteria-mercat.ink
 
-// DIARY
-INCLUDE ../diary.ink
+
 
 
 // MOOD VARIABLES
@@ -28,8 +32,4 @@ VAR reflective = INITIAL_SWING // it's own thing
 // GLOBAL VARIABLES
 VAR dead_plant = false
 
--> home
-
-=== home ===
-We begin here... -> DONE
-
+-> DONE

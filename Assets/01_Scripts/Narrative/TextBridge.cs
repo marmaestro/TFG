@@ -1,5 +1,4 @@
 using TFG.Animation;
-using TFG.InputSystem;
 using UnityEngine;
 
 namespace TFG.Narrative
@@ -48,6 +47,12 @@ namespace TFG.Narrative
                 textID = "finished";
             
             LocationAnimator.TriggerAnimation(textID);
+        }
+
+        public static void DiaryResults()
+        {
+            string text = StoryHandler.GetDiary();
+            rewriter.Rewrite(text);
         }
     }
 }

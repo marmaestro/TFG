@@ -169,14 +169,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.07058824, b: 0.05882353, a: 0.7490196}
+  m_Color: {r: 0.5999999, g: 0.5999999, b: 0.5999999, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 82deeeff1ebb6aa4ca5961cec81dee90, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 954637853}
   - component: {fileID: 954637857}
   m_Layer: 5
-  m_Name: Diary Canvas
+  m_Name: Tutorial Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,8 +271,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: -1
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 954637852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c920e28fe9ca4856b01fa0bd1ed872a6, type: 3}
+  m_Script: {fileID: 11500000, guid: e2908395663c4e10866c14ab6149b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1732172721
@@ -318,34 +318,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954637856}
     m_Modifications:
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 954637857}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnDiaryAnimated
-      objectReference: {fileID: 0}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TFG.Narrative.DiaryWriter, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 764958604583166099, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_Name
       value: Text Animated
@@ -376,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2930995505796376541, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -500
+      value: -600
       objectReference: {fileID: 0}
     - target: {fileID: 2930995505796376541, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_SizeDelta.y
@@ -432,14 +404,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_text
-      value: Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae
-        pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo
-        eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis
-        massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent
-        taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius
-        natoque penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus.
-        Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est
-        efficitur laoreet mauris pharetra vestibulum fusce.
+      value: Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur
+        adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque
+        sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium
+        tellus duis convallis tempus leo eu aenean.
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_fontSize

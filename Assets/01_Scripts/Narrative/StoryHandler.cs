@@ -1,5 +1,6 @@
 using System.Linq;
 using Ink.Runtime;
+using TFG.ExtensionMethods;
 using UnityEngine;
 
 namespace TFG.Narrative
@@ -41,7 +42,7 @@ namespace TFG.Narrative
             story.ChoosePathString("diary");
             string diaryContent = "";
             while (story.canContinue)
-                diaryContent += story.Continue();
+                diaryContent += story.Continue() + "\n";
             
             return diaryContent;
         }
@@ -79,6 +80,5 @@ namespace TFG.Narrative
             return -1;
         }
         #endregion
-        
     }
 }

@@ -1,41 +1,18 @@
-using TFG.Animation;
-using TMPro;
+using TFG.ExtensionMethods;
 using UnityEngine;
 
 namespace TFG.Narrative
 {
     public class DiaryWriter : MonoBehaviour
     {
-        [SerializeField] private TMP_Text leftTextBlock;
-        [SerializeField] private TMP_Text rightTextBlock;
-
-        private string rawText;
-        private DiaryAnimator diaryAnimator;
-
-        private const int maxChars = 500;
-
-        public void Awake()
+        private void Start()
         {
-            diaryAnimator = GetComponent<DiaryAnimator>();
-            diaryAnimator.Init(leftTextBlock, rightTextBlock);
+            TextBridge.DiaryResults();
         }
 
-        public void Start()
+        public static void OnDiaryAnimated()
         {
-            rawText = StoryHandler.GetDiary();
-            Format();
+            SceneManager.LoadScene("CreditsScene");
         }
-
-        private void Format()
-        {
-            leftTextBlock.text = rawText.Length > maxChars ? rawText[..maxChars] : rawText;
-            diaryAnimator.AnimateLeft();
-        }
-
-        public void OnLeftAnimated()
-        {
-            if (rawText.Length > maxChars) rightTextBlock.text = rawText[maxChars..rawText.Length];
-            diaryAnimator.AnimateRight();
-        }
-    }    
+    }
 }
