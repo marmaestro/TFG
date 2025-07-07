@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 1effd089dae15b74788eb60f1e83aad8, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: bec7c692d74e2fa4da34a577c29ea42b, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -213,7 +213,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_text
-      value: If you see this, the rewriter failed...
+      value: Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur
+        adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae
+        pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_isRightToLeft
