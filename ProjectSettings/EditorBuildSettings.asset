@@ -27,9 +27,6 @@ EditorBuildSettings:
     path: Assets/07_Scenes/SettingsMenu.unity
     guid: bc79430ed3855e242840a71552885653
   - enabled: 1
-    path: Assets/07_Scenes/Diary.unity
-    guid: 65b0c5986abdb3c4c9bd6c3c3463c1a1
-  - enabled: 1
     path: Assets/07_Scenes/CameraInterface.unity
     guid: 77c69320051333a4ea04863e49185548
   - enabled: 1
@@ -86,6 +83,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/07_Scenes/CreditsScene.unity
     guid: c57cd55480503cc40b49f5751afee4de
+  - enabled: 1
+    path: Assets/07_Scenes/Diary.unity
+    guid: c8d0cd999818e9b4da0ea05e9783edcf
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8e84296f9150e024497f6103a6fd4222, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 1decf271505aa4c4d9d5ed859606a0b8, type: 2}

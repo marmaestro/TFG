@@ -8,7 +8,7 @@ namespace TFG.Narrative
     {
         private const string section = "tutorial";
         
-        private void Awake()
+        private void Start()
         {
             StoryHandler.StartStorySection(section);
         }

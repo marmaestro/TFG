@@ -64,8 +64,6 @@ namespace TFG.NavigationSystem
                 SceneManager.UnloadScene(currentLocationName);
                 SceneManager.UnloadNavigationScene();
                 SceneManager.AddScene("Diary");
-                
-                // TODO : Create diary logic and narrative
             }
             
             SceneManager.UnloadScene("MainMenu");

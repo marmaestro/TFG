@@ -48,5 +48,11 @@ namespace TFG.Narrative
             
             LocationAnimator.TriggerAnimation(textID);
         }
+
+        public static void DiaryResults()
+        {
+            string text = StoryHandler.GetDiary();
+            rewriter.Rewrite(text);
+        }
     }
 }

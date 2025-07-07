@@ -1,4 +1,3 @@
-using System.Collections;
 using EasyTextEffects;
 using TMPro;
 using UnityEngine;
@@ -19,38 +18,20 @@ namespace TFG.Narrative
         #endregion
 
         #region Write Methods
-        internal void Rewrite(string text, bool centered = false)
+        public void Rewrite(string text)
         {
             if (!textMeshPro.text.Equals(text))
             {
                 textMeshPro.text = text;
+                textMeshPro.ForceMeshUpdate();
                 textEffect.StartManualEffects();
-
-                if (centered) textMeshPro.alignment = TextAlignmentOptions.Center;
             }
         }
 
-        internal void Rewrite(string[] textLList)
-        {
-            foreach (string text in textLList)
-            {
-                textMeshPro.text = text;
-                textEffect.StartManualEffects();
-                StartCoroutine(WaitForEffect());
-            }
-        }
-        
         public void Clear()
         {
             textMeshPro.text = "";
             textMeshPro.enabled = false;
-        }
-        #endregion
-
-        #region Auxiliary Methods
-        private IEnumerator WaitForEffect()
-        {
-            yield return textEffect.FindManualEffect("").onEffectCompleted;
         }
         #endregion
     }

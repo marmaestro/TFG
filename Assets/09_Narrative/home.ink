@@ -1,5 +1,9 @@
 === home ===
 
+Home is commented for the time being.
+
+/*---
+
 <i>Think about this morning.</i>
 
 Ugh...
@@ -37,5 +41,7 @@ I don't even want to think about it.
 ...
 
 But I guess I should...
+
+---*/
 
 -> DONE
