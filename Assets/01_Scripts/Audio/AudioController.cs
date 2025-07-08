@@ -19,20 +19,20 @@ namespace TFG.Audio
             LoadBank(AudioBanks.Intro);
         }
 
-        public void LoadBank(string bank)
+        public void LoadBank(string bankName)
         {
             StopMusic();
 
             bankLoader.Unload();
-            bankLoader.Banks = new List<string> { bankPath + bank };
+            bankLoader.Banks = new List<string> { bankPath + bankName };
             bankLoader.Load();
             
-            PlayMusic(bank);
+            PlayMusic(bankName);
         }
         
-        private void PlayMusic(string bank)
+        private void PlayMusic(string trackName)
         {
-            eventEmitter = RuntimeManager.CreateInstance(musicPath + bank);
+            eventEmitter = RuntimeManager.CreateInstance(musicPath + trackName);
             eventEmitter.start();
         }
 

@@ -47,6 +47,17 @@
                 },
                 {
                     "name": "",
+                    "id": "69f82c95-823f-4b2e-a766-3ef4e60ad442",
+                    "path": "<Mouse>/forwardButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "460331a6-6aae-443f-b126-86b4cc32cbf1",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",

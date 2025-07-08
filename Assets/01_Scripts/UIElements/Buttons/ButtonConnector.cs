@@ -30,9 +30,11 @@ namespace TFG.UIElements.Buttons
             {
                 case "Continue": Game.PauseGame(false); break;
 
-                case "Settings": SceneManager.AddScene(target); break;
+                case "Tutorial": SceneManager.AddScene("PauseMenuTutorial"); break;
                 
-                case "MainMenu": Game.MainMenu(); break; 
+                case "UnloadTutorial": SceneManager.UnloadScene("PauseMenuTutorial"); break;
+                
+                case "Quit": Game.QuitGame(); break; 
                 
                 case "SaveGame": Game.SaveGame(); break;
             }

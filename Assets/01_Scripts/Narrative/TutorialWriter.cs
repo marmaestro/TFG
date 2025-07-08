@@ -20,8 +20,8 @@ namespace TFG.Narrative
             
             SceneManager.UnloadScene("Tutorial");
             Game.audioController.LoadBank(AudioBanks.Game);
-            NavigationAudioController.PlaySound();
             NavigationSystem.Navigation.GoHome(false);
+            NavigationAudioController.PlaySound();
         }
     }
 }

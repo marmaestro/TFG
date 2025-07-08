@@ -9,7 +9,7 @@ namespace TFG.Audio
 
         public void Awake()
         {
-            emitter = GetComponent<StudioEventEmitter>();
+            emitter = GetComponentInChildren<StudioEventEmitter>();
         }
 
         public static void PlaySound()
