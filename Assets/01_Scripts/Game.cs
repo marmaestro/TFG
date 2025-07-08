@@ -82,7 +82,7 @@ namespace TFG
 
         public static void QuitGame()
         {
-            SaveGame();
+            //SaveGame();
             Application.Quit();
         }
 

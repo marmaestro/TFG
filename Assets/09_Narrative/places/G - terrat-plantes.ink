@@ -17,7 +17,7 @@ I can barely keep myself alive and goind. Why am I acting so surprised?
 - -> conclussion
 
 = unkept
-* [But the plants look nice...#unkept_0] Wait, is that why the plants grew like that? They look way too good to be not cared of.
+* [But the plants look nice...#unkept_0] Wait, is that why the plants grew like that? They look way too good to not be cared of.
 ~lower(reflective)
 * [Maybe there's not enough time for it.#unkept_1] It must be that house's terrace. It's quite unkept, yes, but the plants look good.
 I get it. In survival mode, being alive comes before keeping appearances.

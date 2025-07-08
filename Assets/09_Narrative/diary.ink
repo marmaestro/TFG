@@ -2,7 +2,7 @@
 
 2nd Saturday of May, 20XX.
 
-Decided to go out today and take some pictures.
+I decided to go out today and take some pictures with dad's old camera.
 
 // reflective
 {
@@ -12,7 +12,7 @@ Decided to go out today and take some pictures.
 	<> Which meant, walking for hours. I still don't know why I did it.
 }
 
-I'm not quite sure of how I'm really feeling about it.
+Its impact on me... Well, 
 
 
 // fun
@@ -22,7 +22,7 @@ I'm not quite sure of how I'm really feeling about it.
 	- down(fun):
 	<> I feel kind of down now. I'm not sure of why, but it's there.
 	- else: 
-	<> It was fine. Boring, even.
+	<> it was boring.
 }
 
 // cheerful
@@ -30,7 +30,7 @@ I'm not quite sure of how I'm really feeling about it.
     - up(cheerful):
 	<> Maybe I should do this more often, it really brightened up the month, nonetheless.
 	- down(cheerful):
-	<> Yet, I think I'm feeling even worse than before. I could not stop thinking about awful things. What a way to waste a nice afternoon. 
+	<> Yet, I think I'm doing even worse than before. I could not stop thinking about awful things. What a way to waste a nice afternoon. 
 	- else: 
 	<> I'll have to think about this again tomorrow.
 }

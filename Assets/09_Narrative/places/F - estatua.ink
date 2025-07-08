@@ -8,7 +8,7 @@ This statue here... I don't remember it.
 -> time
 
 = job
-* Might be a driver[.#job_0] of some kind? Oh, forget it, I think he's one of those men that kept watch at night and lit the streetlamps. How were they called again?
+* Might've been a driver[.#job_0] of some kind? Oh, forget it, I think he's one of those men that kept watch at night and lit the streetlamps. How were they called again?
 I have no idea, should ask mum next time I ring her.
 ~elevate(reflective)
 * Well, there's a statue[...#job_1] so, whatever the job was, it must've been important to the city.

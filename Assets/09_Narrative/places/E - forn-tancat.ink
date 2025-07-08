@@ -6,7 +6,7 @@ Seems like a closed-down baker's. It must've been like this for a long while.
 -> saint
 
 = closed
-* [These times...#closed_0] In a time like this, is it even worth it to try to keep a small shop afloat? It must be so hard...
+* [These times...#closed_0] At a time like this, is it even worth it to try to keep a small shop afloat? It must be so hard...
 ~lower(cheerful)
 * {cafe_artistes.closed} This one did really close[.#closed_2]... I wonder how their pastries tasted. Must've been such a lively place in the neighbourhood.
 ~raise(fun)
@@ -27,5 +27,5 @@ It has a little streetlight just for it!
 - -> conclussion
 
 = conclussion
-Well, evething dies eventually.
+Evething dies eventually...
 - -> DONE
