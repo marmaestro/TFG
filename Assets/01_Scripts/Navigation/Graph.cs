@@ -17,6 +17,7 @@ namespace TFG.NavigationSystem
 
         public Graph (GraphData data)
         {
+            #if UNITY_EDITOR
             if (!data)
             {
                 Console.LogError(ConCat.Graph, "Graph not provided.");
@@ -27,6 +28,7 @@ namespace TFG.NavigationSystem
                 Console.LogError(ConCat.Graph, $"Graph {data.name} is empty.");
                 throw new System.Exception($"Graph {data.name} empty.");
             }
+            #endif
             
             nodes = new List<NodeData>(data.nodes);
         }
