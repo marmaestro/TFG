@@ -70,10 +70,10 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - fd7c55dab0fce234b8c25f6ffca523c1
-  - c88d16e5272a4e241b0ef0ac2e53b73d
-  - 46fbfdf3fc43db0458918377fd40293e
   - 2c5177b11d81d824dbb064f9ac8527da
+  - 46fbfdf3fc43db0458918377fd40293e
+  - c88d16e5272a4e241b0ef0ac2e53b73d
+  - fd7c55dab0fce234b8c25f6ffca523c1
   codecChannels:
     Value: []
     HasValue: 0
@@ -238,8 +238,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: 
+  sourceProjectPath: ../../../TFG/AUDIO/TFG/TFG.fspro
+  sourceBankPath: ../../../TFG/AUDIO/TFG/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -260,8 +260,13 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Master
+  Banks:
+  - Game
+  - Intro
+  - Outro
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -274,15 +279,15 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131848
-  HideSetupWizard: 0
+  HideSetupWizard: 1
   LastEventReferenceScanVersion: 131848
   Platforms:
-  - {fileID: -5870894155754596705}
-  - {fileID: 2575869548459676040}
-  - {fileID: 2851152387567686268}
-  - {fileID: 4423434104633533725}
-  - {fileID: -8697267415761187992}
   - {fileID: -3054083831425933809}
+  - {fileID: -8697267415761187992}
+  - {fileID: 4423434104633533725}
+  - {fileID: 2851152387567686268}
+  - {fileID: 2575869548459676040}
+  - {fileID: -5870894155754596705}
   MigratedPlatforms: 050000000600000015000000080000000200000001000000
 --- !u!114 &2575869548459676040
 MonoBehaviour:

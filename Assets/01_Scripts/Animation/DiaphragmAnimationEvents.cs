@@ -1,4 +1,3 @@
-using TFG.Simulation;
 using UnityEngine;
 
 namespace TFG.Animation

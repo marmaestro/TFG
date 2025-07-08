@@ -404,10 +404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_text
-      value: Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur
-        adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque
-        sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium
-        tellus duis convallis tempus leo eu aenean.
+      value: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+        veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+        cons
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_fontSize

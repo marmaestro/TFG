@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace TFG.DataManagement
         public static void SaveJsonData([NotNull] IEnumerable<ISaveableData> saveables)
         {
             SaveSystem data = new();
-            foreach (ISaveableData saveable in saveables) saveable?.PopulateSaveData(data);
+            saveables.ForEach(s => s?.PopulateSaveData(data));
 
             if (FileManager.WriteToFile("SaveData.dat", data.ToJson()))
                 Debug.Log("Save successful");
@@ -21,8 +22,8 @@ namespace TFG.DataManagement
             {
                 SaveSystem sd = new();
                 sd.LoadFromJson(json);
-
-                foreach (ISaveableData saveable in saveables) saveable.LoadFromSaveData(sd);
+                
+                saveables.ForEach(s => s?.LoadFromSaveData(sd));
 
                 Debug.Log("Load complete");
             }

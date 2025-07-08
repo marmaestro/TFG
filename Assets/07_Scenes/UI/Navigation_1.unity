@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4173347929957810236}
   - component: {fileID: 327179134382519356}
   - component: {fileID: 8757594410155164852}
+  - component: {fileID: 8757594410155164853}
   m_Layer: 5
   m_Name: Center
   m_TagString: Untagged
@@ -310,6 +311,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 0
+--- !u!114 &8757594410155164853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008784093989853984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 43844836
+      Data2: 1164306834
+      Data3: -2096341570
+      Data4: -1968459895
+    Path: event:/FX Events/Navigation
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

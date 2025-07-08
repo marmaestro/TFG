@@ -17,7 +17,7 @@ namespace TFG.UIElements
             PauseGame(true);
         }
 
-        public static void PauseGame(bool paused)
+        private static void PauseGame(bool paused)
         {
             _pauseCanvas.SetActive(paused);
             if (!paused)

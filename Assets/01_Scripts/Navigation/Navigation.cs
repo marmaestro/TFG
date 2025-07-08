@@ -55,7 +55,7 @@ namespace TFG.NavigationSystem
             player.location = id;
         }
 
-        public void GoHome(bool endOfDay)
+        public static void GoHome(bool endOfDay)
         {
             SceneManager.AddScene(Home);
             

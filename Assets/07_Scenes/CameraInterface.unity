@@ -213,9 +213,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_text
-      value: Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur
-        adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae
-        pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
+      value: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur
+        adipiscing elit quisque faucibus ex sapien. '
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_isRightToLeft
@@ -1004,6 +1003,9 @@ GameObject:
   - component: {fileID: 8026092913598228314}
   - component: {fileID: 5020772182991562395}
   - component: {fileID: 8026092913598228315}
+  - component: {fileID: 8026092913598228318}
+  - component: {fileID: 8026092913598228317}
+  - component: {fileID: 8026092913598228316}
   m_Layer: 0
   m_Name: SimCamera
   m_TagString: SimulationCamera
@@ -1220,6 +1222,99 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textHolder: {fileID: 1692166571}
+--- !u!114 &8026092913598228316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173261531770278602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1799308353
+      Data2: 1201640126
+      Data3: -1004966484
+      Data4: 972928326
+    Path: event:/FX Events/Camera Close
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &8026092913598228317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173261531770278602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1876548787
+      Data2: 1089431447
+      Data3: -1479546961
+      Data4: -669042895
+    Path: event:/FX Events/Camera Open
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &8026092913598228318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173261531770278602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 189909553
+      Data2: 1123865169
+      Data3: 1926436743
+      Data4: 240652075
+    Path: event:/FX Events/Shutter
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!222 &8171956661363102716
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
 using System;
-using TFG.Data;
 using TFG.NavigationSystem;
 using UnityEngine;
 using UnityEngine.Serialization;

@@ -10,6 +10,7 @@ public class CreditsAnimationEvents : MonoBehaviour
     
     public void OnCreditsFinished()
     {
+        FMODUnity.RuntimeManager.GetBus("bus:/Music").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene("Persistent");
     }
 }

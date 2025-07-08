@@ -1,10 +1,13 @@
-using TFG.ExtensionMethods;
+using FMODUnity;
+using TFG.Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static TFG.UIElements.Buttons.ButtonConnector;
 
 namespace TFG.UIElements.Buttons
 {
+    [RequireComponent(typeof(StudioEventEmitter))]
+    [RequireComponent(typeof(NavigationAudioController))]
     public class NavigationButton : MonoBehaviour, ICustomButton
     {
         [SerializeField] internal int target;

@@ -53,7 +53,11 @@ namespace TFG.Simulation
             if (hitName is null) return;
             
             if (!selectOption) TextBridge.IdentifyOption(hitName);
-            else TextBridge.SelectOption(hitName);
+            else
+            {
+                soundEvents[Shutter].Play();
+                TextBridge.SelectOption(hitName);
+            }
         }
         
         private static string IdentifyHitID(RaycastHit hit)

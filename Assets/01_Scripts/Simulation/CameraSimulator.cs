@@ -1,3 +1,4 @@
+using FMODUnity;
 using TFG.InputSystem;
 using TFG.ExtensionMethods;
 using UnityEngine;
@@ -17,11 +18,17 @@ namespace TFG.Simulation
         
         private static readonly Vector2 bounds = new(635, 420);
         private const string simulationScene = "CameraInterface";
+        
+        private static StudioEventEmitter[] soundEvents;
+        private const int Shutter = 0;
+        private const int Open = 1;
+        private const int Close = 2;
 
         #region Unity Events
         public void Awake()
         {
             camera = GetComponent<Camera>();
+            soundEvents = GetComponents<StudioEventEmitter>();
         }
 
         public void LateUpdate()
@@ -64,6 +71,7 @@ namespace TFG.Simulation
         {
             OpenAnimation();
             SceneManager.AddScene(simulationScene);
+            soundEvents[Open].Play();
         }
 
         public static void SimulationStart()
@@ -76,6 +84,7 @@ namespace TFG.Simulation
         private static void SimulationEndAnimation()
         {
             CloseAnimation();
+            soundEvents[Close].Play();
         }
 
         internal static void SimulationEnd()

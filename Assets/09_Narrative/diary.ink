@@ -7,7 +7,7 @@ Decided to go out today and take some pictures.
 // reflective
 {
     - up(reflective) or mid (reflective):
-	<> It gave me the opportunity to reflect a lot. Maybe I should this more often.
+	<> It gave me the opportunity to reflect a lot. Maybe I should do this more often.
 	- else:
 	<> Which meant, walking for hours. I still don't know why I did it.
 }

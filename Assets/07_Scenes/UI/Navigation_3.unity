@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 4173347929957810236}
   - component: {fileID: 327179134382519356}
   - component: {fileID: 8757594410155164852}
+  - component: {fileID: 8757594410155164853}
   m_Layer: 5
   m_Name: Center
   m_TagString: Untagged
@@ -330,6 +331,7 @@ GameObject:
   - component: {fileID: 2618572687905753388}
   - component: {fileID: 3626500646164699897}
   - component: {fileID: 6030510065628693481}
+  - component: {fileID: 9181003027152008464}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -362,6 +364,7 @@ GameObject:
   - component: {fileID: 8810884884634852170}
   - component: {fileID: 501113401874163488}
   - component: {fileID: 5759746085698738718}
+  - component: {fileID: 8810884884634852171}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -463,6 +466,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 1
+--- !u!114 &8757594410155164853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008784093989853984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 43844836
+      Data2: 1164306834
+      Data3: -2096341570
+      Data4: -1968459895
+    Path: event:/FX Events/Navigation
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!222 &8810884884634852170
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -471,6 +505,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7278876726960223350}
   m_CullTransparentMesh: 1
+--- !u!114 &8810884884634852171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278876726960223350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 43844836
+      Data2: 1164306834
+      Data3: -2096341570
+      Data4: -1968459895
+    Path: event:/FX Events/Navigation
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!224 &9181003027152008463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -490,6 +555,37 @@ RectTransform:
   m_AnchoredPosition: {x: -97.5, y: 82.5}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9181003027152008464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905400878855551927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 43844836
+      Data2: 1164306834
+      Data3: -2096341570
+      Data4: -1968459895
+    Path: event:/FX Events/Navigation
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

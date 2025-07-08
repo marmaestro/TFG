@@ -1,7 +1,5 @@
 using TFG.ExtensionMethods;
-using TFG.InputSystem;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SplashAnimationEvents : MonoBehaviour
 {
