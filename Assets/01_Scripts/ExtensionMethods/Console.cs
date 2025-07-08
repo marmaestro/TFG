@@ -3,9 +3,9 @@ using Debug = UnityEngine.Debug;
 
 namespace TFG.ExtensionMethods
 {
-    #if DEBUG
     public static class Console
     {
+        #if DEBUG
         // ReSharper disable Unity.PerformanceAnalysis
         [Conditional("DEBUG")]
         public static void Log(string category, string message)
@@ -30,6 +30,6 @@ namespace TFG.ExtensionMethods
         {
             return $"<b>[{category}]</b> {message}";
         }
+        #endif
     }
-    #endif
 }
