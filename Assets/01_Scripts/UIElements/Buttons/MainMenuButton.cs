@@ -1,4 +1,3 @@
-using TFG.ExtensionMethods;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static TFG.UIElements.Buttons.ButtonConnector;

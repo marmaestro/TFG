@@ -1,6 +1,5 @@
 using System.Linq;
 using Ink.Runtime;
-using TFG.ExtensionMethods;
 using UnityEngine;
 
 namespace TFG.Narrative

@@ -1,5 +1,3 @@
-using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using TFG.ExtensionMethods;
 using TFG.Simulation;
@@ -77,7 +75,7 @@ namespace TFG.InputSystem
         }
         private void OnPause(InputAction.CallbackContext context)
         {
-            Game.PauseGame(true);
+            PauseGame(true);
         }
         #endregion
 
@@ -101,12 +99,9 @@ namespace TFG.InputSystem
         #endregion
         
         #region Input System Custom Methods
-        public static void SwitchActionMap(ActionMaps actionMap)
+        public static void SwitchActionMap(string actionMap)
         {
-            if (!Enum.IsDefined(typeof(ActionMaps), actionMap))
-                throw new InvalidEnumArgumentException($"{actionMap} is not defined.");
-            
-            playerInput.SwitchCurrentActionMap(actionMap.ToString());
+            playerInput.SwitchCurrentActionMap(actionMap);
             CursorToggle(actionMap.Equals(ActionMaps.UI));
 
             #if DEBUG

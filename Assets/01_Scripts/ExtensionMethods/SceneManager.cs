@@ -1,4 +1,5 @@
 using System.Linq;
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
 using UnityEngine.SceneManagement;
 using SM = UnityEngine.SceneManagement.SceneManager;
 
@@ -20,7 +21,7 @@ namespace TFG.ExtensionMethods
 
         public static void AddMultipleScenes(string[] sceneNames)
         {
-            foreach (string sceneName in sceneNames) AddScene(sceneName);
+            sceneNames.ForEach(AddScene);
         }
         #endregion
 
@@ -41,7 +42,7 @@ namespace TFG.ExtensionMethods
 
         public static void UnloadMultipleScenes(string[] sceneNames)
         {
-            foreach (string sceneName in sceneNames.Reverse()) UnloadScene(sceneName);
+            sceneNames.Reverse().ForEach(UnloadScene);
         }
         
         public static void ClearScenes()
@@ -53,8 +54,8 @@ namespace TFG.ExtensionMethods
                     SM.UnloadSceneAsync(scene.name);
             }
         }
-        
-        internal static void UnloadNavigationScene()
+
+        private static void UnloadNavigationScene()
         {
             UnloadScene($"Navigation_{currentNavigationSceneID}");
         }

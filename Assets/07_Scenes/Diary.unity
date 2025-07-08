@@ -320,30 +320,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 954637857}
-    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 954637857}
+    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: OnDiaryAnimated
       objectReference: {fileID: 0}
     - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: TFG.Narrative.DiaryWriter, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: -7509325651725936228, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
-      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 764958604583166099, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}

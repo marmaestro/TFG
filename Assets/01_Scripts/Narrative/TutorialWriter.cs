@@ -1,3 +1,4 @@
+using TFG.Audio;
 using TFG.ExtensionMethods;
 using UnityEngine.EventSystems;
 using UnityEngine;
@@ -18,7 +19,9 @@ namespace TFG.Narrative
             if (TextBridge.NextLine()) return;
             
             SceneManager.UnloadScene("Tutorial");
-            Game.navigation.GoHome(false);
+            Game.audioController.LoadBank(AudioBanks.Game);
+            NavigationSystem.Navigation.GoHome(false);
+            NavigationAudioController.PlaySound();
         }
     }
 }

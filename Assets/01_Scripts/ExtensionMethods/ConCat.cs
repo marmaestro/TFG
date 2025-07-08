@@ -11,6 +11,7 @@ namespace TFG.ExtensionMethods
         public const string Graph = "Graph";
         public const string InputSystem = "Input System";
         public const string Narrative = "Narrative";
+        public const string Audio = "Audio";
     }
     #endif
 }

@@ -1,3 +1,4 @@
+using TFG.Audio;
 using TFG.Data;
 using TFG.ExtensionMethods;
 using TFG.InputSystem;
@@ -16,8 +17,9 @@ namespace TFG
         
         internal static Player player;
         internal static NavigationSystem.Navigation navigation;
-        public static StoryHandler storyHandler;
+        private static StoryHandler storyHandler;
         private static ISaveableData[] gameData;
+        internal static AudioController audioController;
 
         internal static bool FirstPlay = true; 
 
@@ -30,8 +32,10 @@ namespace TFG
             gameNarrative = Resources.Load<TextAsset>("main");
             navigation = new NavigationSystem.Navigation(this);
             storyHandler = new StoryHandler(gameNarrative);
+            audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
             
             SceneManager.AddScene("MainMenu");
+            GameActions.CursorToggle(true);
         }
 
         public static bool ExistingSaveFile() => FileManager.Exists("SaveData");
@@ -115,15 +119,26 @@ namespace TFG
         
         public static void Visit(int destination)
         {
+            NavigationAudioController.PlaySound();
             player.Move();
             navigation.Visit(destination);
         }
 
         public static void GoHome(bool  endOfDay = true)
         {
-            if (endOfDay) GameActions.SwitchActionMap(ActionMaps.UI);
+            if (endOfDay)
+            {
+                GameActions.SwitchActionMap(ActionMaps.UI);
+                audioController.LoadBank(AudioBanks.Outro);
+            }
+
+            else
+            {
+                GameActions.SwitchActionMap(ActionMaps.World);
+                audioController.LoadBank(AudioBanks.Game);
+            }
             
-            navigation.GoHome(endOfDay);
+            NavigationSystem.Navigation.GoHome(endOfDay);
         }
         
         public static string[] NextLocations() => navigation.NextLocations();

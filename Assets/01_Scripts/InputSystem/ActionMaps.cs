@@ -1,10 +1,10 @@
 namespace TFG.InputSystem
 {
-    public enum ActionMaps
+    public static class ActionMaps
     {
-        World,
-        Camera,
-        Reflecting,
-        UI
+        public const string World = "World";
+        public const string Camera = "Camera";
+        public const string Reflecting = "Reflecting";
+        public const string UI = "UI";
     }
 }

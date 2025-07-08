@@ -7,8 +7,11 @@ namespace TFG.Animation
     {
         private static Animator animator;
         private static GameObject diaphragm; 
-        private static readonly int Open = Animator.StringToHash("openDiaphragm");
-        private static readonly int Close = Animator.StringToHash("closeDiaphragm");
+        
+        private static readonly int OpenTrigger = Animator.StringToHash("openDiaphragm");
+        private static readonly int CloseTrigger = Animator.StringToHash("closeDiaphragm");
+
+        
 
         public void Awake()
         {
@@ -19,7 +22,7 @@ namespace TFG.Animation
         public static void OpenAnimation()
         {
             diaphragm.SetActive(true);
-            animator.SetTrigger(Open);
+            animator.SetTrigger(OpenTrigger);
         }
         
         public static void OpenFinished()
@@ -29,7 +32,7 @@ namespace TFG.Animation
 
         public static void CloseAnimation()
         {
-            animator.SetTrigger(Close);
+            animator.SetTrigger(CloseTrigger);
         }
         
         public static void CloseFinished()

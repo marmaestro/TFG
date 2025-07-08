@@ -1,4 +1,5 @@
 using TFG.ExtensionMethods;
+using TFG.InputSystem;
 using UnityEngine;
 
 namespace TFG.Narrative
@@ -7,6 +8,7 @@ namespace TFG.Narrative
     {
         private void Start()
         {
+            GameActions.CursorToggle(false);
             TextBridge.DiaryResults();
         }
 
