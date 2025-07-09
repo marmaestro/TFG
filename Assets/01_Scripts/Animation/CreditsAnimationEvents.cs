@@ -1,16 +1,19 @@
 using TFG.ExtensionMethods;
 using UnityEngine;
 
-public class CreditsAnimationEvents : MonoBehaviour
+namespace TFG.Animation
 {
-    public void Awake()
+    public class CreditsAnimationEvents : MonoBehaviour
     {
-        Cursor.visible = false;
-    }
+        public void Awake()
+        {
+            Cursor.visible = false;
+        }
     
-    public void OnCreditsFinished()
-    {
-        FMODUnity.RuntimeManager.GetBus("bus:/Music").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        SceneManager.LoadScene("Persistent");
+        public void OnCreditsFinished()
+        {
+            FMODUnity.RuntimeManager.GetBus("bus:/Music").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            SceneManager.LoadScene("Persistent");
+        }
     }
 }
