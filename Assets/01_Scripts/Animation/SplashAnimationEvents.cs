@@ -1,15 +1,18 @@
 using TFG.ExtensionMethods;
 using UnityEngine;
 
-public class SplashAnimationEvents : MonoBehaviour
+namespace TFG.Animation
 {
-    public void Awake()
+    public class SplashAnimationEvents : MonoBehaviour
     {
-        Cursor.visible = false;
-    }
+        public void Awake()
+        {
+            Cursor.visible = false;
+        }
     
-    public void OnSplashFinished()
-    {
-        SceneManager.LoadScene("Persistent");
+        public void OnSplashFinished()
+        {
+            SceneManager.LoadScene("Persistent");
+        }
     }
 }

@@ -7,7 +7,8 @@ Oh, look at this terrace... Beautiful.
 
 
 = green
-* [Oh, to be a plant...#green_0] I wish I could grow without a care, too. Just basking in the sun... Well. Maybe not looking <i>into</i> the sun. But, to enjoy the soft wathm... Not a thought...
+* [Oh, to be a plant...#green_0] I wish I could grow without a care, too. Just basking in the sun...
+Well. Maybe not looking <i>into</i> the sun. But, to enjoy the soft wathm... Not a thought...
 ~raise(reflective)
 ~lower(fun)
 * [And to keep them so beautiful, too...#green_1] I wish I could keep plants that lush. The last one I owned drowned, the poor thing...
@@ -26,5 +27,6 @@ I get it. In survival mode, being alive comes before keeping appearances.
 - -> conclussion
 
 = conclussion
-I should take care of myself, too... At least I'm seeing the sun.
+I should take care of myself, too...
+At least I'm seeing some sun.
 -> DONE

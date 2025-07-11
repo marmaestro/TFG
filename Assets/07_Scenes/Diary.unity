@@ -169,14 +169,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.07058824, b: 0.05882353, a: 0.7490196}
+  m_Color: {r: 0.16399999, g: 0.1476, b: 0.12299999, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6357939abfe167b42aec3324fe485e7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -376,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2930995505796376541, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -500
+      value: -719
       objectReference: {fileID: 0}
     - target: {fileID: 2930995505796376541, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_SizeDelta.y
@@ -412,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2930995505796376541, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -109.5
       objectReference: {fileID: 0}
     - target: {fileID: 2930995505796376541, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -443,11 +443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_fontSize
-      value: 56
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_fontSizeBase
-      value: 56
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4293783743901062751, guid: a782cd5ad7af23f499e9769088cb6869, type: 3}
       propertyPath: m_VerticalAlignment

@@ -3,31 +3,34 @@ using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VolumeConfigurator : MonoBehaviour
+namespace TFG.Audio
 {
-    [SerializeField] private string busName;
-    
-    [SerializeField] private Toggle toggle;
-    [SerializeField] private Slider slider;
-    
-    private const string busPath = "bus:/";
-    private Bus bus;
-
-    public void Start()
+    public class VolumeConfigurator : MonoBehaviour
     {
-        toggle.onValueChanged.AddListener(ToggleVolume);
-        slider.onValueChanged.AddListener(ChangeVolume);
+        [SerializeField] private string busName;
+    
+        [SerializeField] private Toggle toggle;
+        [SerializeField] private Slider slider;
+    
+        private const string busPath = "bus:/";
+        private Bus bus;
+
+        public void Start()
+        {
+            toggle.onValueChanged.AddListener(ToggleVolume);
+            slider.onValueChanged.AddListener(ChangeVolume);
         
-        bus = RuntimeManager.GetBus(busPath + busName);
-    }
+            bus = RuntimeManager.GetBus(busPath + busName);
+        }
 
-    private void ToggleVolume(bool muted)
-    {
-        bus.setMute(!muted);
-    }
+        private void ToggleVolume(bool muted)
+        {
+            bus.setMute(!muted);
+        }
 
-    private void ChangeVolume(float value)
-    {
-        bus.setVolume(value);
+        private void ChangeVolume(float value)
+        {
+            bus.setVolume(value);
+        }
     }
 }
