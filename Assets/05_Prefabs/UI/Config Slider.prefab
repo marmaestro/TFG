@@ -104,8 +104,8 @@ RectTransform:
   m_GameObject: {fileID: 1665081980279083464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 98511701427818820}
   - {fileID: 7718407987496943776}
@@ -340,7 +340,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 0}
+  m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6234265921584182706
 CanvasRenderer:
@@ -581,12 +581,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: -60
+    m_Right: 5617
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 131.8
+  m_Spacing: 300
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -745,7 +745,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 30}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7211672266937698732
 MonoBehaviour:
@@ -960,7 +960,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 15
+  m_Spacing: 50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4629609355944446325, guid: a7bcdbe1202115d44b54aca2d2a60862, type: 3}
       propertyPath: m_fontSize
-      value: 34
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4629609355944446325, guid: a7bcdbe1202115d44b54aca2d2a60862, type: 3}
       propertyPath: m_fontSizeMax
@@ -1007,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4629609355944446325, guid: a7bcdbe1202115d44b54aca2d2a60862, type: 3}
       propertyPath: m_fontSizeBase
-      value: 34
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4629609355944446325, guid: a7bcdbe1202115d44b54aca2d2a60862, type: 3}
       propertyPath: m_VerticalAlignment
@@ -1047,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982403582957680887, guid: a7bcdbe1202115d44b54aca2d2a60862, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5982403582957680887, guid: a7bcdbe1202115d44b54aca2d2a60862, type: 3}
       propertyPath: m_LocalPosition.x
